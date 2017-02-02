@@ -1,3 +1,5 @@
+from recommonmark.parser import CommonMarkParser
+
 # -*- coding: utf-8 -*-
 #
 # CIS-CAT Pro Dashboard documentation build configuration file, created by
