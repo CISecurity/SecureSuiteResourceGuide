@@ -6,14 +6,16 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  Th
 
 **Reiteration:**  Although this document is written assuming a MySQL database, Ubuntu servers, Tomcat and Apache HTTP Server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
 
-### Database ### 
-Install MySQL Server 5.6 onto the database Ubuntu server using these instructions: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04
-By the end you know you have a running MySQL server and you need to note the following information:
-hostname/IP of database server
-port for connecting, by default this is 3306
-username/password for connecting to the database
-Application Server 
-On a separate server from the database server, install Ubuntu 16.04.  It is important that your database server be separated from your application server for security reasons.  Your application server needs to be accessible over the network so that you can access your application, but if the application database were on the same server, it would also be exposed.  By having a separate server, your database can be configured to only communicate over the network via the MySQL port, and therefore be more secure.  Secondly, this configuration is more scalable.  You can add application servers to the environment as your load increases and have the applications communicate with the same database server.
+### Database ###
+Install MySQL Server 5.6 onto the database Ubuntu server using [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04).  
+Once the MySQL database has been installed, note the following information:
+
+- hostname/IP of database server
+- port for connecting, by default this is `3306`
+- username/password for connecting to the database
+
+### Application Server ###
+On a separate server from the database server, install Ubuntu 16.04 (or any operating system supported in the member's environment).  It is important that the database server be separated from the application server for security reasons.  The application server needs to be accessible over the network so that users can access the application, but if the application database were on the same server, it could also be exposed.  By having a separate server, the database can be configured to only communicate over the network via the MySQL port, and therefore be more secure.  Secondly, this configuration is more scalable.  Members can add application servers to the environment as load increases and have the applications communicate with the same database server.
 Once Ubuntu 16.04 is installed, and a user can log in, run: sudo apt-get update, this will download the latest package lists from the known repositories so we can install some more software. 
 
 ### MySQL Client ###
