@@ -8,7 +8,10 @@ Welcome to CIS-CAT Pro Dashboard's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   
+   CIS-CAT Pro Dashboard User's Guide <ciscat-pro-dashboard-users-guide.md>
+   CIS-CAT Pro Dashboard Deployment <ciscat-pro-dashboard-deployment.md>
+   CIS-CAT Pro Assessor Deployment <ciscat-pro-assessor-deployment.md>
 
 
 

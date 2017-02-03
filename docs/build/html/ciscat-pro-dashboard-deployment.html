@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CIS-CAT Pro Dashboard Deployment Guide &#8212; CIS-CAT Pro Dashboard 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cis-cat-pro-dashboard-deployment-guide">
+<span id="cis-cat-pro-dashboard-deployment-guide"></span><h1>CIS-CAT Pro Dashboard Deployment Guide<a class="headerlink" href="#cis-cat-pro-dashboard-deployment-guide" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="introduction">
+<span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  The grails framework uses a hibernate data model to remain DBMS agnostic.  Grails code compiles into java byte code and therefore runs on the JVM.  As such,  CIS-CAT Pro dashboard can be deployed in any RDBMS which supports JDBC, and on any web container that can handle java WAR&#8217;s.  The documentation below describes how to deploy CIS-CAT Pro Dashboard on the following stack, which is officially supported by CIS:  MySQL 5.6 running on Ubuntu 16.04, a separate Ubuntu 16.04 server for Tomcat 8 and Apache 2.  Prerequisite to using this documentation is having two separate Ubuntu 16.04 instances running in your environment.</p>
+<p><strong>Reiteration:</strong>  Although this document is written assuming a MySQL database, Ubuntu servers, Tomcat and Apache HTTP Server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).</p>
+<div class="section" id="database">
+<span id="database"></span><h3>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
+<p>Install MySQL Server 5.6 onto the database Ubuntu server using these instructions: https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04
+By the end you know you have a running MySQL server and you need to note the following information:
+hostname/IP of database server
+port for connecting, by default this is 3306
+username/password for connecting to the database
+Application Server
+On a separate server from the database server, install Ubuntu 16.04.  It is important that your database server be separated from your application server for security reasons.  Your application server needs to be accessible over the network so that you can access your application, but if the application database were on the same server, it would also be exposed.  By having a separate server, your database can be configured to only communicate over the network via the MySQL port, and therefore be more secure.  Secondly, this configuration is more scalable.  You can add application servers to the environment as your load increases and have the applications communicate with the same database server.
+Once Ubuntu 16.04 is installed, and a user can log in, run: sudo apt-get update, this will download the latest package lists from the known repositories so we can install some more software.</p>
+</div>
+<div class="section" id="mysql-client">
+<span id="mysql-client"></span><h3>MySQL Client<a class="headerlink" href="#mysql-client" title="Permalink to this headline">¶</a></h3>
+<p>A MySQL client should be installed in order to test connectivity with the database and create the schema for CIS-CAT Pro Dashboard.
+run: sudo apt-get install mysql-client, this will give you access to the mysql command
+From the MySQL database instructions above, note the hostname/ip of the database server as <hostname>, and the configured <username> and <password>
+run: mysql -h <hostname> -u <username> -p, you will then be prompted for the  <password>.
+if you see a mysql&gt; prompt, then you have successfully connected to the database.
+run: create schema <schemaname>;
+This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
+</div>
+<div class="section" id="java-8">
+<span id="java-8"></span><h3>Java 8<a class="headerlink" href="#java-8" title="Permalink to this headline">¶</a></h3>
+<p>Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Install a JDK/JRE</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">default</span><span class="o">-</span><span class="n">jdk</span>
+
+<span class="c1"># Ensure Java is installed at the proper version level (or higher)</span>
+<span class="n">java</span> <span class="o">-</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>Ensure that the Java version is displayed as <code class="docutils literal"><span class="pre">1.8.0_111</span></code> (or higher)</p>
+</div>
+<div class="section" id="application-server">
+<span id="application-server"></span><h3>Application Server<a class="headerlink" href="#application-server" title="Permalink to this headline">¶</a></h3>
+<p>Install Apache Tomcat 8 by following <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04">this article</a>, through the end of Step 6.</p>
+<p>Open <code class="docutils literal"><span class="pre">/opt/tomcat/bin/catalina.sh</span></code> and add the following lines to the top of the file, which will add some environment variables that CIS-CAT Pro Dashboard requires to run.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">CCPD_CONFIG_FILE</span><span class="o">=</span><span class="s2">&quot;/opt/tomcat/ccpd-config.yml&quot;</span>
+<span class="n">export</span> <span class="n">CCPD_LOG_DIR</span><span class="o">=</span><span class="s2">&quot;/opt/tomcat/logs&quot;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong>  The values of these environment variables can be configured to any location the administrator wishes, and must be to file system locations to which the Tomcat application server can access on startup.</p>
+<div class="section" id="security-considerations">
+<span id="security-considerations"></span><h4>Security Considerations<a class="headerlink" href="#security-considerations" title="Permalink to this headline">¶</a></h4>
+<p>As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications.  These default sites can and will give away information about the environment and present an information security risk.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Navigate to the Tomcat applications directory</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">tomcat</span><span class="o">/</span><span class="n">webapps</span>
+
+<span class="c1"># Remove the default applications</span>
+<span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">R</span> <span class="o">*</span>  
+</pre></div>
+</div>
+<p>This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CIS-CAT Pro Dashboard Deployment Guide</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#database">Database</a></li>
+<li><a class="reference internal" href="#mysql-client">MySQL Client</a></li>
+<li><a class="reference internal" href="#java-8">Java 8</a></li>
+<li><a class="reference internal" href="#application-server">Application Server</a><ul>
+<li><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ciscat-pro-dashboard-deployment.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Center for Internet Security.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/ciscat-pro-dashboard-deployment.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

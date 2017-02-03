@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CIS-CAT Pro Dashboard User’s Guide &#8212; CIS-CAT Pro Dashboard 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to CIS-CAT Pro Dashboard’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cis-cat-pro-dashboard-user-s-guide">
+<span id="cis-cat-pro-dashboard-user-s-guide"></span><h1>CIS-CAT Pro Dashboard User&#8217;s Guide<a class="headerlink" href="#cis-cat-pro-dashboard-user-s-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>CIS-CAT Pro Dashboard is a new companion application for CIS-CAT.  The application features a database back end for storing individual assessment results from target systems, which allows for reports and dashboard features beyond the capabilities of the previous CIS-CAT versions.  Dashboards now have drill down functionality. Users can navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to the individual assessment results that produce that compliance score.  When viewing these individual assessment results,  users can now create exceptions for certain rules along with a reason for the exception.  This will remove the rule from compliance scoring as long as the exception is active, but provide supporting evidence for auditor as to why the rule was excepted.  The application also offers a Remediation Report, for an operator only concerned with &#8220;failure&#8221; results of a given assessment and a Complete Results Report, to provide auditors with the complete assessment results of a given endpoint, or group of end points.  Users can also view CIS-CAT assessment results through the lens of the CIS Critical Controls with the new Controls View of assessment Results.  CIS-CAT Pro Dashboard provides users with the capability to Tag target systems (endpoints) in order to group them together for aggregation onto these new dashboards and reports.  This guide is intended to assist CIS Members with deployment, configuration, and use of the Pro Dashboard application and all of these new features.</p>
+</div>
+<div class="section" id="deployment">
+<span id="deployment"></span><h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<p>CIS-CAT Pro Dashboard is a companion application to CIS-CAT.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT traditionally provided assessment results in various report formats, including HTML, XML, CSV, and plain text.  CIS-CAT can now upload its assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard will import these XML document-based results into its application database.  This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.</p>
+<div class="section" id="cis-cat-pro-dashboard-deployment">
+<span id="cis-cat-pro-dashboard-deployment"></span><h3>CIS-CAT Pro Dashboard Deployment<a class="headerlink" href="#cis-cat-pro-dashboard-deployment" title="Permalink to this headline">¶</a></h3>
+<p>See here:  <a class="reference external" href="./ciscat-pro-dashboard-deployment">CIS-CAT Pro Dashboard Deployment</a></p>
+</div>
+<div class="section" id="cis-cat-pro-assessor-deployment">
+<span id="cis-cat-pro-assessor-deployment"></span><h3>CIS-CAT Pro Assessor Deployment<a class="headerlink" href="#cis-cat-pro-assessor-deployment" title="Permalink to this headline">¶</a></h3>
+<p>See here: <a class="reference external" href="./ciscat-pro-assessor-deployment">CIS-CAT Pro Assessor Deployment Guide</a></p>
+</div>
+</div>
+<div class="section" id="user-administration">
+<span id="user-administration"></span><h2>User Administration<a class="headerlink" href="#user-administration" title="Permalink to this headline">¶</a></h2>
+<p>CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CIS-CAT Pro Dashboard User&#8217;s Guide</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#deployment">Deployment</a><ul>
+<li><a class="reference internal" href="#cis-cat-pro-dashboard-deployment">CIS-CAT Pro Dashboard Deployment</a></li>
+<li><a class="reference internal" href="#cis-cat-pro-assessor-deployment">CIS-CAT Pro Assessor Deployment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-administration">User Administration</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to CIS-CAT Pro Dashboard&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ciscat-pro-dashboard-users-guide.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Center for Internet Security.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/ciscat-pro-dashboard-users-guide.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
