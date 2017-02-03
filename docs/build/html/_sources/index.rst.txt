@@ -10,7 +10,7 @@ CIS-CAT Pro Documentation
    :glob:
    :caption: Document Library
    :name: mastertoc
-   :maxdepth: 1
+   :maxdepth: 2
    
    CIS-CAT Pro Dashboard User's Guide <ciscat-pro-dashboard-users-guide.md>
    CIS-CAT Pro Dashboard Deployment <ciscat-pro-dashboard-deployment.md>
