@@ -108,6 +108,211 @@ This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
 <p>This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.</p>
 </div>
 </div>
+<div class="section" id="deploy-war">
+<span id="deploy-war"></span><h3>Deploy WAR<a class="headerlink" href="#deploy-war" title="Permalink to this headline">¶</a></h3>
+<p>At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the &#8220;war&#8221;) included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port <code class="docutils literal"><span class="pre">8080</span></code>, without the web server.  This can help identify any application or application server misconfigurations prior to web server installation/configuration.</p>
+<p>Establish a location for the 3 folders to enable legacy data imports:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ccpd</span><span class="o">/</span><span class="n">Legacy</span>
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ccpd</span><span class="o">/</span><span class="n">LegacyProcessed</span>
+<span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ccpd</span><span class="o">/</span><span class="n">LegacyError</span>
+</pre></div>
+</div>
+<p>Create the CIS-CAT Pro Dashboard runtime configuration file: <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code>, including the following lines:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vulnerability</span><span class="p">:</span>
+    <span class="n">warningAgeInDays</span><span class="p">:</span> <span class="mi">90</span>
+<span class="o">---</span>
+<span class="n">environments</span><span class="p">:</span>
+    <span class="n">production</span><span class="p">:</span>
+        <span class="n">grails</span><span class="p">:</span>
+            <span class="n">serverURL</span><span class="p">:</span> <span class="s1">&#39;http://&lt;public url of application server&gt;/CCPD&#39;</span>
+        <span class="n">server</span><span class="p">:</span>
+            <span class="s1">&#39;contextPath&#39;</span><span class="p">:</span> <span class="s1">&#39;/CCPD&#39;</span>
+        <span class="n">dataSource</span><span class="p">:</span>
+            <span class="n">dbCreate</span><span class="p">:</span> <span class="n">update</span>
+            <span class="n">url</span><span class="p">:</span> <span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="o">//&lt;</span><span class="n">hostname</span><span class="o">/</span><span class="n">IP</span> <span class="n">of</span> <span class="n">database</span> <span class="n">server</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;/</span><span class="n">ccpd</span>
+            <span class="n">username</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">database</span> <span class="n">username</span><span class="o">&gt;</span>
+            <span class="n">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">database</span> <span class="n">password</span><span class="o">&gt;</span>
+            <span class="n">properties</span><span class="p">:</span>
+                <span class="n">jmxEnabled</span><span class="p">:</span> <span class="n">true</span>
+                <span class="n">initialSize</span><span class="p">:</span> <span class="mi">5</span>
+                <span class="n">maxActive</span><span class="p">:</span> <span class="mi">50</span>
+                <span class="n">minIdle</span><span class="p">:</span> <span class="mi">5</span>
+                <span class="n">maxIdle</span><span class="p">:</span> <span class="mi">25</span>
+                <span class="n">maxWait</span><span class="p">:</span> <span class="mi">10000</span>
+                <span class="n">maxAge</span><span class="p">:</span> <span class="mi">600000</span>
+                <span class="n">timeBetweenEvictionRunsMillis</span><span class="p">:</span> <span class="mi">5000</span>
+                <span class="n">minEvictableIdleTimeMillis</span><span class="p">:</span> <span class="mi">60000</span>
+                <span class="n">validationQuery</span><span class="p">:</span> <span class="n">SELECT</span> <span class="mi">1</span>
+                <span class="n">validationQueryTimeout</span><span class="p">:</span> <span class="mi">3</span>
+                <span class="n">validationInterval</span><span class="p">:</span> <span class="mi">15000</span>
+                <span class="n">testOnBorrow</span><span class="p">:</span> <span class="n">true</span>
+                <span class="n">testWhileIdle</span><span class="p">:</span> <span class="n">true</span>
+                <span class="n">testOnReturn</span><span class="p">:</span> <span class="n">false</span>
+                <span class="n">jdbcInterceptors</span><span class="p">:</span> <span class="n">ConnectionState</span>
+                <span class="n">defaultTransactionIsolation</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># TRANSACTION_READ_COMMITTED</span>
+<span class="o">---</span>
+<span class="n">legacy</span><span class="p">:</span>
+    <span class="n">sourceDir</span><span class="p">:</span> <span class="s2">&quot;/opt/ccpd/Legacy&quot;</span>
+    <span class="n">processedDir</span><span class="p">:</span> <span class="s2">&quot;/opt/ccpd/LegacyProcessed&quot;</span>
+    <span class="n">errorDir</span><span class="p">:</span> <span class="s2">&quot;/opt/ccpd/LegacyError&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mail-configuration">
+<span id="mail-configuration"></span><h3>Mail Configuration<a class="headerlink" href="#mail-configuration" title="Permalink to this headline">¶</a></h3>
+<p>CIS-CAT Pro Dashboard utilizes the Grails <code class="docutils literal"><span class="pre">mail</span></code> plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.</p>
+<p>Configuration of the mail plugin will be member-specific, and those configuration items will also be added to the <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code> file, noted above.</p>
+<div class="section" id="default-sender-email-address">
+<span id="default-sender-email-address"></span><h4>Default Sender Email Address<a class="headerlink" href="#default-sender-email-address" title="Permalink to this headline">¶</a></h4>
+<p>CIS-CAT Pro Dashboard can be configured with a default &#8220;sender&#8221; email address, indicating that the application has sent a &#8220;forgot password&#8221; message, allowing users to enter new logon credentials.  In the <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code> file (noted above), add the following section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">grails</span><span class="p">:</span>
+    <span class="n">plugin</span><span class="p">:</span>
+        <span class="n">springsecurity</span><span class="p">:</span>
+            <span class="n">ui</span><span class="p">:</span>
+                <span class="n">forgotPassword</span><span class="p">:</span>
+                    <span class="n">emailFrom</span><span class="p">:</span> <span class="s2">&quot;your-email@member-organization.com&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="smtp-configuration">
+<span id="smtp-configuration"></span><h4>SMTP Configuration<a class="headerlink" href="#smtp-configuration" title="Permalink to this headline">¶</a></h4>
+<p>Coupled with the default sender email address, CIS-CAT Pro Dashboard&#8217;s mailing configuration must also include connection to a valid SMTP server, in order to correctly distribute the &#8220;forgot password&#8221; messages.  Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange.  CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information is correct in the configuration file (the <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code> noted above).</p>
+<p>By default the plugin assumes an unsecured mail server configured at <code class="docutils literal"><span class="pre">localhost</span></code> on port <code class="docutils literal"><span class="pre">25</span></code>. However you can change this via the application configuration file (the <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code> noted above).</p>
+<p>For example here is how you would configure the default sender to send with a Gmail account:</p>
+</div>
+<div class="section" id="mail-configuration-gmail">
+<span id="mail-configuration-gmail"></span><h4><em>Mail Configuration - Gmail</em><a class="headerlink" href="#mail-configuration-gmail" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">grails</span><span class="p">:</span>
+    <span class="n">mail</span><span class="p">:</span>
+        <span class="n">host</span><span class="p">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span>
+        <span class="n">port</span><span class="p">:</span> <span class="mi">465</span>
+        <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;youracount@gmail.com&quot;</span>
+        <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;yourpassword&quot;</span>
+        <span class="n">props</span><span class="p">:</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">auth</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">port</span><span class="p">:</span> <span class="s2">&quot;465&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">class</span><span class="p">:</span> <span class="s2">&quot;javax.net.ssl.SSLSocketFactory&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">fallback</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span>
+</pre></div>
+</div>
+<p>And the configuration for sending via a Hotmail/Live account:</p>
+</div>
+<div class="section" id="mail-configuration-hotmail-live">
+<span id="mail-configuration-hotmail-live"></span><h4><em>Mail Configuration - Hotmail/Live</em><a class="headerlink" href="#mail-configuration-hotmail-live" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">grails</span><span class="p">:</span>
+    <span class="n">mail</span><span class="p">:</span>
+        <span class="n">host</span><span class="p">:</span> <span class="s2">&quot;smtp.live.com&quot;</span>
+        <span class="n">port</span><span class="p">:</span> <span class="mi">587</span>
+        <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;youracount@live.com&quot;</span>
+        <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;yourpassword&quot;</span>
+        <span class="n">props</span><span class="p">:</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">starttls</span><span class="o">.</span><span class="n">enable</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">port</span><span class="p">:</span> <span class="s2">&quot;587&quot;</span>
+</pre></div>
+</div>
+<p>And the configuration for sending via a Yahoo account:</p>
+</div>
+<div class="section" id="mail-configuration-yahoo">
+<span id="mail-configuration-yahoo"></span><h4><em>Mail Configuration - Yahoo</em><a class="headerlink" href="#mail-configuration-yahoo" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">grails</span><span class="p">:</span>
+    <span class="n">mail</span><span class="p">:</span>
+        <span class="n">host</span><span class="p">:</span> <span class="s2">&quot;smtp.correo.yahoo.es&quot;</span>
+        <span class="n">port</span><span class="p">:</span> <span class="mi">465</span>
+        <span class="n">username</span><span class="p">:</span> <span class="s2">&quot;myuser&quot;</span>
+        <span class="n">password</span><span class="p">:</span> <span class="s2">&quot;mypassword&quot;</span>
+        <span class="n">props</span><span class="p">:</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">auth</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">port</span><span class="p">:</span> <span class="s2">&quot;465&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">class</span><span class="p">:</span> <span class="s2">&quot;javax.net.ssl.SSLSocketFactory&quot;</span>
+            <span class="n">mail</span><span class="o">.</span><span class="n">smtp</span><span class="o">.</span><span class="n">socketFactory</span><span class="o">.</span><span class="n">fallback</span><span class="p">:</span> <span class="s2">&quot;false&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="deploy-war-continued">
+<span id="deploy-war-continued"></span><h3>Deploy WAR (Continued)<a class="headerlink" href="#deploy-war-continued" title="Permalink to this headline">¶</a></h3>
+<p>Connect to the application server and transfer the <code class="docutils literal"><span class="pre">CCPD.war</span></code> to the <code class="docutils literal"><span class="pre">/opt/tomcat/webapps</span></code> directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.</p>
+<p>Once Tomcat is done with its deployment you should be able to access the application by entering <code class="docutils literal"><span class="pre">http://&lt;public</span> <span class="pre">url</span> <span class="pre">of</span> <span class="pre">application</span> <span class="pre">server&gt;:8080/CCPD</span></code>, into a browser.</p>
+<p>CIS-CAT Pro Dashboard will bootstrap in a user with:
+username: admin,
+password: &#64;admin123</p>
+<p><strong>Notes</strong>:
+Your network must allow traffic on 8080
+(If deployed to AWS) Your security group in AWS must allow traffic on 8080</p>
+</div>
+<div class="section" id="web-server">
+<span id="web-server"></span><h3>Web Server<a class="headerlink" href="#web-server" title="Permalink to this headline">¶</a></h3>
+<p>The final configuration is for a web server to proxy the Tomcat instance and to answer traffic on port <code class="docutils literal"><span class="pre">80/443</span></code>.</p>
+<div class="section" id="apache-http-server">
+<span id="apache-http-server"></span><h4>Apache HTTP Server<a class="headerlink" href="#apache-http-server" title="Permalink to this headline">¶</a></h4>
+<p>Install Apache 2.4 by running:
+sudo apt-get install apache2</p>
+<p>Create a file named <code class="docutils literal"><span class="pre">ccpd.conf</span></code> in the following directory: <code class="docutils literal"><span class="pre">/etc/apache2/sites-available</span></code> with the following lines:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span>
+    <span class="n">ServerName</span> <span class="o">&lt;</span><span class="n">public</span> <span class="n">url</span> <span class="n">of</span> <span class="n">application</span> <span class="n">server</span><span class="o">&gt;</span>
+    <span class="n">ProxyRequests</span> <span class="n">Off</span>
+    <span class="o">&lt;</span><span class="n">Proxy</span> <span class="o">*&gt;</span>
+        <span class="n">Order</span> <span class="n">deny</span><span class="p">,</span><span class="n">allow</span>
+        <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+    <span class="o">&lt;/</span><span class="n">Proxy</span><span class="o">&gt;</span>
+    <span class="n">ProxyPreserveHost</span> <span class="n">on</span>
+    <span class="n">ProxyPass</span> <span class="o">/</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>
+<span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">ServerName</span></code> should be the <code class="docutils literal"><span class="pre">&lt;public</span> <span class="pre">url</span> <span class="pre">of</span> <span class="pre">application</span> <span class="pre">server&gt;</span></code></p>
+<p>Execute the following commands to enable the proxy module:
+sudo a2enmod proxy
+sudo a2enmod proxy_ajp
+sudo a2enmod proxy_http
+sudo apache2 restart</p>
+<p>Execute the following commands to enable the reverse proxy to Tomcat:
+sudo a2ensite shepherd.conf
+sudo service apache2 reload</p>
+<p>The Apache HTTP server should now be configured to serve requests to CIS-CAT Pro Dashboard.  The application should be available at the URL entered into your <code class="docutils literal"><span class="pre">ccpd-config.yml</span></code>: <code class="docutils literal"><span class="pre">http://&lt;public</span> <span class="pre">url</span> <span class="pre">http</span> <span class="pre">server&gt;/CCPD</span></code></p>
+</div>
+</div>
+<div class="section" id="securing-web-traffic">
+<span id="securing-web-traffic"></span><h3>Securing Web Traffic<a class="headerlink" href="#securing-web-traffic" title="Permalink to this headline">¶</a></h3>
+<p>The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port <code class="docutils literal"><span class="pre">80</span></code>.  This presents a risk as data, including user credentials, will be transmitted in clear text.  It is recommended that traffic be secured using HTTPS.  The following article explains how to create a self-signed certificate and apply it to a web server in Ubuntu 16.04: <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04</a></p>
+</div>
+<div class="section" id="ensuring-trust">
+<span id="ensuring-trust"></span><h3>Ensuring Trust<a class="headerlink" href="#ensuring-trust" title="Permalink to this headline">¶</a></h3>
+<p>In the browser&#8217;s URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a &#8220;Not Secure&#8221; label next to the URL, the certificate is not trusted.  Click on the &#8220;Not Secure&#8221; link to display the certificate information:</p>
+<ul class="simple">
+<li>Click the &#8220;Details&#8221; link to display the &#8220;Security Overview&#8221; information.</li>
+<li>Click on the &#8220;View Certificate&#8221; button to display the certificate details.</li>
+</ul>
+<p>The certificate information needs to be exported, and added to the servers trust store.  On the &#8220;details&#8221; tab of the certificate information, click the &#8220;Copy to File...&#8221; button.  The &#8220;certificate export wizard&#8221; will be displayed.</p>
+<ul class="simple">
+<li>Click the &#8220;Next&#8221; button to navigate to the second screen, the export type selection:</li>
+</ul>
+<p>Select the &#8220;DER encoded binary X.509 (.CER)&#8221; radio button.  This selection should be the default.  Click &#8220;Next&#8221; to continue.</p>
+<p>Select or browse to a location to where the <code class="docutils literal"><span class="pre">.cer</span></code> file will be saved.  Clicking &#8220;Next&#8221; and finally &#8220;Finish&#8221; to complete the wizard and save the file to the selected location/filename.  This file will need to be transferred via SCP, S/FTP to the application server hosting the CIS-CAT Pro Dashboard application.  Note the location to which the file is transferred.  For the purposes of this User&#8217;s Guide, assume the location of the <code class="docutils literal"><span class="pre">ccpd_cert.cer</span></code> file is <code class="docutils literal"><span class="pre">/home/ubuntu/ccpd_cert.cer</span></code>.</p>
+<div class="section" id="importing-the-certificate-into-the-trust-store">
+<span id="importing-the-certificate-into-the-trust-store"></span><h4>Importing the certificate into the trust store<a class="headerlink" href="#importing-the-certificate-into-the-trust-store" title="Permalink to this headline">¶</a></h4>
+<p>Once the file has been transferred to the application server, locate the <code class="docutils literal"><span class="pre">$JAVA_HOME</span></code> file location, i.e. the filesystem location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this User&#8217;s Guide, assume the location of <code class="docutils literal"><span class="pre">$JAVA_HOME</span></code> can be found at <code class="docutils literal"><span class="pre">/usr/lib/jvm/java-8-openjdk-amd64</span></code>.  When using Java 8, the required <code class="docutils literal"><span class="pre">cacerts</span></code> file will be located at <code class="docutils literal"><span class="pre">$JAVA_HOME/lib/security/cacerts</span></code>.  The location of the <code class="docutils literal"><span class="pre">cacerts</span></code> file should be noted before importing the certificate using <code class="docutils literal"><span class="pre">keytool</span></code>.</p>
+<p>Finally, using the java <code class="docutils literal"><span class="pre">keytool</span></code> application, import the certificate:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Navigate to the $JAVA_HOME folder&#39;s bin directory.</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jvm</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">openjdk</span><span class="o">-</span><span class="n">amd64</span><span class="o">/</span><span class="nb">bin</span>
+ 
+<span class="c1"># Execute keytool</span>
+<span class="n">sudo</span> <span class="n">keytool</span> <span class="o">-</span><span class="kn">import</span> <span class="nn">alias</span> <span class="n">ccpd</span> <span class="o">-</span><span class="n">keystore</span> <span class="o">../</span><span class="n">lib</span><span class="o">/</span><span class="n">security</span><span class="o">/</span><span class="n">cacerts</span> <span class="o">-</span><span class="n">file</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">ccpd_cert</span><span class="o">.</span><span class="n">cer</span>
+</pre></div>
+</div>
+<p>The user should be prompted to enter the keystore credentials.  By default, this credential is <code class="docutils literal"><span class="pre">changeit</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span># The user will be asked for confirmation
+Trust this certificate? [no]:
+</pre></div>
+</div>
+<p>Answering <code class="docutils literal"><span class="pre">yes</span></code> to this confirmation prompt will import the certificate into the trust store.</p>
+<p><strong>NOTE</strong>:  If the application server is currently running, it must be restarted in order to incorporate the trust store.</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -127,6 +332,25 @@ This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
 <li><a class="reference internal" href="#java-8">Java 8</a></li>
 <li><a class="reference internal" href="#application-server">Application Server</a><ul>
 <li><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploy-war">Deploy WAR</a></li>
+<li><a class="reference internal" href="#mail-configuration">Mail Configuration</a><ul>
+<li><a class="reference internal" href="#default-sender-email-address">Default Sender Email Address</a></li>
+<li><a class="reference internal" href="#smtp-configuration">SMTP Configuration</a></li>
+<li><a class="reference internal" href="#mail-configuration-gmail"><em>Mail Configuration - Gmail</em></a></li>
+<li><a class="reference internal" href="#mail-configuration-hotmail-live"><em>Mail Configuration - Hotmail/Live</em></a></li>
+<li><a class="reference internal" href="#mail-configuration-yahoo"><em>Mail Configuration - Yahoo</em></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploy-war-continued">Deploy WAR (Continued)</a></li>
+<li><a class="reference internal" href="#web-server">Web Server</a><ul>
+<li><a class="reference internal" href="#apache-http-server">Apache HTTP Server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#securing-web-traffic">Securing Web Traffic</a></li>
+<li><a class="reference internal" href="#ensuring-trust">Ensuring Trust</a><ul>
+<li><a class="reference internal" href="#importing-the-certificate-into-the-trust-store">Importing the certificate into the trust store</a></li>
 </ul>
 </li>
 </ul>
