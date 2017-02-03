@@ -3,21 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CIS-CAT Pro Dashboard's documentation!
+CIS-CAT Pro Documentation
 =================================================
 
 .. toctree::
-   :maxdepth: 2
+   :glob:
+   :caption: Document Library
+   :name: mastertoc
+   :maxdepth: 1
    
    CIS-CAT Pro Dashboard User's Guide <ciscat-pro-dashboard-users-guide.md>
    CIS-CAT Pro Dashboard Deployment <ciscat-pro-dashboard-deployment.md>
-   CIS-CAT Pro Assessor Deployment <ciscat-pro-assessor-deployment.md>
+   CIS-CAT Pro Assessor Deployment <assessor/ciscat-pro-assessor-deployment.md>
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

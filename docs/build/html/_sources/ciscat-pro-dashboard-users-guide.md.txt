@@ -7,9 +7,9 @@ CIS-CAT Pro Dashboard is a new companion application for CIS-CAT.  The applicati
 CIS-CAT Pro Dashboard is a companion application to CIS-CAT.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT traditionally provided assessment results in various report formats, including HTML, XML, CSV, and plain text.  CIS-CAT can now upload its assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard will import these XML document-based results into its application database.  This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
 
 ### CIS-CAT Pro Dashboard Deployment ###
-See here:  [CIS-CAT Pro Dashboard Deployment](./ciscat-pro-dashboard-deployment)
+See here:  [CIS-CAT Pro Dashboard Deployment](./ciscat-pro-dashboard-deployment.html)
 ### CIS-CAT Pro Assessor Deployment ###
-See here: [CIS-CAT Pro Assessor Deployment Guide](./ciscat-pro-assessor-deployment)
+See here: [CIS-CAT Pro Assessor Deployment Guide](./ciscat-pro-assessor-deployment.html)
 
 ## User Administration ##
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.
