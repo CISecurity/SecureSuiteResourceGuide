@@ -50,6 +50,10 @@
 <span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  The grails framework uses a hibernate data model to remain DBMS agnostic.  Grails code compiles into java byte code and therefore runs on the JVM.  As such,  CIS-CAT Pro dashboard can be deployed in any RDBMS which supports JDBC, and on any web container that can handle java WAR&#8217;s.  The documentation below describes how to deploy CIS-CAT Pro Dashboard on the following stack, which is officially supported by CIS:  MySQL 5.6 running on Ubuntu 16.04, a separate Ubuntu 16.04 server for Tomcat 8 and Apache 2.  Prerequisite to using this documentation is having two separate Ubuntu 16.04 instances running in your environment.</p>
 <p><strong>Reiteration:</strong>  Although this document is written assuming a MySQL database, Ubuntu servers, Tomcat and Apache HTTP Server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).</p>
+</div>
+<div class="section" id="component-deployment">
+<span id="component-deployment"></span><h2>Component Deployment<a class="headerlink" href="#component-deployment" title="Permalink to this headline">¶</a></h2>
+<p>The following sections describe the installation and configuration of all components necessary to deploy CIS-CAT Pro Dashboard.</p>
 <div class="section" id="database">
 <span id="database"></span><h3>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
 <p>Install MySQL Server 5.6 onto the database Ubuntu server using <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04">these instructions</a>.Once the MySQL database has been installed, note the following information:</p>
@@ -325,7 +329,8 @@ Trust this certificate? [no]:
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">CIS-CAT Pro Dashboard Deployment Guide</a><ul>
-<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#component-deployment">Component Deployment</a><ul>
 <li><a class="reference internal" href="#database">Database</a></li>
 <li><a class="reference internal" href="#application-server">Application Server</a></li>
 <li><a class="reference internal" href="#mysql-client">MySQL Client</a></li>

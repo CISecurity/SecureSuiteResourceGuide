@@ -6,6 +6,9 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  Th
 
 **Reiteration:**  Although this document is written assuming a MySQL database, Ubuntu servers, Tomcat and Apache HTTP Server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
 
+## Component Deployment ##
+The following sections describe the installation and configuration of all components necessary to deploy CIS-CAT Pro Dashboard.
+
 ### Database ###
 Install MySQL Server 5.6 onto the database Ubuntu server using [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04).  
 Once the MySQL database has been installed, note the following information:
