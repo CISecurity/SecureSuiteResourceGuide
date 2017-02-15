@@ -12,8 +12,8 @@ CIS-CAT Pro Documentation
    :name: mastertoc
    :maxdepth: 2
    
-   CIS-CAT Pro Dashboard User's Guide <ciscat-pro-dashboard-users-guide.md>
-   CIS-CAT Pro Dashboard Deployment <ciscat-pro-dashboard-deployment.md>
-   CIS-CAT Pro Assessor Deployment <assessor/ciscat-pro-assessor-deployment.md>
+   CIS-CAT Pro Dashboard User's Guide <CIS-CAT Pro Dashboard User's Guide.md>
+   CIS-CAT Pro Dashboard Deployment Guide <CIS-CAT Pro Dashboard Deployment Guide.md>
+   CIS-CAT Pro Assessor Deployment Guide <CIS-CAT Pro Assessor/CIS-CAT Pro Assessor Deployment Guide.md>
 
 

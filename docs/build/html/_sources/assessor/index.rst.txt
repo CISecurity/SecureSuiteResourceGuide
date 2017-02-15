@@ -1,6 +1,0 @@
-
-.. toctree::
-   :maxdepth: 2
-   
-   CIS-CAT Pro Assessor Deployment <ciscat-pro-assessor-deployment.md>
-
