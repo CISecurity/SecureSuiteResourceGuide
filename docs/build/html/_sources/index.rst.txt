@@ -14,6 +14,6 @@ CIS-CAT Pro Documentation
    
    CIS-CAT Pro Dashboard User's Guide <CIS-CAT Pro Dashboard User's Guide.md>
    CIS-CAT Pro Dashboard Deployment Guide <CIS-CAT Pro Dashboard Deployment Guide.md>
-   CIS-CAT Pro Assessor Deployment Guide <CIS-CAT Pro Assessor/CIS-CAT Pro Assessor Deployment Guide.md>
+   CIS-CAT Pro Assessor Deployment Guide <CIS-CAT Pro Assessor Deployment Guide.md>
 
 
