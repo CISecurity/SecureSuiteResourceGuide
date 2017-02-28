@@ -1,3 +1,5 @@
+![](http://i.imgur.com/5yZfZi5.jpg)
+
 # CIS-CAT Pro Dashboard User's Guide #
 
 ## Introduction ##
