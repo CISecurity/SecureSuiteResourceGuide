@@ -73,6 +73,8 @@ Establish a location for the 3 folders to enable legacy data imports:
     /opt/ccpd/LegacyProcessed
     /opt/ccpd/LegacyError
 
+The permissions on these files need to allow the tomcat user to read/write.  The user who will be managing the Legacy imports will need write access to the Legacy folder.
+
 Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-config.yml`, including the following lines:
 
     vulnerability:
@@ -112,6 +114,8 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 	    sourceDir: "/opt/ccpd/Legacy"
 	    processedDir: "/opt/ccpd/LegacyProcessed"
 	    errorDir: "/opt/ccpd/LegacyError"
+
+This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
 
 ### Mail Configuration ###
 CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  
