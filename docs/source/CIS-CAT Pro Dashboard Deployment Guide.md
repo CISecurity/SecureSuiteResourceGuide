@@ -28,9 +28,18 @@ A MySQL client should be installed in order to test connectivity with the databa
 run: sudo apt-get install mysql-client, this will give you access to the mysql command
 From the MySQL database instructions above, note the hostname/ip of the database server as <hostname>, and the configured <username> and <password> 
 run: mysql -h <hostname> -u <username> -p, you will then be prompted for the  <password>.
-if you see a mysql> prompt, then you have successfully connected to the database. 
-run: create schema <schemaname>; 
-This will create a DB schema for CIS-CAT Dashboard Pro data.
+if you see a mysql> prompt, then you have successfully connected to the database.
+ 
+run: 
+
+	create schema ccpd; 
+
+This will create a DB schema named 'ccpd' for CIS-CAT Dashboard Pro data.
+
+At this point we recommend running following the steps in:
+[CIS-CAT Pro Dashboard Database Script](./ciscat-pro-dashboard-database-script.html)
+
+This will bootstrap in some reference data as well as the current versions of the CIS Benchmark content.  Having this data available via the script will improve initial import performance from CIS-CAT Pro Assessor.
 
 ### Java 8 ###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.
