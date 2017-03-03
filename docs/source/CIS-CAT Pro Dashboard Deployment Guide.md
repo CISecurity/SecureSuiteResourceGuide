@@ -37,7 +37,7 @@ run:
 This will create a DB schema named 'ccpd' for CIS-CAT Dashboard Pro data.
 
 At this point we recommend running following the steps in:
-[CIS-CAT Pro Dashboard Database Script](./ciscat-pro-dashboard-database-script.html)
+[CIS-CAT Pro Dashboard Database Script](http://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/CIS-CAT%20Pro%20Dashboard%20Database%20Script/)
 
 This will bootstrap in some reference data as well as the current versions of the CIS Benchmark content.  Having this data available via the script will improve initial import performance from CIS-CAT Pro Assessor.
 
