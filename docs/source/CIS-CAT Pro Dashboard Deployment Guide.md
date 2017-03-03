@@ -126,6 +126,14 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 
 This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
 
+**Security Considerations**
+
+We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user needs to be able to read the file.  We recommend limiting permissions to the file by running the following commands:
+
+	> sudo chown tomcat ccpd-config.yml
+	> sudo chgrp tomcat ccpd-config.yml
+	> sudo chmod 400 ccpd-config.yml
+
 ### Mail Configuration ###
 CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  
 
