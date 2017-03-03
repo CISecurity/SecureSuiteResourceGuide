@@ -25,16 +25,16 @@ Once Ubuntu 16.04 is installed, and a user can log in, run: sudo apt-get update,
 
 ### MySQL Client ###
 A MySQL client should be installed in order to test connectivity with the database and create the schema for CIS-CAT Pro Dashboard.
-run: sudo apt-get install mysql-client, this will give you access to the mysql command
-From the MySQL database instructions above, note the hostname/ip of the database server as <hostname>, and the configured <username> and <password> 
-run: mysql -h <hostname> -u <username> -p, you will then be prompted for the  <password>.
-if you see a mysql> prompt, then you have successfully connected to the database.
+
+run: `sudo apt-get install mysql-client`
+
+This will give you access to the mysql command.
+From the MySQL database instructions above, note the hostname/ip of the database server as `<hostname>`, and the configured `<username>` and `<password>`
+run: `mysql -h <hostname> -u <username> -p`, you will then be prompted for the `<password>`.  If you see a `mysql>` prompt, then you have successfully connected to the database.
  
-run: 
+run: `create schema ccpd;`
 
-	create schema ccpd; 
-
-This will create a DB schema named 'ccpd' for CIS-CAT Dashboard Pro data.
+This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data.
 
 At this point we recommend running following the steps in:
 [CIS-CAT Pro Dashboard Database Script](http://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/CIS-CAT%20Pro%20Dashboard%20Database%20Script/)
