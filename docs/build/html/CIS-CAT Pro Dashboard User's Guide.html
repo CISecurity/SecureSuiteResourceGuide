@@ -43,7 +43,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="cis-cat-pro-dashboard-user-s-guide">
+  <p><img alt="" src="http://i.imgur.com/5yZfZi5.jpg" /></p>
+<div class="section" id="cis-cat-pro-dashboard-user-s-guide">
 <span id="cis-cat-pro-dashboard-user-s-guide"></span><h1>CIS-CAT Pro Dashboard User&#8217;s Guide<a class="headerlink" href="#cis-cat-pro-dashboard-user-s-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <span id="introduction"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -65,6 +66,232 @@
 <span id="user-administration"></span><h2>User Administration<a class="headerlink" href="#user-administration" title="Permalink to this headline">¶</a></h2>
 <p>CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.</p>
 </div>
+<div class="section" id="users">
+<span id="users"></span><h2>Users<a class="headerlink" href="#users" title="Permalink to this headline">¶</a></h2>
+<p>To create a new User in CIS-CAT Pro Dashboard you need to log in as an administrator.</p>
+<p>Login as an administrator. (NOTE: By default the user: admin, with the password: admin has ROLE_ADMINISTRATOR)  Navigate to the Administration -&gt; User Management -&gt; User menu item.  This will navigate to the User List.</p>
+<ul class="simple">
+<li>Creating a New User - On the user list, click the New User button.  On the create user screen, you enter a first and last name for your user, required unique username, a password, as well as selecting user roles for the user. The password must adhere to this format: at least one letter, number, and special character: !&#64;#$%^&amp;, and be between 8 and 64 characters in length.</li>
+<li>Note that the password you enter is temporary. The user will be asked to change the password during their initial login.</li>
+<li>View an existing User - To view an existing user simply click on the users row in the table, this will navigate to the User view page.  From there you can see the various details about the user, as well as edit or delete the user.</li>
+<li>Editing an existing user - Once you&#8217;ve clicked on an existing user and navigate to the view page, you can edit that user by selecting the edit button.  On the edit page you can change the users first and last name,  change their password, enable/disable their account, or change their user roles</li>
+<li>Deleting a user - Once you&#8217;ve navigated to the User view page you can delete a user by selecting the delete button.  A confirmation message will appear to allow you to insure you want to delete the user.  Once you click &#8220;yes&#8221;, the user will be deleted</li>
+</ul>
+</div>
+<div class="section" id="roles">
+<span id="roles"></span><h2>Roles<a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h2>
+<p>Roles in CIS-CAT Pro Dashboard are assigned to users, and allow access to functionality.  The role section is used for creating new roles, but you will need to add them to users and to Functional Areas in order for them to control access meaningfully.</p>
+<p>A specific Role which has significance in a CIS-CAT Pro Assessor/Dashboard hybrid environment is the &#8220;ROLE_API&#8221; role.  This role is built in to an out-of-the-box CIS-CAT Pro Dashboard deployment and must exist in order to use CIS-CAT to upload results to the Dashboard application.  Once a user is assigned the &#8220;ROLE_API&#8221; role, the User&#8217;s information page will display a button labeled &#8220;Generate CIS-CAT Authentication Token&#8221;.</p>
+<p><img alt="" src="http://i.imgur.com/MPBh3Dy.png" /></p>
+<p>Clicking the button will open a dialog box where the user is required to enter the &#8220;ROLE_API&#8221; user&#8217;s credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  That token can now be incorporated into CIS-CAT, as per the instructions below, under &#8220;Import CIS-CAT Results - CIS-CAT Import&#8221;</p>
+</div>
+<div class="section" id="security-functional-areas">
+<span id="security-functional-areas"></span><h2>Security Functional Areas<a class="headerlink" href="#security-functional-areas" title="Permalink to this headline">¶</a></h2>
+<p>Functional Areas are groups of functionality that are assigned to Roles to give them meaning.  Each functional area covers a specific group of functionality within CIS-CAT Pro Dashboard.  By default there is: Reports, Dashboards, Target Systems, System Administration, API, and Developer.  These roles individually encompass the functionality within the menu options at the top of the CIS-CAT Pro Dashboard Application.</p>
+<p>Functional Areas can be administered through the Roles interface.  When you select a Role from the Role List,  you are taken to the show Role page.  Here you can add/delete users access to this role, and you can add/delete functional areas that this role allows access to.</p>
+<p><img alt="" src="http://i.imgur.com/cPSn0zC.png" /></p>
+</div>
+<div class="section" id="logging-in-user-profile">
+<span id="logging-in-user-profile"></span><h2>Logging In/User Profile<a class="headerlink" href="#logging-in-user-profile" title="Permalink to this headline">¶</a></h2>
+<p>When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.</p>
+<p><img alt="" src="http://i.imgur.com/vnZJve1.png" /></p>
+<p>Once the user configures their password, they are asked to re-login using those new credentials.  Once logged in with updated credentials, the user is taken to the &#8220;Overview&#8221; Dashboard view.  In the top right-hand corner of the application now resides the display of the logged-in user&#8217;s username:</p>
+<p><img alt="" src="http://i.imgur.com/bcyWVtc.png" /></p>
+<p>Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, or logging out of the application:</p>
+<p><img alt="" src="http://i.imgur.com/oGURHUy.png" /></p>
+<p>Click on the Profile link to navigate to the user&#8217;s profile:</p>
+<p><img alt="" src="http://i.imgur.com/GptCUED.png" /></p>
+<p>The User&#8217;s profile screen shows account and role information, as assigned by an administrator.  From this screen, an individual user may change their password, or edit those profile fields to which they have access to change.  Clicking the Change Password button opens a dialog box allowing the user to enter and confirm new credentials to be used when logging in to CIS-CAT Pro Dashboard:</p>
+<p><img alt="" src="http://i.imgur.com/iUreF3M.png" /></p>
+<p>Validations exist when users change their credentials.  The passwords entered must match, the new password must be between 8 and 64 characters in length, and must include at least one uppercase letter, one lowercase letter, a numeric character, and at least one special character, such as &#8220;!&#64;#$%^&amp;&#8220;
+Clicking the Edit Profile button from the user&#8217;s profile opens a dialog allowing the user to make changes to their information.  This information is limited because many user changes should only be performed by an administrator, such as editing user roles or activating/deactivating a user&#8217;s account.</p>
+<p><img alt="" src="http://i.imgur.com/uxSQfmO.png" /></p>
+<p>Making changes to this dialog and clicking Save will update the user&#8217;s information.</p>
+</div>
+<div class="section" id="importing-cis-cat-assessor-results">
+<span id="importing-cis-cat-assessor-results"></span><h2>Importing CIS-CAT Assessor Results<a class="headerlink" href="#importing-cis-cat-assessor-results" title="Permalink to this headline">¶</a></h2>
+<p><strong>In-Application Import</strong></p>
+<p>Importing CIS-CAT Assessor results using the CIS-CAT Pro Dashboard user interface assumes that a user has executed a CIS-CAT assessment and produced the Asset Reporting Format (ARF) results.  Once an ARF has been generated in CIS-CAT and saved to the designated reports location, open a web browser and log into the Dashboard application.  From the main navigation bar, select Reports -&gt; Assessment Results List.</p>
+<p><img alt="" src="http://i.imgur.com/m6lhmEm.png" /></p>
+<p>The &#8220;Assessment Results List&#8221; page will be displayed.  Click the &#8220;Import Assessment Results&#8221; button.  A file selection dialog will open, allowing the user to browse to the saved reports location and select the CIS-CAT-generated ARF or XML report.</p>
+<p><img alt="" src="http://i.imgur.com/4nM6Ti0.png" /></p>
+<p>Click &#8220;Upload&#8221; to start the import process.  Note that the import processes asynchronously, so the user will see a message indicating that the report upload has begun.  This process can take up to a few minutes to complete.</p>
+<p><strong>CIS-CAT Import</strong></p>
+<p>Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CAT Deployment instructions have been completed.  The end result of that configuration is that a user has been created in CIS-CAT Pro Dashboard, been assigned to the &#8220;ROLE_API&#8221; role, and an authentication token has been generated.</p>
+<p><img alt="" src="http://i.imgur.com/roQk64u.png" /></p>
+<p>Once generated, that authentication token must be added to the CIS-CAT properties file in order for automated upload to function.</p>
+<p>ciscat.properties:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Allow for an authentication token to be generated in &quot;CIS-CAT Pro Dashboard&quot;, allowing upload of</span>
+<span class="c1"># generated ARF reports to the new database application.</span>
+<span class="n">ciscat</span><span class="o">.</span><span class="n">post</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">ccpd</span><span class="o">.</span><span class="n">token</span><span class="o">=</span><span class="n">m9i0o2lrqno60dlq49qlln6gqrj2l7kt</span>
+</pre></div>
+</div>
+<p>Save the &#8220;ciscat.properties&#8221; file and execute CIS-CAT.</p>
+<p><strong>Graphical User Interface (GUI)</strong></p>
+<p>When executing the CIS-CAT GUI, users will select a benchmark and profile, and subsequently be navigated to the &#8220;Report Output Options&#8221; screen.  To upload reports to CIS-CAT Pro Dashboard, a user may select EITHER the XML results or the Asset Report Format to be generated.  At the bottom of the &#8220;Report Output Options&#8221; screen, click the button to &#8220;POST Reports to URL&#8221;.  When clicked, a dialog box will open allowing users to select the URL to which the generated report is uploaded.</p>
+<p><img alt="" src="http://i.imgur.com/aVN5Y6m.png" /></p>
+<p><strong>NOTE: The CIS-CAT Pro Dashboard API is &#8220;resource-based&#8221; and, as such, only a specific URL pattern can be entered.</strong> This pattern will always end with &#8220;/api/reports/upload&#8221;.  For example, if the context URL for a member&#8217;s CIS-CAT Pro Dashboard deployment is http://myapp.example.com/CCPD, the URL for reports upload will always be http://myapp.example.com/CCPD/api/reports/upload.</p>
+<p><img alt="" src="http://i.imgur.com/21WzjyZ.png" /></p>
+<p><strong>Command Line User Interface (CLI)</strong></p>
+<p>To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro Dashboard the following options are used:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">arf</span> <span class="p">:</span> <span class="n">This</span> <span class="n">option</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">CIS</span><span class="o">-</span><span class="n">CAT</span> <span class="n">will</span> <span class="n">generate</span> <span class="n">the</span> <span class="n">Asset</span> <span class="n">Reporting</span> <span class="n">Format</span> <span class="p">(</span><span class="n">ARF</span><span class="p">)</span> <span class="n">results</span>
+<span class="o">-</span><span class="n">n</span>   <span class="p">:</span> <span class="n">This</span> <span class="n">option</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">CIS</span><span class="o">-</span><span class="n">CAT</span> <span class="n">should</span> <span class="n">NOT</span> <span class="n">generate</span> <span class="n">the</span> <span class="n">HTML</span> <span class="n">report</span>
+<span class="o">-</span><span class="n">u</span>   <span class="p">:</span> <span class="n">This</span> <span class="n">option</span> <span class="n">allows</span> <span class="n">users</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">URL</span> <span class="n">to</span> <span class="n">which</span> <span class="n">ARF</span> <span class="n">reports</span> <span class="n">will</span> <span class="n">be</span> <span class="n">uploaded</span><span class="o">.</span>  <span class="n">This</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">CIS</span><span class="o">-</span><span class="n">CAT</span> <span class="n">Pro</span> <span class="n">Dashboard</span> <span class="n">URL</span>
+<span class="o">-</span><span class="n">ui</span>  <span class="p">:</span> <span class="n">This</span> <span class="n">optional</span> <span class="n">argument</span> <span class="n">allows</span> <span class="n">users</span> <span class="n">to</span> <span class="n">ignore</span> <span class="nb">any</span> <span class="n">certificate</span> <span class="n">warnings</span><span class="o">/</span><span class="n">errors</span> <span class="n">when</span> <span class="n">connecting</span> <span class="n">to</span> <span class="n">the</span> <span class="n">CIS</span><span class="o">-</span><span class="n">CAT</span> <span class="n">Pro</span> <span class="n">Dashboard</span> <span class="n">URL</span>
+ 
+<span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">assessing</span> <span class="ow">and</span> <span class="n">uploading</span> <span class="n">the</span> <span class="n">Windows</span> <span class="mi">7</span> <span class="n">Benchmark</span> <span class="n">would</span> <span class="n">look</span> <span class="n">like</span><span class="p">:</span>
+<span class="o">&gt;</span> <span class="n">CIS</span><span class="o">-</span><span class="n">CAT</span><span class="o">.</span><span class="n">bat</span> <span class="o">-</span><span class="n">b</span> <span class="n">benchmarks</span>\<span class="n">CIS_Microsoft_Windows_7_Benchmark_v3</span><span class="o">.</span><span class="mf">0.0</span><span class="o">-</span><span class="n">xccdf</span><span class="o">.</span><span class="n">xml</span> <span class="o">-</span><span class="n">arf</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">u</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">myapp</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">CCPD</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">report</span><span class="o">/</span><span class="n">upload</span> <span class="o">-</span><span class="n">ui</span>
+</pre></div>
+</div>
+<p><strong>Legacy Data Import</strong></p>
+<p>To help facilitate organizations migrating from static CIS-CAT dashboards and reporting to storing assessment results in CIS-CAT Pro Dashboard, a legacy data import process has been developed.  This process is configured as a recurring job running in the background of a CIS-CAT Pro Dashboard installation.  Users are required to configure 3 folder locations:</p>
+<ol class="simple">
+<li><strong>The &#8220;Legacy&#8221; Folder:</strong>  This folder will be the location for all CIS-CAT XML results to be placed, as the staging area for results waiting to be imported into CIS-CAT Pro Dashboard</li>
+<li><strong>The &#8220;Legacy Processed&#8221; Folder:</strong>  This folder will be the location for all CIS-CAT XML results which have been successfully imported into CIS-CAT Pro Dashboard from the staging area.</li>
+<li><strong>The &#8220;Legacy Error&#8221; Folder:</strong> This folder will be the location for any CIS-CAT XML results which were not successfully imported into CIS-CAT Pro Dashboard.</li>
+</ol>
+<p>These folder locations are set in the application&#8217;s configuration file (&#8220;the YAML&#8221;).  Instructions for this configuration are contained in the CIS-CAT Pro Dashboard Deployment guide.</p>
+</div>
+<div class="section" id="target-systems">
+<span id="target-systems"></span><h2>Target Systems<a class="headerlink" href="#target-systems" title="Permalink to this headline">¶</a></h2>
+<p><strong>Creation</strong>
+Target Systems represent endpoints in your environment that have assesment data within CIS-CAT Pro Dashboard.  There are several ways to create target systems within the application:</p>
+<ol class="simple">
+<li><strong>Import</strong> - The section above describes the import of CIS-CAT data processes.  The assessment results produced by CIS-CAT relate to a specific Target System.  On import, CIS-CAT Pro Dashboard will check the existing target systems to see if the relevant Target already exists within in the system.  If not, CIS-CAT Pro Dashboard will create a new Target System and associate the imported assessment result with that new Target.  If the Target System already existed, based on the Hostname identifier,  the application will associate the imported result with the existing Target.</li>
+<li>Online Entry - From the main application menu bar, users can navigate to the Target Systems List:</li>
+</ol>
+<p><img alt="" src="http://i.imgur.com/hEYEd1y.png" /></p>
+<p>Once there, you can select the &#8220;New Target System&#8221; button, which will open the creation dialog:</p>
+<p><img alt="" src="http://i.imgur.com/lVsQH9B.png" /></p>
+<p>Simply enter the Hostname and click Add Target,  this will create a new target system.</p>
+<p><strong>Tagging</strong></p>
+<p>Tags can be used to organize Target Systems into groups.  A Target System can have any number of Tags which can signify a couple of things within CIS-CAT Pro Dashboard.  Tags can be used to search for a group of systems that have a specific tag or group of tags, or one tag but not another.  Assessment rules can be &#8220;excepted&#8221; by tag, so that all Target Systems with that tag exclude the results of the rule from their scoring results on assessment reports.  Dashboards can be viewed by tag, so that user&#8217;s can see how a specifically tagged group of endpoints is complying with CIS benchmarks.</p>
+<p><strong>Creation</strong></p>
+<p>Once a Target System is created you can navigate to it&#8217;s view page by clicking on the Target&#8217;s row on the Target System List Page:</p>
+<p><img alt="" src="http://i.imgur.com/KjlNHvP.png" /></p>
+<p>Once navigated to the view page, users can manage the Targets tags by simply typing in the Tag box, or deleting from the tag box:</p>
+<p><img alt="" src="http://i.imgur.com/ygcH1Gn.png" /></p>
+<p><strong>Searching</strong></p>
+<p>Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an &#8220;AND&#8221; or &#8220;OR&#8221; operator and a list of tags to exclude from your search group.</p>
+<p><img alt="" src="http://i.imgur.com/etZxLJC.png" /></p>
+<ul class="simple">
+<li><strong>Include Tags</strong> - type into the include tags list the tags you would like to see in the search results.  i.e.  if you would like to see target systems with the &#8220;PCI&#8221; tag, simply type it in the box and click search.<ul>
+<li><strong>&#8220;and&#8221; operator</strong> by default the &#8220;and&#8221; operator is selected.  This means that if you type multiple tags into the Include Tags box,  the resulting systems would need to contain ALL of the tags in the Include Tags box.  i.e.  If you typed in &#8220;PCI&#8221; and &#8220;Workstation&#8221;  all systems with BOTH of those tags would be returned.  If a system only contained the &#8220;PCI&#8221; tag, it would not be returned.</li>
+<li><strong>&#8220;or&#8221; operator</strong> -  The &#8220;or&#8221; operator can be selected using the available radio button.  When selected, if you type multiple tags into the Include Tags box, the resulting systems would need to contain ANY of the tags listed in the Include Tags box.  i.e.  if you typed in &#8220;PCI&#8221; and &#8220;Workstation&#8221;  all systems with EITHER of those tags would be returned.  If a system only contaned the &#8220;PCI&#8221; tag, it would be in the result set.</li>
+</ul>
+</li>
+<li><strong>Exclude Tags</strong> - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the &#8220;Server&#8221; tag into the Include Tags box and &#8220;PCI&#8221; into the Exclude Tags box.</li>
+</ul>
+</div>
+<div class="section" id="reports">
+<span id="reports"></span><h2>Reports<a class="headerlink" href="#reports" title="Permalink to this headline">¶</a></h2>
+<p>CIS-CAT Pro Dashboard reports provide a variety of views of CIS-CAT Assessment Results.  An individual Test Results Report provides the same view as the legacy HTML report from CIS-CAT, with some enhanced features, including a controls based view, and the ability to create exceptions for specific rules.  The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate misconfigurations on the target.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.</p>
+<p><strong>Test Results Report</strong></p>
+<p>The individual test results report provides a complete picture of a given Target System&#8217;s compliance with a CIS benchmark at a single point in time.  This report was designed to mimic the functionality of the HTML version of the CIS-CAT Security Configuration Assessment Results report.</p>
+<ol class="simple">
+<li><strong>Navigation</strong> - there are several ways to navigate to the Test Results Report.  Under the reports menu, you can click the Assessment Results List menu item.  From the list, you can select the individual assessment result that you would like to view.  You can also navigate to an individual target system, and listed in the Results box are all of the benchmarks for which the current target has results stored in the database.  Clicking one of the benchmarks, will open the list of all the results for that target and that benchmark,  from there you can select an individual result.  Finally you can Navigate to the individual benchmarks, there is a results section which contains all the results in that system for that particular benchmark.</li>
+<li><strong>Controls View</strong> - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Critical Security Controls View.  In this view each of the 20 Critical Controls as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.</li>
+<li><strong>Exceptions</strong> - The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create &#8220;exceptions&#8221; to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.</li>
+</ol>
+<ul>
+<li><p class="first"><strong>Creation</strong> -  To create an exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an &#8220;Add Exception&#8221; button.  If exceptions already exist for the rule, they will be displayed in a table, along with the &#8220;Add Exception&#8221; button.<img alt="" src="http://i.imgur.com/WqLpJzm.png" />
+Click this button, and the exception creation dialog will be displayed:
+<img alt="" src="http://i.imgur.com/W1TPu5g.png" /></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">By</span> <span class="n">default</span> <span class="n">the</span> <span class="n">start</span> <span class="n">date</span> <span class="ow">is</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">the</span> <span class="n">end</span> <span class="n">time</span> <span class="n">of</span> <span class="n">the</span> <span class="n">assessment</span> <span class="n">report</span> <span class="n">that</span> <span class="n">you</span> <span class="n">are</span> <span class="n">currently</span> <span class="n">viewing</span><span class="p">,</span>  <span class="n">this</span> <span class="n">would</span> <span class="n">make</span> <span class="n">an</span> <span class="n">exception</span> <span class="n">you</span> <span class="n">create</span> <span class="n">apply</span> <span class="n">to</span> <span class="n">this</span> <span class="n">specific</span> <span class="n">report</span><span class="p">,</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="nb">any</span> <span class="n">assessments</span> <span class="n">that</span> <span class="n">post</span> <span class="n">date</span> <span class="n">this</span> <span class="n">report</span><span class="o">.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">modify</span> <span class="n">the</span> <span class="n">date</span> <span class="n">to</span> <span class="n">apply</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">time</span> <span class="n">period</span> <span class="n">you</span> <span class="n">like</span><span class="o">.</span>  <span class="n">Also</span> <span class="n">required</span> <span class="n">on</span> <span class="n">this</span> <span class="n">dialog</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">rationale</span><span class="p">,</span>  <span class="n">you</span> <span class="n">must</span> <span class="n">enter</span> <span class="n">the</span> <span class="n">reason</span> <span class="n">you</span> <span class="n">are</span> <span class="n">creating</span> <span class="n">an</span> <span class="n">exception</span> <span class="k">for</span> <span class="n">this</span> <span class="n">rule</span><span class="o">.</span>  <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="nb">any</span> <span class="n">exception</span> <span class="n">created</span> <span class="n">will</span> <span class="n">apply</span> <span class="n">only</span> <span class="n">to</span> <span class="n">the</span> <span class="n">target</span> <span class="n">system</span> <span class="n">that</span> <span class="n">you</span> <span class="n">are</span> <span class="n">currently</span> <span class="n">reviewing</span> <span class="n">results</span> <span class="k">for</span><span class="o">.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">check</span> <span class="n">the</span> <span class="k">global</span> <span class="n">checkbox</span> <span class="n">to</span> <span class="n">make</span> <span class="n">the</span> <span class="n">exception</span> <span class="n">apply</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">target</span> <span class="n">systems</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">environment</span><span class="o">.</span>  <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">enter</span> <span class="nb">any</span> <span class="n">number</span> <span class="n">of</span> <span class="n">tags</span> <span class="n">into</span> <span class="n">the</span> <span class="n">tag</span> <span class="n">checkbox</span><span class="p">,</span>  <span class="n">the</span> <span class="n">exception</span> <span class="n">will</span> <span class="n">then</span> <span class="n">apply</span> <span class="n">to</span> <span class="nb">any</span> <span class="n">target</span> <span class="n">system</span> <span class="n">that</span> <span class="n">has</span> <span class="nb">any</span> <span class="n">of</span> <span class="n">the</span> <span class="n">entered</span> <span class="n">tags</span><span class="o">.</span>  <span class="n">These</span> <span class="n">are</span> <span class="n">different</span> <span class="n">ways</span> <span class="n">to</span> <span class="n">scope</span> <span class="n">the</span> <span class="n">exception</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>End Date</strong> - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and only apply to assessment results that have an end time which falls between the start and end date of the exception.</p>
+</li>
+</ul>
+<p><strong>Remediation Report</strong></p>
+<p>The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.</p>
+<p><img alt="" src="http://i.imgur.com/z3kU2QF.png" /></p>
+<p>You can then use the &#8220;Selected&#8221; checkboxes to choose which Assessment Results you would like to appear on the report.  Once you have the correct results you select the &#8220;Remediation Report&#8221; button and the report will be generated.</p>
+<p><img alt="" src="http://i.imgur.com/21ZzQIg.png" /></p>
+<p>The report lists the target system, the benchmark, the rule number and title, and the remediation steps for each failed result.  Users can then utilize the buttons in the upper right side of the screen to export the report in a variety of formats.</p>
+<p><strong>Complete Results Report</strong></p>
+<p>The complete results report will give you a full view of a target system or group of target systems compliance accross multiple CIS benchmarks.  Similar to the Remediation Report, you search for target systems,  select the ones you would like to see complete results for, then generate the report.</p>
+<p><img alt="" src="http://i.imgur.com/K2Z6tOR.png" /></p>
+<p>The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.</p>
+<p><img alt="" src="http://i.imgur.com/Q9CmiC0.png" /></p>
+</div>
+<div class="section" id="dashboard">
+<span id="dashboard"></span><h2>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h2>
+<p>The CIS-CAT Pro Dashboard application&#8217;s dashboard views provide a high level overview of organizational compliance with CIS Benchmarks.  There are several views, which comprise different aggregation levels which produce a graph that represents compliance over time.  The default views show all of the compliance results for the aggregation group selected, i.e.  &#8220;Overview&#8221; is all of your target systems for all benchmarks,  The &#8220;Benchmark View&#8221; is by benchmark,  the &#8220;Tag View&#8221; is all systems with a specific tag or set of tags.  Each point on the graph is an average score for the month.  Each of the points can be clicked to &#8220;drill-down&#8221; into the Monthly view.  This view has a point for each day in the selected month that has results.  Each of these points can be clicked on to drill down to that specific day,  which will display points for each time you have an assessment result.  The points on the daily view will take you straight to the individual assessment result that produced the score.  This way you can navigate from a very high level view of your compliance data, all the way to the details,  the individual assessment reports that comprise the high level graphical information.</p>
+<p><strong>Overview</strong></p>
+<p>The overview contains a fully aggregated view of all endpoints across all benchmarks:</p>
+<p><img alt="" src="http://i.imgur.com/tB4uO1d.png" /></p>
+<p><strong>Benchmark View</strong></p>
+<p>The benchmark view has results aggregated by benchmark.  You can select any number of benchmarks that you would like to see results for.  Each benchmark selected will be represented by a separate line on the graph.  This allows you to compare compliance against various CIS Benchmarks.</p>
+<p><img alt="" src="http://i.imgur.com/FCUQxHx.png" /></p>
+<p><strong>Device View</strong></p>
+<p>The device view has the results aggregated by individual device.  The default device view is the Multi-device view, which allows you to select many target systems and compare their aggregated results.</p>
+<p><img alt="" src="http://i.imgur.com/wJVLA4t.png" /></p>
+<p><strong>Device by Benchmark View</strong></p>
+<p>If you only select a single device, you can switch to the single device view.  This will allow you to select the benchmarks that have assessment results for the selected target system and compare the benchmark compliance for just a single target.  This allows you to see potentially which benchmarks are reducing the compliance score for a single system</p>
+<p><img alt="" src="http://i.imgur.com/r92Iy5U.png" /></p>
+<p><strong>Tag View</strong></p>
+<p>The tag view allows you to aggregate compliance results for a group of target systems with the same tag, or with multiple tags.  Each tag entered will be represented by a single line, so that you could compare results accross multiple tags.</p>
+<p><img alt="" src="http://i.imgur.com/dm0LQK0.png" /></p>
+</div>
+<div class="section" id="reference-data-administration">
+<span id="reference-data-administration"></span><h2>&#8220;Reference&#8221; Data Administration<a class="headerlink" href="#reference-data-administration" title="Permalink to this headline">¶</a></h2>
+<p>Users assigned (currently) the ROLE_DEVELOPER user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.</p>
+<p>In general, CIS content will be delivered using one of four structures:</p>
+<ol class="simple">
+<li><strong>XCCDF 1.1 (Legacy):</strong> A single-file format consisting of a benchmark XCCDF, containing CIS&#8217; proprietary embedded check language (ECL).  When importing legacy XCCDF 1.1 content, simply navigate to the &#8220;Benchmarks&#8221; list page (shown below) and complete the &#8220;Import&#8221; workflow.</li>
+<li><strong>XCCDF 1.2 &#8220;data-stream&#8221;:</strong> A 2-or-4-file format consisting of a benchmark XCCDF, an OVAL Definitions file, and optionally, a CPE Dictionary and CPE OVAL Definitions file.  When importing XCCDF 1.2 information as part of a 4-file bundle of assessment content, first proceed to the CPE Dictionary import, followed by the CPE OVAL Definitions import, the OVAL Definitions import, and conclude with the XCCDF Benchmark import workflow.</li>
+<li><strong>SCAP 1.2 &#8220;data-stream collection&#8221;:</strong> A single file format which acts as a sort-of &#8220;envelope&#8221; containing components representing the XCCDF, OVAL, CPE Dictionary, and CPE OVAL files.  The SCAP 1.2 &#8220;data-stream collection&#8221; import workflow simply involves navigating to the &#8220;Data Stream Collections&#8221; list, and subsequently importing the appropriate file.</li>
+<li><strong>OVAL Definitions &amp; OVAL Variables:</strong>  A 2-file format in which the OVAL Variables file contains variable values to be used by the evaluation of the OVAL Definitions.  Importing an OVAL Definitions/Variables combination must begin with the import of the OVAL Variables file, followed by the OVAL Definitions file import.   Also, OVAL Results content may need to be imported into CIS-CAT Pro Dashboard.  OVAL Results information can include Vulnerability Assessment results produced from the CIS-CAT desktop application.</li>
+</ol>
+<p><strong>CPE Dictionaries</strong></p>
+<p>To import a CPE Dictionary XML file, simply navigate to Collections &#8211;&gt; OVAL &#8211;&gt; CPE Dictionary:</p>
+<p><img alt="" src="http://i.imgur.com/gEHG8YF.png" /></p>
+<p>Once navigated to the CPE Dictionary List screen, click on the &#8220;Import CPE Dictionary&#8221; button to display the file upload dialog.  Find and select the appropriate &#8220;-cpe-dict.xml&#8221; file and click the &#8220;Upload&#8221; button.  The CPE Dictionary will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.</p>
+<p><strong>OVAL Variables</strong></p>
+<p>To import an OVAL Variables XML file, simply navigate to Collections &#8211;&gt; OVAL &#8211;&gt; OVAL Variable:</p>
+<p><img alt="" src="http://i.imgur.com/ZBN7pkS.png" /></p>
+<p>Once navigated to the OVAL Variables List screen, click on the &#8220;Import OVAL Variables&#8221; button to display the file upload dialog.  Find and select the appropriate &#8220;-variables.xml&#8221; file and click the &#8220;Upload&#8221; button.  The OVAL Variables will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.</p>
+<p><strong>OVAL Definitions</strong></p>
+<p>To import an OVAL Definitions XML file, simply navigate to Collections &#8211;&gt; OVAL &#8211;&gt; OVAL Definition:</p>
+<p><img alt="" src="http://i.imgur.com/HVhhb2j.png" /></p>
+<p>Once navigated to the OVAL Definitions List screen, click on the &#8220;Import OVAL Definintions&#8221; button to display the file upload dialog.  Find and select the appropriate &#8220;-oval.xml&#8221; or &#8220;-cpe-oval.xml&#8221; file and click the &#8220;Upload&#8221; button.  The OVAL Definitions will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.</p>
+<p><strong>OVAL Results</strong></p>
+<p>To import an OVAL Results XML file, simply navigate to Collections &#8211;&gt; OVAL &#8211;&gt; OVAL Result:</p>
+<p><img alt="" src="http://i.imgur.com/Tfjyx8s.png" /></p>
+<p>Once navigated to the OVAL Results List screen, click on the &#8220;Import OVAL Results&#8221; button to display the file upload dialog.  Find and select the appropriate OVAL Results file (such as CIS-CAT produced Vulnerability Assessment results XML) and click the &#8220;Upload&#8221; button.  The OVAL Results will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.  Note that, depending on the size of the OVAL Results file, this import could take several minutes to complete, albeit asynchronously.</p>
+<p><strong>Benchmarks</strong></p>
+<p>To import a Benchmark XCCDF file, simply navigate to Collections &#8211;&gt; Benchmarks:</p>
+<p><img alt="" src="http://i.imgur.com/2HioSTk.png" /></p>
+<p>Once navigated to the Benchmarks List screen, click on the &#8220;Import Benchmark&#8221; button to display the file upload dialog.  Find and select the appropriate &#8220;-xccdf.xml&#8221; file and click the &#8220;Upload&#8221; button.  The Benchmark will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.</p>
+<p><strong>View</strong></p>
+<p>Once navigated to the Benchmarks List screen, the list of previously-imported benchmarks will be displayed in a table format:</p>
+<p><img alt="" src="http://i.imgur.com/5dHbm0k.png" /></p>
+<p>Each entry in the table represents a unique benchmark XCCDF document.  Benchmarks are uniquely identified by their internal ID and version number.  Therefore, there may be multiple instances of the CIS Microsoft Windows 7 benchmark, but with different version numbers, such as 1.0.0, 2.0.0, or 3.0.0.  Assessment results imported into CIS-CAT Pro Dashboard are associated with a specific version of a benchmark.</p>
+<p>Once a user selects a benchmark to view, he/she is taken to the benchmark home page:</p>
+<p><img alt="" src="http://i.imgur.com/N7TGgpw.png" /></p>
+<p>The benchmark home page details the title and version number of the selected benchmark, and continues to display the descriptive information relevant to the benchmark.  Following an expandable statement of the CIS terms of use, a list of assessment results based on that benchmark is displayed.  Each of the displayed results is a hyperlink allowing the user to navigate to previously imported assessment results.  Expandable &#8220;accordions&#8221; displaying profile information follow.  After the profile listing, assessed/recommended values are displayed, followed by the high-level groups.  Groups may contain other groups, or may contain rules, which outline the specific benchmark recommendations.</p>
+<p><img alt="" src="http://i.imgur.com/Wq45DYv.png" /></p>
+<p>Each group is expandable to display any sub-groups or recommendations contained within:</p>
+<p><img alt="" src="http://i.imgur.com/mQX7WJq.png" /></p>
+<p>Note the description, rationale, remediation, impact statements, any references, and any mapped CIS Critical Controls are also displayed to the user.  Also note that the benchmark content remains in a read-only state.  CIS-CAT Pro Dashboard is merely a repository for already assessed information.  Benchmark tailoring is beyond the scope of CIS-CAT Pro Dashboard.</p>
+<p><strong>Data Stream Collections</strong></p>
+<p>To import a SCAP 1.2 Data Stream Collection XML file, simply navigate to Collections &#8211;&gt; Data Stream Collection:</p>
+<p><img alt="" src="http://i.imgur.com/UiVppTm.png" /></p>
+</div>
+<div class="section" id="critical-controls">
+<span id="critical-controls"></span><h2>Critical Controls<a class="headerlink" href="#critical-controls" title="Permalink to this headline">¶</a></h2>
+<p>CIS Critical Controls information will be supplied with the initial version of the CIS-CAT Professional application/database.  This initial data load will contain information regarding the 20 Critical Controls and each respective sub-control.  Users may access controls information by selecting the &#8220;Critical Security Controls&#8221; menu item, in the main menu bar of the application:</p>
+<p><img alt="" src="http://i.imgur.com/PeJMrya.png" /></p>
+<p>Once navigated to the main controls &#8220;view&#8221; page, users have the ability to view information for each individual control:</p>
+<p><img alt="" src="http://i.imgur.com/c9f7aK2.png" /></p>
+<p><strong>View</strong></p>
+<p>Once a user navigates to the list of the 20 Critical Controls, he/she may click on any individual control to display specific information about that control, including the control description, objective, and list of applicable sub-controls:</p>
+<p><img alt="" src="http://i.imgur.com/k4cWifY.png" /></p>
+<p>For each control, any number of sub-controls may be listed.  Users can click on each individual sub-control to display a dialog box containing information about the sub-control:</p>
+<p><img alt="" src="http://i.imgur.com/QDnBCm0.png" /></p>
+</div>
 </div>
 
 
@@ -83,6 +310,16 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#user-administration">User Administration</a></li>
+<li><a class="reference internal" href="#users">Users</a></li>
+<li><a class="reference internal" href="#roles">Roles</a></li>
+<li><a class="reference internal" href="#security-functional-areas">Security Functional Areas</a></li>
+<li><a class="reference internal" href="#logging-in-user-profile">Logging In/User Profile</a></li>
+<li><a class="reference internal" href="#importing-cis-cat-assessor-results">Importing CIS-CAT Assessor Results</a></li>
+<li><a class="reference internal" href="#target-systems">Target Systems</a></li>
+<li><a class="reference internal" href="#reports">Reports</a></li>
+<li><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li><a class="reference internal" href="#reference-data-administration">&#8220;Reference&#8221; Data Administration</a></li>
+<li><a class="reference internal" href="#critical-controls">Critical Controls</a></li>
 </ul>
 </li>
 </ul>

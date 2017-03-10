@@ -43,7 +43,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="cis-cat-pro-dashboard-deployment-guide">
+  <p><img alt="" src="http://i.imgur.com/5yZfZi5.jpg" /></p>
+<div class="section" id="cis-cat-pro-dashboard-deployment-guide">
 <span id="cis-cat-pro-dashboard-deployment-guide"></span><h1>CIS-CAT Pro Dashboard Deployment Guide<a class="headerlink" href="#cis-cat-pro-dashboard-deployment-guide" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
 <div class="section" id="introduction">
@@ -74,9 +75,15 @@ Once Ubuntu 16.04 is installed, and a user can log in, run: sudo apt-get update,
 run: sudo apt-get install mysql-client, this will give you access to the mysql command
 From the MySQL database instructions above, note the hostname/ip of the database server as <hostname>, and the configured <username> and <password>
 run: mysql -h <hostname> -u <username> -p, you will then be prompted for the  <password>.
-if you see a mysql&gt; prompt, then you have successfully connected to the database.
-run: create schema <schemaname>;
-This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
+if you see a mysql&gt; prompt, then you have successfully connected to the database.</p>
+<p>run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">create</span> <span class="n">schema</span> <span class="n">ccpd</span><span class="p">;</span> 
+</pre></div>
+</div>
+<p>This will create a DB schema named &#8216;ccpd&#8217; for CIS-CAT Dashboard Pro data.</p>
+<p>At this point we recommend running following the steps in:
+<a class="reference external" href="./ciscat-pro-dashboard-database-script.html">CIS-CAT Pro Dashboard Database Script</a></p>
+<p>This will bootstrap in some reference data as well as the current versions of the CIS Benchmark content.  Having this data available via the script will improve initial import performance from CIS-CAT Pro Assessor.</p>
 </div>
 <div class="section" id="java-8">
 <span id="java-8"></span><h3>Java 8<a class="headerlink" href="#java-8" title="Permalink to this headline">¶</a></h3>
@@ -121,6 +128,7 @@ This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
 <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ccpd</span><span class="o">/</span><span class="n">LegacyError</span>
 </pre></div>
 </div>
+<p>The permissions on these files need to allow the tomcat user to read/write.  The user who will be managing the Legacy imports will need write access to the Legacy folder.</p>
 <p>Create the CIS-CAT Pro Dashboard runtime configuration file: <code class="docutils literal"><span class="pre">/opt/tomcat/ccpd-config.yml</span></code>, including the following lines:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vulnerability</span><span class="p">:</span>
     <span class="n">warningAgeInDays</span><span class="p">:</span> <span class="mi">90</span>
@@ -161,6 +169,7 @@ This will create a DB schema for CIS-CAT Dashboard Pro data.</p>
     <span class="n">errorDir</span><span class="p">:</span> <span class="s2">&quot;/opt/ccpd/LegacyError&quot;</span>
 </pre></div>
 </div>
+<p>This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with &lt;&gt;, with the specifics of your environment.</p>
 </div>
 <div class="section" id="mail-configuration">
 <span id="mail-configuration"></span><h3>Mail Configuration<a class="headerlink" href="#mail-configuration" title="Permalink to this headline">¶</a></h3>

@@ -1,3 +1,5 @@
+![](http://i.imgur.com/5yZfZi5.jpg)
+
 # CIS-CAT Pro Dashboard Deployment Guide #
 
 ----------
@@ -26,9 +28,18 @@ A MySQL client should be installed in order to test connectivity with the databa
 run: sudo apt-get install mysql-client, this will give you access to the mysql command
 From the MySQL database instructions above, note the hostname/ip of the database server as <hostname>, and the configured <username> and <password> 
 run: mysql -h <hostname> -u <username> -p, you will then be prompted for the  <password>.
-if you see a mysql> prompt, then you have successfully connected to the database. 
-run: create schema <schemaname>; 
-This will create a DB schema for CIS-CAT Dashboard Pro data.
+if you see a mysql> prompt, then you have successfully connected to the database.
+ 
+run: 
+
+	create schema ccpd; 
+
+This will create a DB schema named 'ccpd' for CIS-CAT Dashboard Pro data.
+
+At this point we recommend running following the steps in:
+[CIS-CAT Pro Dashboard Database Script](./ciscat-pro-dashboard-database-script.html)
+
+This will bootstrap in some reference data as well as the current versions of the CIS Benchmark content.  Having this data available via the script will improve initial import performance from CIS-CAT Pro Assessor.
 
 ### Java 8 ###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.
@@ -71,6 +82,8 @@ Establish a location for the 3 folders to enable legacy data imports:
     /opt/ccpd/LegacyProcessed
     /opt/ccpd/LegacyError
 
+The permissions on these files need to allow the tomcat user to read/write.  The user who will be managing the Legacy imports will need write access to the Legacy folder.
+
 Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-config.yml`, including the following lines:
 
     vulnerability:
@@ -110,6 +123,8 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 	    sourceDir: "/opt/ccpd/Legacy"
 	    processedDir: "/opt/ccpd/LegacyProcessed"
 	    errorDir: "/opt/ccpd/LegacyError"
+
+This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
 
 ### Mail Configuration ###
 CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  
