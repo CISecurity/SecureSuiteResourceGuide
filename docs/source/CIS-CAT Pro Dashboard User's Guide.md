@@ -28,7 +28,9 @@ Login as an administrator. (NOTE: By default the user: admin, with the password:
 - Deleting a user - Once you've navigated to the User view page you can delete a user by selecting the delete button.  A confirmation message will appear to allow you to insure you want to delete the user.  Once you click "yes", the user will be deleted
 
 ## Roles ##
-Roles in CIS-CAT Pro Dashboard are assigned to users, and allow access to functionality.  The role section is used for creating new roles, but you will need to add them to users and to Functional Areas in order for them to control access meaningfully.
+Roles in CIS-CAT Pro Dashboard are assigned to users, and allow access to functionality.  The role section is used for creating new roles, but you will need to add them to users and to Functional Areas in order for them to control access meaningfully.  
+
+**NOTE:** when creating a new role, you must prefix the name you chose with "ROLE_",  otherwise the role will be unrecognizable to spring security.
 
 A specific Role which has significance in a CIS-CAT Pro Assessor/Dashboard hybrid environment is the "ROLE_API" role.  This role is built in to an out-of-the-box CIS-CAT Pro Dashboard deployment and must exist in order to use CIS-CAT to upload results to the Dashboard application.  Once a user is assigned the "ROLE_API" role, the User's information page will display a button labeled "Generate CIS-CAT Authentication Token".  
 
