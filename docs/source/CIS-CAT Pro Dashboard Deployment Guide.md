@@ -55,6 +55,21 @@ Ensure that the Java version is displayed as `1.8.0_111` (or higher)
 ### Application Server ###
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
+Open `/opt/tomcat/conf/server.xml` and find this line:
+
+    <Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"/>
+
+and add the maxPostSize attribute:
+
+    <Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           maxPostSize="15728640"/>
+
+This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
+
 Open `/opt/tomcat/bin/catalina.sh` and add the following lines to the top of the file, which will add some environment variables that CIS-CAT Pro Dashboard requires to run.
 
     export CCPD_CONFIG_FILE="/opt/tomcat/ccpd-config.yml"
