@@ -55,6 +55,8 @@ Ensure that the Java version is displayed as `1.8.0_111` (or higher)
 ### Application Server ###
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
+**NOTE:** the tomcat version in the article is no longer available,  you will have to use this link to download in the curl command: [tomcat 8.5.12](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.12/bin/apache-tomcat-8.5.12.tar.gz)
+
 Open `/opt/tomcat/conf/server.xml` and find this line:
 
     <Connector port="8080" protocol="HTTP/1.1"
@@ -66,7 +68,7 @@ and add the maxPostSize attribute:
     <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
            redirectPort="8443"
-           maxPostSize="15728640"/>
+           maxPostSize="25728640"/>
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 
@@ -141,14 +143,6 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 
 This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
 
-**Security Considerations**
-
-We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user needs to be able to read the file.  We recommend limiting permissions to the file by running the following commands:
-
-	> sudo chown tomcat ccpd-config.yml
-	> sudo chgrp tomcat ccpd-config.yml
-	> sudo chmod 400 ccpd-config.yml
-
 ### Mail Configuration ###
 CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  
 
@@ -213,10 +207,22 @@ And the configuration for sending via a Yahoo account:
 			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
 			    mail.smtp.socketFactory.fallback: "false"
 
+**Security Considerations**
+
+We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user needs to be able to read the file.  We recommend limiting permissions to the file by running the following commands:
+
+	> sudo chown tomcat ccpd-config.yml
+	> sudo chgrp tomcat ccpd-config.yml
+	> sudo chmod 400 ccpd-config.yml
+
 ### Deploy WAR (Continued) ###
 Connect to the application server and transfer the `CCPD.war` to the `/opt/tomcat/webapps` directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.
 
 Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD`, into a browser.
+
+You may need to restart tomcat in order to complete the deployment,  you can do so using the following command
+
+	> sudo service tomcat restart
 
 CIS-CAT Pro Dashboard will bootstrap in a user with:
     username: admin, 
@@ -252,16 +258,19 @@ Execute the following commands to enable the proxy module:
     sudo a2enmod proxy
     sudo a2enmod proxy_ajp
     sudo a2enmod proxy_http
-    sudo apache2 restart
+    sudo service apache2 restart
 
 Execute the following commands to enable the reverse proxy to Tomcat:
-    sudo a2ensite shepherd.conf
+    sudo a2ensite ccpd.conf
     sudo service apache2 reload
 
 The Apache HTTP server should now be configured to serve requests to CIS-CAT Pro Dashboard.  The application should be available at the URL entered into your `ccpd-config.yml`: `http://<public url http server>/CCPD`
 
 ### Securing Web Traffic ###
 The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text.  It is recommended that traffic be secured using HTTPS.  The following article explains how to create a self-signed certificate and apply it to a web server in Ubuntu 16.04: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04)
+
+**NOTE:** 
+After completing the steps in the article, you will have to change your connector in ccpd.conf to use port 443 instead of port 80.
 
 ### Ensuring Trust ###
 In the browser's URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a "Not Secure" label next to the URL, the certificate is not trusted.  Click on the "Not Secure" link to display the certificate information:
