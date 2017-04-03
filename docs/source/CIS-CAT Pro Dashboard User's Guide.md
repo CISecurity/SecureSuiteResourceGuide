@@ -19,9 +19,9 @@ CIS-CAT Pro Dashboard leverages spring security to manage authentication and acc
 ## Users ##
 To create a new User in CIS-CAT Pro Dashboard you need to log in as an administrator. 
 
-Login as an administrator. (NOTE: By default the user: admin, with the password: admin has ROLE_ADMINISTRATOR)  Navigate to the Administration -> User Management -> User menu item.  This will navigate to the User List.
+Login as an administrator. (NOTE: By default the user: admin, with the password: @admin123 has ROLE_ADMINISTRATOR and ROLE_BASIC_USER)  Navigate to the Administration -> User Management -> User menu item.  This will navigate to the User List.
 
-- Creating a New User - On the user list, click the New User button.  On the create user screen, you enter a first and last name for your user, required unique username, a password, as well as selecting user roles for the user. The password must adhere to this format: at least one letter, number, and special character: !@#$%^&, and be between 8 and 64 characters in length.   
+- Creating a New User - On the user list, click the New User button.  On the create user screen, you enter a first and last name for your user, required unique username, a password, as well as selecting user roles for the user (all users must have ROLE_BASIC_USER). The password must adhere to this format: at least one letter, number, and special character: !@#$%^&, and be between 8 and 64 characters in length.   
 - Note that the password you enter is temporary. The user will be asked to change the password during their initial login. 
 - View an existing User - To view an existing user simply click on the users row in the table, this will navigate to the User view page.  From there you can see the various details about the user, as well as edit or delete the user.
 - Editing an existing user - Once you've clicked on an existing user and navigate to the view page, you can edit that user by selecting the edit button.  On the edit page you can change the users first and last name,  change their password, enable/disable their account, or change their user roles
