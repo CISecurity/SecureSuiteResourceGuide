@@ -304,3 +304,21 @@ The user should be prompted to enter the keystore credentials.  By default, this
 Answering `yes` to this confirmation prompt will import the certificate into the trust store.
 
 **NOTE**:  If the application server is currently running, it must be restarted in order to incorporate the trust store.
+
+###Upgrading from a previous version###
+
+To upgrade from an earlier version of CCPD:
+
+1) stop your application server.  if you followed the deployment guide that would be tomcat, and you would stop with:  
+
+	sudo service tomcat stop
+
+2) copy the new CCPD.war into the tomcat/webapps directory.
+
+3) Start the application server:  
+
+	sudo service tomcat start
+
+That will redeploy the new war over the old application.  CCPD has a bootstrap initialization script that will run on its first deployment that will make necessary data changes.
+
+If there are any additional upgrading steps specific to a release version, information about those steps will be included in that versions README.txt
