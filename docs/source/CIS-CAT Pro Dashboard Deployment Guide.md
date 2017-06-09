@@ -104,44 +104,147 @@ The permissions on these files need to allow the tomcat user to read/write.  The
 Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-config.yml`, including the following lines:
 
     vulnerability:
-    	warningAgeInDays: 90
-    ---
-    environments:
+    warningAgeInDays: 90
+	---
+	legacy: 
+	    sourceDir: "<path_to_legacy>/Legacy"
+	    processedDir: "<path_to_legacy>/LegacyProcessed"
+	    errorDir: "<path_to_legacy>/LegacyError"
+	---
+	environments:
 	    production:
-		    grails:
-		    	serverURL: 'http://<public url of application server>/CCPD'
-		    server:
-		    	'contextPath': '/CCPD'
-		    dataSource:
-			    dbCreate: update
-			    url: jdbc:mysql://<hostname/IP of database server>:<port>/ccpd
-			    username: <database username>
-			    password: <database password>
-			    properties:
-				    jmxEnabled: true
-				    initialSize: 5
-				    maxActive: 50
-				    minIdle: 5
-				    maxIdle: 25
-				    maxWait: 10000
-				    maxAge: 600000
-				    timeBetweenEvictionRunsMillis: 5000
-				    minEvictableIdleTimeMillis: 60000
-				    validationQuery: SELECT 1
-				    validationQueryTimeout: 3
-				    validationInterval: 15000
-				    testOnBorrow: true
-				    testWhileIdle: true
-				    testOnReturn: false
-				    jdbcInterceptors: ConnectionState
-				    defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
-    ---
-    legacy:
-	    sourceDir: "/opt/ccpd/Legacy"
-	    processedDir: "/opt/ccpd/LegacyProcessed"
-	    errorDir: "/opt/ccpd/LegacyError"
+	        grails:
+	                serverURL: 'http://<url_of_apache_or_tomcat>:8080/CCPD' #if apache is not set up, only tomcat
+	                #serverURL: 'http://<url_of_apache_or_tomcat>/CCPD' #if apache is set up use
+	                #serverURL: 'https://<url_of_apache_or_tomcat>/CCPD' #if HTTPS is set up use
+	        server:
+	            'contextPath': '/CCPD'
+	        dataSource:
+	            dbCreate: update
+	
+	            #MySQL DB Settings
+	
+	            driverClassName: com.mysql.cj.jdbc.Driver
+	            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+	            url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+	            username: <db_user>
+	            password: <db_password>
+	
+	            #SQL Server DB Setting
+	
+	            # driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+	            # dialect: org.hibernate.dialect.SQLServer2008Dialect
+	            # url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
+	            # username: <db_user>
+	            # password: <db_password>
+	
+	            #Oracle DB Settings
+	
+	            # driverClassName: oracle.jdbc.OracleDriver
+	            # dialect: org.hibernate.dialect.Oracle10Dialect
+	            # url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
+	            # username: <db_user>
+	            # password: <db_password>
+	
+	            properties:
+	                  jmxEnabled: true
+	                  initialSize: 5
+	                  maxActive: 50
+	                  minIdle: 5
+	                  maxIdle: 25
+	                  maxWait: 10000
+	                  maxAge: 600000
+	                  #validationQuery: SELECT 1 from DUAL #ORACLE
+                  	  validationQuery: SELECT 1 #Non-Oracle
+	                  validationQueryTimeout: 3
+	                  validationInterval: 15000
+	                  dbProperties:
+	                        autoReconnect: true
+	
+	grails:
+	    mail:
+	        host: <smtp server host name>
+	        port: 465
+	        username: <username>
+	        password: <password>
+	        props:
+	            mail.transport.protocol: "smtps"
+	            mail.smtp.port: "465"
+	            mail.smtp.auth: "true"
+	            mail.smtp.starttls.enable: "true"
+	            mail.smtp.starttls.required: "true"
+	
+	database: MySQL
+	#database: SQLServer
+	#database: Oracle
+
 
 This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
+
+### Database Configuration ###
+By default the ccpd-config.yml is configured to utilize a MySQL database.  Starting with version v1.0.3 you will be able to use MS SQL Server and Oracle Databases as well.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:
+
+**SQL Server**
+
+You will need to comment out the MySQL configuration and uncomment the SQL Server Section:
+
+	#MySQL DB Settings
+	
+    # driverClassName: com.mysql.cj.jdbc.Driver
+    # dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    # url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+    # username: <db_user>
+    # password: <db_password>
+
+    #SQL Server DB Setting
+
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    dialect: org.hibernate.dialect.SQLServer2008Dialect
+    url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
+    username: <db_user>
+    password: <db_password>
+
+Then enter the connection information appropriate to your SQL Server database.
+
+At the very bottom of the file comment out the database entry for MySQL and uncomment the entry for SQL Server:
+
+	#database: MySQL
+	database: SQLServer
+	#database: Oracle
+
+
+**Oracle**
+
+You will need to comment out the MySQL configuration and uncomment the SQL Server Section:
+
+	#MySQL DB Settings
+	
+    # driverClassName: com.mysql.cj.jdbc.Driver
+    # dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    # url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+    # username: <db_user>
+    # password: <db_password>
+
+    #Oracle DB Settings
+	
+    driverClassName: oracle.jdbc.OracleDriver
+    dialect: org.hibernate.dialect.Oracle10Dialect
+    url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
+    username: <db_user>
+    password: <db_password>
+
+Then enter the connection information appropriate to your Oracle database.
+
+At the very bottom of the file comment out the database entry for MySQL and uncomment the entry for Oracle:
+
+	#database: MySQL
+	#database: SQLServer
+	database: Oracle
+
+You will also need to comment out the validationQuery in the dataSource properties, and replace it with the one appropriate to Oracle:
+
+	validationQuery: SELECT 1 from DUAL #ORACLE
+	#validationQuery: SELECT 1 #Non-Oracle
 
 ### Mail Configuration ###
 CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  

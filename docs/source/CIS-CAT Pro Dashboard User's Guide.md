@@ -156,11 +156,11 @@ Simply enter the Hostname and click Add Target,  this will create a new target s
 
 **Tagging**
 
-Tags can be used to organize Target Systems into groups.  A Target System can have any number of Tags which can signify a couple of things within CIS-CAT Pro Dashboard.  Tags can be used to search for a group of systems that have a specific tag or group of tags, or one tag but not another.  Assessment rules can be "excepted" by tag, so that all Target Systems with that tag exclude the results of the rule from their scoring results on assessment reports.  Dashboards can be viewed by tag, so that user's can see how a specifically tagged group of endpoints is complying with CIS benchmarks.
+Tags can be used to organize various system entities into groups, such as Target Systems, Users, Roles, or Exceptions.  A n entity can have any number of Tags which can signify a couple of things within CIS-CAT Pro Dashboard.  Tags can be used to search for entities that have a specific tag or group of tags, or one tag but not another.  Dashboards can be viewed by tag, so that user's can see how a specifically tagged group of endpoints is complying with CIS benchmarks.  Alerts and Workflow Tasks can be sent to Users by tag, so that a group of tagged users will all receive the alert or task.
 
 **Creation**
 
-Once a Target System is created you can navigate to it's view page by clicking on the Target's row on the Target System List Page:
+Once a taggable system entity is created you can navigate to it's view page by clicking on the entity's row on the List Page, lets look at Target Systems as an example:
 
 
 ![](http://i.imgur.com/KjlNHvP.png)
@@ -168,6 +168,8 @@ Once a Target System is created you can navigate to it's view page by clicking o
 Once navigated to the view page, users can manage the Targets tags by simply typing in the Tag box, or deleting from the tag box:
 
 ![](http://i.imgur.com/ygcH1Gn.png)
+
+Tagging works the same for other taggable entities, such as Users and Exceptions.
 
 **Searching**
 
@@ -179,7 +181,7 @@ Once tagged, you can use individual tags, or logical combinations of tags to sea
 
   * **"and" operator** by default the "and" operator is selected.  This means that if you type multiple tags into the Include Tags box,  the resulting systems would need to contain ALL of the tags in the Include Tags box.  i.e.  If you typed in "PCI" and "Workstation"  all systems with BOTH of those tags would be returned.  If a system only contained the "PCI" tag, it would not be returned.
 
-  * **"or" operator** -  The "or" operator can be selected using the available radio button.  When selected, if you type multiple tags into the Include Tags box, the resulting systems would need to contain ANY of the tags listed in the Include Tags box.  i.e.  if you typed in "PCI" and "Workstation"  all systems with EITHER of those tags would be returned.  If a system only contaned the "PCI" tag, it would be in the result set.
+  * **"or" operator** -  The "or" operator can be selected using the available radio button.  When selected, if you type multiple tags into the Include Tags box, the resulting systems would need to contain ANY of the tags listed in the Include Tags box.  i.e.  if you typed in "PCI" and "Workstation"  all systems with EITHER of those tags would be returned.  If a system only contained the "PCI" tag, it would be in the result set.
 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
@@ -191,18 +193,35 @@ CIS-CAT Pro Dashboard reports provide a variety of views of CIS-CAT Assessment R
 The individual test results report provides a complete picture of a given Target System's compliance with a CIS benchmark at a single point in time.  This report was designed to mimic the functionality of the HTML version of the CIS-CAT Security Configuration Assessment Results report.
 
 
+ **Navigation** - there are several ways to navigate to the Test Results Report.  Under the reports menu, you can click the Assessment Results List menu item.  From the list, you can select the individual assessment result that you would like to view.  You can also navigate to an individual target system, and listed in the Results box are all of the benchmarks for which the current target has results stored in the database.  Clicking one of the benchmarks, will open the list of all the results for that target and that benchmark,  from there you can select an individual result.  Finally you can Navigate to the individual benchmarks, there is a results section which contains all the results in that system for that particular benchmark.
 
-1. **Navigation** - there are several ways to navigate to the Test Results Report.  Under the reports menu, you can click the Assessment Results List menu item.  From the list, you can select the individual assessment result that you would like to view.  You can also navigate to an individual target system, and listed in the Results box are all of the benchmarks for which the current target has results stored in the database.  Clicking one of the benchmarks, will open the list of all the results for that target and that benchmark,  from there you can select an individual result.  Finally you can Navigate to the individual benchmarks, there is a results section which contains all the results in that system for that particular benchmark.
+
+![](http://i.imgur.com/lcbqQud.png)
+
+1. **Results View** - the results view shows the test result in the same structure as the original benchmark.  The results for each recommendation are organzied into the groups the same way as the benchmark.  Each group and subgroup is scored individually as a tally of all the rules contained within.  This is a dynamic version of the old CIS-CAT HTML report.  Users can also manage Exceptions to rules from this view (see below).
+  
 2. **Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Critical Security Controls View.  In this view each of the 20 Critical Controls as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
-3. **Exceptions** - The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
+
+3. **Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
+
+**Exceptions** - The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
+
   * **Creation** -  To create an exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an "Add Exception" button.  If exceptions already exist for the rule, they will be displayed in a table, along with the "Add Exception" button.  
   ![](http://i.imgur.com/WqLpJzm.png)
   Click this button, and the exception creation dialog will be displayed:
   ![](http://i.imgur.com/W1TPu5g.png)
 
-   		By default the start date is set to the end time of the assessment report that you are currently viewing,  this would make an exception you create apply to this specific report, as well as any assessments that post date this report.  You can modify the date to apply to any time period you like.  Also required on this dialog is a rationale,  you must enter the reason you are creating an exception for this rule.  By default, any exception created will apply only to the target system that you are currently reviewing results for.  You can also check the global checkbox to make the exception apply to all target systems in your environment.  You can also enter any number of tags into the tag checkbox,  the exception will then apply to any target system that has any of the entered tags.  These are different ways to scope the exception.
+	By default the start date is set to the end time of the assessment report that you are currently viewing,  this would make an exception you create apply to this specific report, as well as any assessments that post date this report.  You can modify the date to apply to any time period you like.  Also required on this dialog is a rationale,  you must enter the reason you are creating an exception for this rule.  By default, any exception created will apply only to the target system that you are currently reviewing results for.  You can also check the global checkbox to make the exception apply to all target systems in your environment.  You can also enter any number of tags into the tag checkbox,  the exception will then apply to any target system that has any of the entered tags.  These are different ways to scope the exception.
 
-  * **End Date** - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and only apply to assessment results that have an end time which falls between the start and end date of the exception.
+  *	**Approval** - Once an exception is created it must be approved by a user with ROLE_ADMIN.  On creation, an exception will enter pending status, and, by default, a task will be created for all users with ROLE_ADMIN and sent to their user Inbox.  This task will allow the administrators to review the exception request and accept or reject the exception.
+  ![](http://i.imgur.com/AOyj8Mw.png)
+	If the exception is approved, it will take effect for the time period and targets specified.  If it is rejected, it will be ignore.  Either way,  the user who requested the exception will be notified of the result via an alert sent to their user inbox.
+
+  * **End Date** - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and on
+  * **Viewing Exceptions** -  there are several ways to view exceptions in the application:
+	  * Exception List on Test Results - described above, there is a tab on each test result showing all the exceptions that apply to that system
+	  * Target System Exceptions List - on each target systems view page there is a list of exceptions that apply to that target.
+	  * Exception Search - in the report menu there is an Exception Search option which allows users to search for exceptions by: hostname, benchmark, date range, or tag.
 
  
 **Remediation Report**
@@ -263,7 +282,7 @@ The tag view allows you to aggregate compliance results for a group of target sy
 
  
 ## "Reference" Data Administration ##
-Users assigned (currently) the ROLE_DEVELOPER user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.
+Users assigned (currently) the ROLE_CIS user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.
 
 In general, CIS content will be delivered using one of four structures:
 
