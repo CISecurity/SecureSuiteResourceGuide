@@ -72,7 +72,44 @@ Clicking the Edit Profile button from the user's profile opens a dialog allowing
 ![](http://i.imgur.com/uxSQfmO.png)
 
 Making changes to this dialog and clicking Save will update the user's information.
+
+The user profile screen also features a list of Alerts that the user is currently subscribed to, as a well as why they are subscribed to that alert type:
+
+![](http://i.imgur.com/Jku7pgm.png)
+
+From this list users can choose to opt out of any of the alert types that they are receiving.
+
+##User Inbox##
+
+The Use Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
+
+![](http://i.imgur.com/cRWtZeH.png)
+
+The inbox features serveral views, which can be navigated to using the tabs on the left hand side:
+
+ - **Inbox** - has all new alerts and tasks that have not been deleted or completed.  Unread messages will appear in white with bold text
+ - **Unread** - contains only unread messages
+ - **Trash** - contains deleted messages
+ - **Completed Tasks** - contains tasks that have already been worked
+ - **All** - contains all messages
  
+Clicking on the messages in any of the lists will pop up a dialog displaying the message.  Clicking on the delete button in the list will move the message to the trash folder.
+ 
+##Alert Management##
+
+In the Administration menu there is an option for Alerts.
+
+![](http://i.imgur.com/E7sGpvV.png)
+
+This will navigate to the alert list, where you can select an alert to bring up the show Alert page where alerts can be managed.
+
+![](http://i.imgur.com/7zqyySg.png)
+
+The important feature of this page is the configurable recipient list.  This shows all the users that are configured to receive the alert, why they are, either directly, by a role they have assigned, or by a tag they have assigned.  Users can then use the Receiving Users, Receiving Roles, and Receiving Tags list to manage who will receive an alert.
+
+The Recipient list also shows which users have opted out of the alert type.
+
+
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
 
@@ -279,7 +316,6 @@ If you only select a single device, you can switch to the single device view.  T
 The tag view allows you to aggregate compliance results for a group of target systems with the same tag, or with multiple tags.  Each tag entered will be represented by a single line, so that you could compare results accross multiple tags.
 
 ![](http://i.imgur.com/dm0LQK0.png)
-
  
 ## "Reference" Data Administration ##
 Users assigned (currently) the ROLE_CIS user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.
