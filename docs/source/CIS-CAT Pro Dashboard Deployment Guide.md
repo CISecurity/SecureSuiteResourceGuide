@@ -235,6 +235,10 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 Then enter the connection information appropriate to your Oracle database.
 
+**NOTE:** It is important for the timezone on the application server and the database server to be the same.  If this is not the case in your environment you can set the timezone of the database connection using a jdbc option:
+
+	jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>?useLegacyDatetimeCode=false&serverTimezone=<3-letter-timezone>
+
 At the very bottom of the file comment out the database entry for MySQL and uncomment the entry for Oracle:
 
 	#database: MySQL
@@ -358,12 +362,14 @@ Create a file named `ccpd.conf` in the following directory: `/etc/apache2/sites-
 The `ServerName` should be the `<public url of application server>`
 
 Execute the following commands to enable the proxy module:
+
     sudo a2enmod proxy
     sudo a2enmod proxy_ajp
     sudo a2enmod proxy_http
     sudo service apache2 restart
 
 Execute the following commands to enable the reverse proxy to Tomcat:
+
     sudo a2ensite ccpd.conf
     sudo service apache2 reload
 

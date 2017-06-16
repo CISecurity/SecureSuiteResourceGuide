@@ -35,7 +35,7 @@ Ensure the "Execute" permission is granted to "Authenticated Users" on the CIS\c
 
 **Update cis-cat-centralized-ccpd.bat**
 
-The following information describes various configurable items contained inside the script, which must be set appropriately for CIS-CAT results to be uploaded to CIS-CAT Pro Dashboard.
+The following information describes various configurable items contained inside the script, which must be set appropriately for CIS-CAT results to be uploaded to CIS-CAT Pro Dashboard.  If you want to use the CIS-CAT.bat/sh file you can set many of these properties in the misc/ciscat.properties file.
  
 Line 27:
 
@@ -121,6 +121,12 @@ The setting for Authentication Token is a key piece of the integrations between 
 
 Once the authentication token is generated in CIS-CAT Pro Dashboard, it MUST be copied into this setting in order for the upload functionality to work.
  
+**NOTE:** By default there is a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123.  In order to generate the token correctly, you must:
+
+ 1. Login once as the apiuser and reset the temporary default password.  
+ 2. Login as an administrator and navigate to the user management page for the apiuser.
+ 3. Generate the token using the new password you assigned to the apiuser.
+
 Line 118:
 
 	SET Benchmark=CIS_Microsoft_Windows_Server_2003_Benchmark_v3.1.0-xccdf.xml
