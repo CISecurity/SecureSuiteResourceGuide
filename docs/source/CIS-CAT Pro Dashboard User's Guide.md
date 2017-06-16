@@ -83,6 +83,10 @@ From this list users can choose to opt out of any of the alert types that they a
 
 The Use Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
 
+![](http://i.imgur.com/qMJo1jH.png)
+
+The bubble next to the Inbox will indicate how many unread messages you have.
+
 ![](http://i.imgur.com/cRWtZeH.png)
 
 The inbox features serveral views, which can be navigated to using the tabs on the left hand side:
@@ -94,6 +98,25 @@ The inbox features serveral views, which can be navigated to using the tabs on t
  - **All** - contains all messages
  
 Clicking on the messages in any of the lists will pop up a dialog displaying the message.  Clicking on the delete button in the list will move the message to the trash folder.
+
+**Sending Manual Alerts**
+
+You can send a custom alert to any user or group of users in the system by clicking the Send button:
+
+![](http://i.imgur.com/SNb9450.png)
+
+This will open the manual alert dialog,  from here you can select the recipients you want and add a title and message to the alert:
+
+![](http://i.imgur.com/o0lm3XK.png)
+
+When complete click "Send" and your message will go to the inbox's of the selected recipients.
+
+**Alert Types** - There are serveral different types of messages that you can receive in your inbox:
+
+ - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task
+ - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
+ - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
+ - **Manual** - A manual message was sent directly to you by another user.
  
 ##Alert Management##
 
@@ -109,6 +132,7 @@ The important feature of this page is the configurable recipient list.  This sho
 
 The Recipient list also shows which users have opted out of the alert type.
 
+**NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
 
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
@@ -210,9 +234,9 @@ Tagging works the same for other taggable entities, such as Users and Exceptions
 
 **Searching**
 
-Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.
+Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by hostname.
 
-![](http://i.imgur.com/etZxLJC.png)
+![](http://i.imgur.com/EaITGHP.png)
 
 - **Include Tags** - type into the include tags list the tags you would like to see in the search results.  i.e.  if you would like to see target systems with the "PCI" tag, simply type it in the box and click search.
 
@@ -225,7 +249,7 @@ Once tagged, you can use individual tags, or logical combinations of tags to sea
 ## Reports ##
 CIS-CAT Pro Dashboard reports provide a variety of views of CIS-CAT Assessment Results.  An individual Test Results Report provides the same view as the legacy HTML report from CIS-CAT, with some enhanced features, including a controls based view, and the ability to create exceptions for specific rules.  The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate misconfigurations on the target.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
 
-**Test Results Report**
+**Assessment Results**
 
 The individual test results report provides a complete picture of a given Target System's compliance with a CIS benchmark at a single point in time.  This report was designed to mimic the functionality of the HTML version of the CIS-CAT Security Configuration Assessment Results report.
 
@@ -240,8 +264,31 @@ The individual test results report provides a complete picture of a given Target
 2. **Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Critical Security Controls View.  In this view each of the 20 Critical Controls as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
 
 3. **Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
+ 
+**Remediation Report**
 
-**Exceptions** - The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
+The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.
+
+![](http://i.imgur.com/41lCoBa.png)
+
+You can then use the "Selected" checkboxes to choose which Assessment Results you would like to appear on the report.  Once you have the correct results you select the "Remediation Report" button and the report will be generated.
+
+![](http://i.imgur.com/21ZzQIg.png)
+
+The report lists the target system, the benchmark, the rule number and title, and the remediation steps for each failed result.  Users can then utilize the buttons in the upper right side of the screen to export the report in a variety of formats.
+
+**Complete Results Report**
+
+The complete results report will give you a full view of a target system or group of target systems compliance accross multiple CIS benchmarks.  Similar to the Remediation Report, you search for target systems,  select the ones you would like to see complete results for, then generate the report. 
+
+![](http://i.imgur.com/KHBEHdb.png)
+
+The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
+
+![](http://i.imgur.com/Q9CmiC0.png)
+
+## Exceptions ##
+The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
 
   * **Creation** -  To create an exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an "Add Exception" button.  If exceptions already exist for the rule, they will be displayed in a table, along with the "Add Exception" button.  
   ![](http://i.imgur.com/WqLpJzm.png)
@@ -256,32 +303,11 @@ The individual test results report provides a complete picture of a given Target
 
   * **End Date** - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and on
   * **Viewing Exceptions** -  there are several ways to view exceptions in the application:
-	  * Exception List on Test Results - described above, there is a tab on each test result showing all the exceptions that apply to that system
-	  * Target System Exceptions List - on each target systems view page there is a list of exceptions that apply to that target.
-	  * Exception Search - in the report menu there is an Exception Search option which allows users to search for exceptions by: hostname, benchmark, date range, or tag.
+	  * **Exception List on Test Results** - described above, there is a tab on each test result showing all the exceptions that apply to that system
+	  * **Target System Exceptions List** - on each target systems view page there is a list of exceptions that apply to that target.
+	  * **Exception Search** - in the report menu there is an Exception Search option which allows users to search for exceptions by: hostname, benchmark, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
+	  ![](http://i.imgur.com/jmRrgDQ.png)
 
- 
-**Remediation Report**
-
-The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.
-
-![](http://i.imgur.com/z3kU2QF.png)
-
-You can then use the "Selected" checkboxes to choose which Assessment Results you would like to appear on the report.  Once you have the correct results you select the "Remediation Report" button and the report will be generated.
-
-![](http://i.imgur.com/21ZzQIg.png)
-
-The report lists the target system, the benchmark, the rule number and title, and the remediation steps for each failed result.  Users can then utilize the buttons in the upper right side of the screen to export the report in a variety of formats.
-
-**Complete Results Report**
-
-The complete results report will give you a full view of a target system or group of target systems compliance accross multiple CIS benchmarks.  Similar to the Remediation Report, you search for target systems,  select the ones you would like to see complete results for, then generate the report. 
-
-![](http://i.imgur.com/K2Z6tOR.png)
-
-The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
-
-![](http://i.imgur.com/Q9CmiC0.png)
 
 ## Dashboard ##
 The CIS-CAT Pro Dashboard application's dashboard views provide a high level overview of organizational compliance with CIS Benchmarks.  There are several views, which comprise different aggregation levels which produce a graph that represents compliance over time.  The default views show all of the compliance results for the aggregation group selected, i.e.  "Overview" is all of your target systems for all benchmarks,  The "Benchmark View" is by benchmark,  the "Tag View" is all systems with a specific tag or set of tags.  Each point on the graph is an average score for the month.  Each of the points can be clicked to "drill-down" into the Monthly view.  This view has a point for each day in the selected month that has results.  Each of these points can be clicked on to drill down to that specific day,  which will display points for each time you have an assessment result.  The points on the daily view will take you straight to the individual assessment result that produced the score.  This way you can navigate from a very high level view of your compliance data, all the way to the details,  the individual assessment reports that comprise the high level graphical information.
