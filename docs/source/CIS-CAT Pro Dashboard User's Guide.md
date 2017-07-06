@@ -126,7 +126,7 @@ This will open the manual alert dialog,  from here you can select the recipients
 
 When complete click "Send" and your message will go to the inbox's of the selected recipients.
 
-**Alert Types** - There are serveral different types of messages that you can receive in your inbox:
+**Alert Types** - There are several different types of messages that you can receive in your inbox:
 
  - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task.  Unread tasks will appear with <span style="color:darkorange">orange</span> text to make them visually distinct from other alert types
  - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
