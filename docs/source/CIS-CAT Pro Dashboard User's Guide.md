@@ -75,13 +75,29 @@ Making changes to this dialog and clicking Save will update the user's informati
 
 The user profile screen also features a list of Alerts that the user is currently subscribed to, as a well as why they are subscribed to that alert type:
 
-![](http://i.imgur.com/Jku7pgm.png)
+![](http://i.imgur.com/s4khpxq.png)
 
 From this list users can choose to opt out of any of the alert types that they are receiving.
 
+## User Favorites ##
+Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, user favorites or logging out of the application:
+
+![](http://i.imgur.com/Nkg41eh.png)
+
+Click on the Favorites link to navigate to the user favorites:
+
+![](http://i.imgur.com/9qaVVS0.png)
+
+Users can maintain a list of preferred benchmarks and target systems. 
+ 
+In this page, you can add/delete favorite benchmarks as well as favorite target systems.
+
+In Benchmark view (Dashboards), you can select benchmarks from your list of favorite benchmarks that you would like to see results for.
+This is the same for Target System view. 
+
 ##User Inbox##
 
-The Use Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
+The User Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
 
 ![](http://i.imgur.com/qMJo1jH.png)
 
@@ -316,26 +332,34 @@ The CIS-CAT Pro Dashboard application's dashboard views provide a high level ove
 
 The overview contains a fully aggregated view of all endpoints across all benchmarks:
 
-![](http://i.imgur.com/tB4uO1d.png)
+![](http://i.imgur.com/50l14Tg.png)
 
 **Benchmark View**
 
-The benchmark view has results aggregated by benchmark.  You can select any number of benchmarks that you would like to see results for.  Each benchmark selected will be represented by a separate line on the graph.  This allows you to compare compliance against various CIS Benchmarks.
+The benchmark view has results aggregated by benchmark.  You can select any number of benchmarks from your list of favorite benchmarks that you would like to see results for.  Each benchmark selected will be represented by a separate line on the graph.  This allows you to compare compliance against various CIS Benchmarks.
+In this view, you can also add/delete favorite benchmarks.
 
-![](http://i.imgur.com/FCUQxHx.png)
+![](http://i.imgur.com/CvvwBjV.png)
 
-**Device View**
+**Target System View**
 
-The device view has the results aggregated by individual device.  The default device view is the Multi-device view, which allows you to select many target systems and compare their aggregated results.
+The target system view has the results aggregated by individual target system.  The default target system view is the Multiple Target System view, which allows you to select many target systems from your list of favorite target systems and compare their aggregated results. In this view, you can also add/delete favorite target systems.
 
-![](http://i.imgur.com/wJVLA4t.png)
+![](http://i.imgur.com/ENSkpTy.png)
+
+**Target System Search View**
+
+Click on "Switch to Search View" link to navigate to Target System Search View.
+This view allows you to search many target systems by criteria and compare their aggregated results.
+
+![](http://i.imgur.com/HKXYjsb.png)
 
 
-**Device by Benchmark View**
+**Target System by Benchmark View**
 
-If you only select a single device, you can switch to the single device view.  This will allow you to select the benchmarks that have assessment results for the selected target system and compare the benchmark compliance for just a single target.  This allows you to see potentially which benchmarks are reducing the compliance score for a single system
+If you only select a single target system, you can switch to the single target system view.  This will allow you to select the benchmarks that have assessment results for the selected target system and compare the benchmark compliance for just a single target.  This allows you to see potentially which benchmarks are reducing the compliance score for a single system.
 
-![](http://i.imgur.com/r92Iy5U.png)
+![](http://i.imgur.com/r6wUwFT.png)
 
 **Tag View**
 
