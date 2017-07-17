@@ -149,6 +149,50 @@ The Recipient list also shows which users have opted out of the alert type.
 
 **NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
 
+##Primary Identifier Type##
+
+When assessment results are imported,  CIS-CAT Pro Dashboard creates a new target system to represent the assessed endpoint.  Subsequent imports for the target will be associated with the same target system.  The assessment results has several different identifier types that are imported.  By default, target systems within CIS-CAT Pro Dashboard are primarily identified by hostname.  This means, where ever you see a target system in a list, or a search result,  the identifier you see is the hostname.  The primary identifier however can be configured, either at the CIS-CAT Pro Dashboard application level or on each individual target system.
+
+To change the primary identifier type at the CCPD Application level, navigate to the system settings menu administrative menu option:
+
+![](http://i.imgur.com/btCpBzZ.png)
+
+Once on the System Settings page,  find the "primarySystemIdentifierType" option:
+
+![](http://i.imgur.com/Lq7hvQ1.png)
+
+Click on the edit action to bring up the Primary System Identifier Type dialog:
+
+![](http://i.imgur.com/SIZwgX4.png)
+
+Select the ID type from the drop down, then chose the option you would like to for existing data:
+
+ - **Leave Existing values.** - this option will leave all the existing target systems as they are.  Going forward, new systems that are imported will receive the new primary ID type.
+ - **Change Primary Only.** - this option will only change the primary id type for target systems that have the old primary ID type set as they're primary id.  This option should be used if there are some systems that have a custom primary ID type that is different then the system default.
+ - **Change All.** - This will change all of the existing primary ID types to the new type, regardless of system level customization.
+
+**Custom Identifier types**
+
+CIS-CAT Pro Dashboard has several identifier types that are imported with test results:  hostname, fqdn, ip4, ip6, and MAC Address.  An organization can add custom identifier types via the System Identifier Type Administrative menu option:
+
+![](http://i.imgur.com/5GF7lMG.png)
+
+Once on the System Identifier Type screen you can add additional types:
+
+![](http://i.imgur.com/dSE2yGL.png)
+
+The Display value is what the ID type will appear like on screen,  the code is a backend value for using the identifier in code.
+
+Once this type is in the system, you can the begin assigning them to target systems via the Add Identifier button on the Target System Screen:
+
+![](http://i.imgur.com/XWADjL4.png)
+
+The add identifier dialog allows you to select a type, enter a value, and determine whether this is the primary Identifier for this specific target system:
+
+![](http://i.imgur.com/5XwiaaG.png)
+
+A target system must always have one and only one primary identifier.  As such,  if you assign an identifier as primary,  all other identifiers marked primary will be marked as non-primary automatically.
+
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
 
@@ -230,7 +274,7 @@ Once there, you can select the "New Target System" button, which will open the c
 
 Simply enter the Hostname and click Add Target,  this will create a new target system.
 
-**Tagging**
+##Tagging##
 
 Tags can be used to organize various system entities into groups, such as Target Systems, Users, Roles, or Exceptions.  A n entity can have any number of Tags which can signify a couple of things within CIS-CAT Pro Dashboard.  Tags can be used to search for entities that have a specific tag or group of tags, or one tag but not another.  Dashboards can be viewed by tag, so that user's can see how a specifically tagged group of endpoints is complying with CIS benchmarks.  Alerts and Workflow Tasks can be sent to Users by tag, so that a group of tagged users will all receive the alert or task.
 
@@ -249,9 +293,9 @@ Tagging works the same for other taggable entities, such as Users and Exceptions
 
 **Searching**
 
-Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by hostname.
+Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by Primary ID.
 
-![](http://i.imgur.com/EaITGHP.png)
+![](http://i.imgur.com/wGx4CMT.png)
 
 - **Include Tags** - type into the include tags list the tags you would like to see in the search results.  i.e.  if you would like to see target systems with the "PCI" tag, simply type it in the box and click search.
 
@@ -271,8 +315,7 @@ The individual test results report provides a complete picture of a given Target
 
  **Navigation** - there are several ways to navigate to the Test Results Report.  Under the reports menu, you can click the Assessment Results List menu item.  From the list, you can select the individual assessment result that you would like to view.  You can also navigate to an individual target system, and listed in the Results box are all of the benchmarks for which the current target has results stored in the database.  Clicking one of the benchmarks, will open the list of all the results for that target and that benchmark,  from there you can select an individual result.  Finally you can Navigate to the individual benchmarks, there is a results section which contains all the results in that system for that particular benchmark.
 
-
-![](http://i.imgur.com/lcbqQud.png)
+![](http://i.imgur.com/cFmqLPb.png)
 
 1. **Results View** - the results view shows the test result in the same structure as the original benchmark.  The results for each recommendation are organzied into the groups the same way as the benchmark.  Each group and subgroup is scored individually as a tally of all the rules contained within.  This is a dynamic version of the old CIS-CAT HTML report.  Users can also manage Exceptions to rules from this view (see below).
   
@@ -284,7 +327,7 @@ The individual test results report provides a complete picture of a given Target
 
 The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.
 
-![](http://i.imgur.com/41lCoBa.png)
+![](http://i.imgur.com/pUJpXoX.png)
 
 You can then use the "Selected" checkboxes to choose which Assessment Results you would like to appear on the report.  Once you have the correct results you select the "Remediation Report" button and the report will be generated.
 
@@ -296,7 +339,7 @@ The report lists the target system, the benchmark, the rule number and title, an
 
 The complete results report will give you a full view of a target system or group of target systems compliance accross multiple CIS benchmarks.  Similar to the Remediation Report, you search for target systems,  select the ones you would like to see complete results for, then generate the report. 
 
-![](http://i.imgur.com/KHBEHdb.png)
+![](http://i.imgur.com/09wOdvf.png)
 
 The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
 
@@ -320,7 +363,7 @@ The recommendations in CIS Benchmarks are just that,  recommendations.  Every re
   * **Viewing Exceptions** -  there are several ways to view exceptions in the application:
 	  * **Exception List on Test Results** - described above, there is a tab on each test result showing all the exceptions that apply to that system
 	  * **Target System Exceptions List** - on each target systems view page there is a list of exceptions that apply to that target.
-	  * **Exception Search** - in the report menu there is an Exception Search option which allows users to search for exceptions by: hostname, benchmark, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
+	  * **Exception Search** - in the report menu there is an Exception Search option which allows users to search for exceptions by: Primary ID, benchmark, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
 	  ![](http://i.imgur.com/jmRrgDQ.png)
 
 
@@ -351,8 +394,7 @@ The target system view has the results aggregated by individual target system.  
 Click on "Switch to Search View" link to navigate to Target System Search View.
 This view allows you to search many target systems by criteria and compare their aggregated results.
 
-![](http://i.imgur.com/HKXYjsb.png)
-
+![](http://i.imgur.com/vIRmFD8.png)
 
 **Target System by Benchmark View**
 
