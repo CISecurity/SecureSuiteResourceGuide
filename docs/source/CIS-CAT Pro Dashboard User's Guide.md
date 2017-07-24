@@ -207,6 +207,15 @@ The "Assessment Results List" page will be displayed.  Click the "Import Assessm
 
 Click "Upload" to start the import process.  Note that the import processes asynchronously, so the user will see a message indicating that the report upload has begun.  This process can take up to a few minutes to complete.
 
+This process is asynchronous, so after you start the import you can navigate away from the Assessment Results list.  When the import process is complete you will receive one or two of the following alerts:
+
+ - Successful Import - when the import is finished, the user who requested the upload will receive an alert that their report was successfully uploaded.  If the upload was initiated via the CIS-CAT Assessor API upload, or the Legacy method, this alert will not be generated
+ - Failed Import - similar to the successful import alert,  the requesting user will receive this alert if the import process fails.
+ - Low Score Alert - if the score of a report imported by any method is below the system wide threshold,  the users on the recipient list for the low score alert will receive an alert.  By default, the low score threshold is 80%.  This theshold can be configured by adding the following value to the ccpd-config.yml:
+ 
+		alert:
+  			lowScoreThreshold: 80 #change to any percentage value between 0-100
+
 **CIS-CAT Import**
 
 Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CAT Deployment instructions have been completed.  The end result of that configuration is that a user has been created in CIS-CAT Pro Dashboard, been assigned to the "ROLE_API" role, and an authentication token has been generated.  
