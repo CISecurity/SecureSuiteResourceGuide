@@ -103,14 +103,13 @@ The User Inbox contains all of the alerts/tasks assigned to the user.  Simply cl
 
 The bubble next to the Inbox will indicate how many unread messages you have.
 
-![](http://i.imgur.com/JNZkJYu.png)
+![](http://i.imgur.com/DJmCaD7.png)
 
 The inbox features serveral views, which can be navigated to using the tabs on the left hand side:
 
- - **Inbox** - has all new alerts and tasks that have not been deleted or completed.  Unread messages will appear in white with bold text.  You can also toggle between all inbox messages, or just the unread messages.
+ - **Inbox** - has all new alerts and tasks that have not been deleted or completed.  Unread messages will appear in white with bold text.  You can also toggle between all inbox messages, or just the unread messages.  This contains all alert types, except Tasks
+ - **My Tasks** - contains tasks. You can toggle between open and closed tasks.  Closed tasks already have had their action(s) completed and no longer require work by the user.
  - **Trash** - contains deleted messages
- - **Completed Tasks** - contains tasks that have already been worked
- - **All** - contains all messages
  
 Clicking on the messages in any of the lists will pop up a dialog displaying the message.  Clicking on the delete button in the list will move the message to the trash folder.
 
@@ -128,7 +127,7 @@ When complete click "Send" and your message will go to the inbox's of the select
 
 **Alert Types** - There are several different types of messages that you can receive in your inbox:
 
- - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task.  Unread tasks will appear with <span style="color:darkorange">orange</span> text to make them visually distinct from other alert types
+ - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task.  These will appear in the "My Tasks" tab.
  - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
  - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
  - **Manual** - A manual message was sent directly to you by another user.
