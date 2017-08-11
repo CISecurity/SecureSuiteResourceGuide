@@ -167,8 +167,10 @@ Click on the edit action to bring up the Primary System Identifier Type dialog:
 Select the ID type from the drop down, then chose the option you would like to for existing data:
 
  - **Leave Existing values.** - this option will leave all the existing target systems as they are.  Going forward, new systems that are imported will receive the new primary ID type.
- - **Change Primary Only.** - this option will only change the primary id type for target systems that have the old primary ID type set as they're primary id.  This option should be used if there are some systems that have a custom primary ID type that is different then the system default.
+ - **Change Primary Only.** - This will change the  primary identifier type on target systems whose primary ID is the same as the the current default system primary ID type. Targets whose primary ID is set to other types will remain unchanged.
  - **Change All.** - This will change all of the existing primary ID types to the new type, regardless of system level customization.
+
+**NOTE:** If a target system does not have an identifier of the new primary identifier type, then the Change Primary Only and Change All options will leave the existing primary identifier on that target system.
 
 **Custom Identifier types**
 
