@@ -329,7 +329,8 @@ The individual test results report provides a complete picture of a given Target
 
 1. **Results View** - the results view shows the test result in the same structure as the original benchmark.  The results for each recommendation are organzied into the groups the same way as the benchmark.  Each group and subgroup is scored individually as a tally of all the rules contained within.  This is a dynamic version of the old CIS-CAT HTML report.  Users can also manage Exceptions to rules from this view (see below).
   
-2. **Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Critical Security Controls View.  In this view each of the 20 Critical Controls as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
+2. **Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Critical Security Controls View.  In this view each of the 20 
+3.  as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
 
 3. **Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
  
@@ -496,11 +497,14 @@ To import a SCAP 1.2 Data Stream Collection XML file, simply navigate to Collect
 
 ![](http://i.imgur.com/UiVppTm.png)
 
- 
-## Critical Controls ##
-CIS Critical Controls information will be supplied with the initial version of the CIS-CAT Professional application/database.  This initial data load will contain information regarding the 20 Critical Controls and each respective sub-control.  Users may access controls information by selecting the "Critical Security Controls" menu item, in the main menu bar of the application:
 
-![](http://i.imgur.com/PeJMrya.png)
+## Supporting Data ##
+ 
+**Critical Controls**
+
+CIS Critical Controls information will be supplied with the initial version of the CIS-CAT Professional application/database.  This initial data load will contain information regarding the 20 Critical Controls and each respective sub-control.  Users may access controls information by selecting the "Critical Security Controls" sub menu item, in the "Supporting Data" menu of the application:
+
+![](http://i.imgur.com/iwE7b36.png)
 
 Once navigated to the main controls "view" page, users have the ability to view information for each individual control:
 
@@ -515,3 +519,32 @@ Once a user navigates to the list of the 20 Critical Controls, he/she may click 
 For each control, any number of sub-controls may be listed.  Users can click on each individual sub-control to display a dialog box containing information about the sub-control:
 
 ![](http://i.imgur.com/QDnBCm0.png)
+
+**NVD Vulnerability Data**
+
+In order to support the CIS-CAT Assessor vulnerabilty reports, CIS-CAT Pro Dashboard requires CVE and CVSS data from the National Vulnerability Database (NVD).  In order to insert/update/or view the NVD data you need to go to the "Vulnerability List" menu option in the Supporting Data menu:
+
+![](http://i.imgur.com/1jx3ql9.png)
+
+The vulnerability list will display your current vulnerability data by year and month:
+
+![](http://i.imgur.com/kI2ZC8t.png)
+
+Selecting any individual month will navigate to the Monthly CVE View.  This page will list all the CVE's published that specific month and year:
+
+![](http://i.imgur.com/TbNcXT0.png)
+
+Clicking any of the entries will bring up all the data about that specific CVE in the CVE Dialog.  This dialog also contains an NVD link which will navigate directly to the CVE entry on the NVD website:
+
+![](http://i.imgur.com/qvKNeKm.png)
+
+From the top of the Vulnerabilities List, you can navigate to the search, where you can search for a specific CVE by ID or keywords from the CVE Summary:
+
+![](http://i.imgur.com/5EpUSXA.png)
+
+Again, clicking on the CVE ID will bring up the CVE Dialog.
+
+There are several ways to import the NVD data into your dashboard instance:
+
+ - **Update NVD Data** -  If your dashboard is connected to the internet, probably the most efficient way is to use the Update NVD Data button from the Vulnerability List page.  This will connect directly to the NVD,  determine which years of your data are out of date,  download the lastest versions and update all of your CVE Definitions.  This is an asyncronous process, and can take quite awhile the first time you use it, as it will import thousands of CVE's.  You will be alerted when the process is complete.
+ - **Import Vulnerability Feed** - If your dashboard is not connected to the internet, you will have to download the yearly vulnerability feeds from the NVD, and import them either via using the Import Vulnerability Feed button, or by dropping them into your Legacy folder.  This will update/import your CVE's in a slightly more manual method.  The import button is a synchronous process, so the data will be imported while you wait.  If you use the Legacy method, you will receive an alert upon completion of each file.
