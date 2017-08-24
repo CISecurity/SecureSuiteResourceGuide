@@ -334,6 +334,42 @@ The individual test results report provides a complete picture of a given Target
 
 3. **Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
  
+**Vulnerability Report**
+
+After running a vulnerability assessment in CIS-CAT Pro Assessor, you can import the results into the CIS-CAT Pro Dashboard using any of the methods used to import assessment results (CIS-CAT Upload, Legacy folder, Import button in CCPD).  To import a result from within CCPD, navigate to the target system you have a vulnerability result for.  From the Results History List, open the Vulnerability Reports accordion and click the import button:
+
+![](http://i.imgur.com/YObutFW.png)
+
+This is an asynchronous process and you will be notified when the import is complete.  Once complete you will see the result in the Vulnerability Reports accordion of the Results History List:
+
+![](http://i.imgur.com/rac3Khe.png)
+
+Clicking on a row in the list will bring you to the Vulnerability Report:
+
+![](http://i.imgur.com/6ThKVvs.png)
+
+The top of the report contains some information about the target system assessed and the vunerability definitions that were assessed.  Opening the High, Medium, or Low accordions below will show you details about the vulnerabilities found:
+
+![](http://i.imgur.com/NyWD3cV.png)
+
+From the individual vulnerability you can add exceptions.  This functions exactly like the exceptions on a configuration assessment report.  A user can create an exception, it is then approved/rejected by an administrator and goes into effect.  At which point it can be end dated by an administrator.  Please read the Exceptions section for more details.
+
+Vulnerabilities can also issue an age warning.  By default if a vulnerability on a system is over 90 days old, the vulnerability will appear differently in the report:
+
+![](http://i.imgur.com/7o0zpdN.png)
+
+You see now that the color is different and it has the Oldest Failure Date showing in the title.
+
+To configure the vulnerability age warning threshold, navigate to the System Settings menu in the administration menu.  From there choose the vulnerabilityWarningAge setting:
+
+![](http://i.imgur.com/AFeRM8x.png) 
+
+You can then enter the amount of days old you would like vulnerabilities to be before the warning appears on the report:
+
+![](http://i.imgur.com/OMIuunl.png)
+
+You can also configure the High/Medium/Low thresholds in the system settings.  These categories are based on CVSS Scores.  By default, the low threshold is 4.0, and the high threshold is 7.0.  This means any found vulnerability with a CVE that has a CVSS base score of 7.0 or more, will be categorized as High on the report and in the Vulnerability Reports list.  To configure these thresholds you can change the vulnerablityHighThreshold and/or the vulnerabilityLowThreshold in the System Settings.
+
 **Remediation Report**
 
 The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.
