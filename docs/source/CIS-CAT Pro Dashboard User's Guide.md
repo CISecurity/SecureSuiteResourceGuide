@@ -454,6 +454,13 @@ If you only select a single target system, you can switch to the single target s
 The tag view allows you to aggregate compliance results for a group of target systems with the same tag, or with multiple tags.  Each tag entered will be represented by a single line, so that you could compare results accross multiple tags.
 
 ![](http://i.imgur.com/dm0LQK0.png)
+
+**Vulnerability View**
+
+The tag view allows you to aggregate vulnerability results for all target systems with vulnerability reports.  Each set of bars represents the average of the high, medium, and low CVSS scored vulnerabilities detected in the given time period (monthly, daily, single day).
+
+![](http://i.imgur.com/AFN71iZ.png)
+
  
 ## "Reference" Data Administration ##
 Users assigned (currently) the ROLE_CIS user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.
