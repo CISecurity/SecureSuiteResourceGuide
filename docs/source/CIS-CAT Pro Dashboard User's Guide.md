@@ -408,7 +408,7 @@ The recommendations in CIS Benchmarks are just that,  recommendations.  Every re
 		![](https://i.imgur.com/I5CUmF6.png)
 
 
-	* **Vulnerability Exception** - To create a vulnerability exception, navigate to the individual vulnerability you would like to except in the Vulnerability Report and click on "Add Exception" button.For more details please read the Vulnerability Report section.
+	* **Vulnerability Exception** - To create a vulnerability exception, navigate to the individual vulnerability you would like to except in the Vulnerability Report and click on "Add Exception" button. For more details please read the Vulnerability Report section.
 	![](https://i.imgur.com/3CfIvHC.png)
 	
 
