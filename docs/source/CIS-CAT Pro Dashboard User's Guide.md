@@ -393,26 +393,39 @@ The complete report lists the Target System, Benchmark,  Rule Number and Title, 
 ![](http://i.imgur.com/Q9CmiC0.png)
 
 ## Exceptions ##
-The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
+The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules or groups of rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
 
-  * **Creation** -  To create an exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an "Add Exception" button.  If exceptions already exist for the rule, they will be displayed in a table, along with the "Add Exception" button.  
+  * **Creation**
+	  * **Rule Exception** -  To create a rule exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an "Add Exception" button.  If exceptions already exist for the rule, they will be displayed in a table, along with the "Add Exception" button.  
   ![](http://i.imgur.com/WqLpJzm.png)
   Click this button, and the exception creation dialog will be displayed:
   ![](http://i.imgur.com/W1TPu5g.png)
 
-	By default the start date is set to the end time of the assessment report that you are currently viewing,  this would make an exception you create apply to this specific report, as well as any assessments that post date this report.  You can modify the date to apply to any time period you like.  Also required on this dialog is a rationale,  you must enter the reason you are creating an exception for this rule.  By default, any exception created will apply only to the target system that you are currently reviewing results for.  You can also check the global checkbox to make the exception apply to all target systems in your environment.  You can also enter any number of tags into the tag checkbox,  the exception will then apply to any target system that has any of the entered tags.  These are different ways to scope the exception.
+		By default the start date is set to the end time of the assessment report that you are currently viewing,  this would make an exception you create apply to this specific report, as well as any assessments that post date this report.  You can modify the date to apply to any time period you like.  Also required on this dialog is a rationale,  you must enter the reason you are creating an exception for this rule.  By default, any exception created will apply only to the target system that you are currently reviewing results for.  You can also check the global checkbox to make the exception apply to all target systems in your environment.  You can also enter any number of tags into the tag checkbox,  the exception will then apply to any target system that has any of the entered tags.  These are different ways to scope the exception.
+
+	* **Group Exception** - To create a group exception, navigate to the group you would like to except in the Test Results Report and click on "Add Group Exception" button.
+	
+		![](https://i.imgur.com/I5CUmF6.png)
+
+
+	* **Vulnerability Exception** - To create a vulnerability exception, navigate to the individual vulnerability you would like to except in the Vulnerability Report and click on "Add Exception" button.For more details please read the Vulnerability Report section.
+	![](https://i.imgur.com/3CfIvHC.png)
+	
 
   *	**Approval** - Once an exception is created it must be approved by a user with ROLE_ADMIN.  On creation, an exception will enter pending status, and, by default, a task will be created for all users with ROLE_ADMIN and sent to their user Inbox.  This task will allow the administrators to review the exception request and accept or reject the exception.
   ![](http://i.imgur.com/AOyj8Mw.png)
 	If the exception is approved, it will take effect for the time period and targets specified.  If it is rejected, it will be ignore.  Either way,  the user who requested the exception will be notified of the result via an alert sent to their user inbox.
 
   * **End Date** - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and on
-  * **Viewing Exceptions** -  there are several ways to view exceptions in the application:
+  * **Viewing Configuration Assessment Exceptions (Rule and Group Exceptions)** -  there are several ways to view rule or group exceptions in the application:
 	  * **Exception List on Test Results** - described above, there is a tab on each test result showing all the exceptions that apply to that system
-	  * **Target System Exceptions List** - on each target systems view page there is a list of exceptions that apply to that target.
-	  * **Exception Search** - in the report menu there is an Exception Search option which allows users to search for exceptions by: Primary ID, benchmark, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
-	  ![](http://i.imgur.com/jmRrgDQ.png)
-
+	  * **Target System Configuration Assessment Exceptions List** - on each target systems view page in Configuration Assessments tab, there is a list of exceptions that apply to that target.
+	  * **Configuration Assessment Exception Search** - in the report menu there is a Configuration Assessment Exception Search option which allows users to search for exceptions by: Primary ID, benchmark, date range, type, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
+	  ![](https://i.imgur.com/VW9T5w2.png)
+  * **Viewing Vulnerability Exceptions** -  there are several ways to view vulnerability exceptions in the application:
+	  * **Target System Vulnerability Exceptions List** - on each target systems view page in Vulnerability Assessments tab, there is a list of exceptions that apply to that target.
+	  * **Vulnerability Exception Search** - in the report menu there is a Vulnerability Exception Search option which allows users to search for exceptions by: Primary ID, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
+	  ![](https://i.imgur.com/vuIMDAa.png)
 
 ## Dashboard ##
 The CIS-CAT Pro Dashboard application's dashboard views provide a high level overview of organizational compliance with CIS Benchmarks.  There are several views, which comprise different aggregation levels which produce a graph that represents compliance over time.  The default views show all of the compliance results for the aggregation group selected, i.e.  "Overview" is all of your target systems for all benchmarks,  The "Benchmark View" is by benchmark,  the "Tag View" is all systems with a specific tag or set of tags.  Each point on the graph is an average score for the month.  Each of the points can be clicked to "drill-down" into the Monthly view.  This view has a point for each day in the selected month that has results.  Each of these points can be clicked on to drill down to that specific day,  which will display points for each time you have an assessment result.  The points on the daily view will take you straight to the individual assessment result that produced the score.  This way you can navigate from a very high level view of your compliance data, all the way to the details,  the individual assessment reports that comprise the high level graphical information.
