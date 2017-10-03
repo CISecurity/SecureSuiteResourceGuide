@@ -8,6 +8,17 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  Th
 
 **Reiteration:**  Although this document is written assuming a MySQL database, Ubuntu servers, Tomcat and Apache HTTP Server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
 
+## System Recommendations ##
+ There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
+
+Our test environment uses an AWS t2.large instance (designed for burst processing), which has:
+
+ - 8GB RAM
+ - 2 vCPU’s with 4 cores each
+ - Ubuntu 16.04
+ 
+The application is fairly lightweight on processor and memory use. However, when importing results, the usage will spike. Our recommendation would be to conduct importing off hours and then the functionality of the application will not be hindered during business hours.
+
 ## Component Deployment ##
 The following sections describe the installation and configuration of all components necessary to deploy CIS-CAT Pro Dashboard.
 
