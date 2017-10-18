@@ -200,7 +200,7 @@ You can pass a custom identifier in to the CCPD from the CIS-CAT Pro Assessor by
 2. Open the "cis-cat-centralized-ccpd.sh" script in a text editor.  Line 115 of the script indicates the AUTHENTICATION_TOKEN for upload to CCPD.  Add a line after that, adding:
 
 		PRIMARY_IDENTIFIER='<Primary_Identifier>'
-Replace the `<Primary_Identifier`> indicator with the actual identifier to be passed to CCPD.
+Replace the `<Primary_Identifier>' indicator with the actual identifier to be passed to CCPD.
 
 3. Navigate to the configuration of the "CISCAT_CMD" variable.  It looks like this:
 
@@ -208,6 +208,10 @@ Replace the `<Primary_Identifier`> indicator with the actual identifier to be pa
 Add an additional indicator to set the property:
 
 		CISCAT_CMD="$JAVA_HOME/bin/java -Xmx768M -jar $CISCAT_DIR/CISCAT.jar $CISCAT_OPTS -D system.identifier.ciscat.primary=$PRIMARY_IDENTIFIER"
+
+4. This will configure the same identifier for all systems that execute via this script.  If each system requires a distinct primary identifier, an environment variable should be set up on each machine so it can then be referenced in the "cis-cat-centralized-ccpd.sh" script:
+
+		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
