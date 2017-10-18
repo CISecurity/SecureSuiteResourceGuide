@@ -194,6 +194,20 @@ The add identifier dialog allows you to select a type, enter a value, and determ
 
 A target system must always have one and only one primary identifier.  As such,  if you assign an identifier as primary,  all other identifiers marked primary will be marked as non-primary automatically.
 
+You can pass a custom identifier in to the CCPD from the CIS-CAT Pro Assessor by using the system.identifier.ciscat.primary argument.
+
+1. First you need to follow the steps above to create a custom identifier type with a code of: ciscat.primary.  The display value can be whatever you want.  If you want this to be used to identify the target everywhere in the CCPD application, then mark this type as primary.
+2. Open the "cis-cat-centralized-ccpd.sh" script in a text editor.  Line 115 of the script indicates the AUTHENTICATION_TOKEN for upload to CCPD.  Add a line after that, adding:
+
+		PRIMARY_IDENTIFIER='<Primary_Identifier>'
+Replace the '<Primary_Identifier>' indicator with the actual identifier to be passed to CCPD.
+3. Navigate to the configuration of the "CISCAT_CMD" variable.  It looks like this:
+
+		CISCAT_CMD="$JAVA_HOME/bin/java -Xmx768M -jar $CISCAT_DIR/CISCAT.jar $CISCAT_OPTS"
+Add an additional indicator to set the property:
+
+		CISCAT_CMD="$JAVA_HOME/bin/java -Xmx768M -jar $CISCAT_DIR/CISCAT.jar $CISCAT_OPTS -D system.identifier.ciscat.primary=$PRIMARY_IDENTIFIER"
+
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
 
