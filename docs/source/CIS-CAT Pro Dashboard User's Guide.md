@@ -45,6 +45,39 @@ Functional Areas can be administered through the Roles interface.  When you sele
 
 ![](http://i.imgur.com/cPSn0zC.png)
 
+
+## System Settings ##
+There are a variety of configuration items that can be customized via System Settings.  To modify these values you can navigate to the System Settings via the administration menu:
+
+![](https://i.imgur.com/jTHDrue.png)
+
+This will navigate you to the System Settings List, where you can modify the values of the settings:
+
+![](https://i.imgur.com/UENaR6x.png)
+
+
+|Setting Name|Description|Values|
+|---|---| ---|
+|legacy.sourceDir|path to a directory that the dashboard uses in file processing after uploads|a valid path on the application server|
+|legacy.processedDir|path to a directory that the dashboard stores successfully imported xml files in|a valid path on the application server|
+|legacy.errorDir|path to a directory where the dashboard stores xml files that failed to import correctly|a valid path on the application server|
+|legacy.processedRetentionNumber|The amount of files that will be retained in the legacy.processedDir folder.  The directory will be purged down to this number after each new upload.|any integer greater than 0|
+|primarySystemIdentifierType|the type of identifier that will be used for target systems every where targets are listed in the Dashboard Application.  See the Primary Identifier Type section of this document for more details.|System Identifier Types|
+|vulnerabilityFailuresOnly|When importing vulnerability reports, if this is true, the system will only import failures, which will improve performance and save space.|true or false|
+|vulnerabilityWarningAge|The number of days old a vulnerability has to be before the warning is displayed on the vulnerability report.  See the Vulnerability Report section of this document for more details.|Integer number of days|
+|vulnerabilityHighThreshold|The CVSS score that will categorize vulnerabilities as High on the report and in the dashboard. Scores above this value will be considered High Impact The default value is 7|number between 0-10|
+|vulnerabilityLowThreshold|The CVSS score that will categorize vulnerabilities as Low on the report and in the dashboard. Scores below this value will be considered Low Impact.  The default value is 4|number between 0-10|
+|displayDBNameInPrimary|Display the Database Name target system identifier in the target system Primary ID.  For target systems with Database Benchmark results.|true or false|
+|alert.lowScoreThreshold|Threshold for producing the "Low Score Alert" when test results are imported. Default is 80.|number between 0-100|
+|admin.password.expirationDays|The number of days before a users password will expire|number of days|
+|admin.maximumFailedLogonAttempts|The number of failed login attempts before an account is locked.|number|
+|dashboard.height|The number of pixels in the height of the dashboard graphs.|number|
+|dashboard.width|The number of pixels in the width of the dashboard graphs.|number|
+|testResult.score.high|The percentage score for a group of recommendations that will have the group appear in green on the assessment results, indicating high compliance|number between 0-100|
+|testResult.score.medium|The percentage score for a group of recommendations that will have the group appear in yellow on the assessment results, indicating moderate compliance|number between 0-100|
+|testResult.score.low|The percentage score for a group of recommendations that will have the group appear in orange on the assessment results, indicating poor compliance.  Scores below this will appear in red, indicating very poor compliance.|number between 0-100|
+
+
 ## Logging In/User Profile ##
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
 

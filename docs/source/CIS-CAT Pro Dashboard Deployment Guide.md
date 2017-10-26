@@ -104,24 +104,11 @@ This will remove all the default applications from the tomcat installation to he
 ### Deploy WAR ###
 At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the "war") included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port `8080`, without the web server.  This can help identify any application or application server misconfigurations prior to web server installation/configuration.
 
-Establish a location for the 3 folders to enable legacy data imports:
-
-    /opt/ccpd/Legacy
-    /opt/ccpd/LegacyProcessed
-    /opt/ccpd/LegacyError
 
 The permissions on these files need to allow the tomcat user to read/write.  The user who will be managing the Legacy imports will need write access to the Legacy folder.
 
 Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-config.yml`, including the following lines:
 
-    vulnerability:
-    warningAgeInDays: 90
-	---
-	legacy: 
-	    sourceDir: "<path_to_legacy>/Legacy"
-	    processedDir: "<path_to_legacy>/LegacyProcessed"
-	    errorDir: "<path_to_legacy>/LegacyError"
-	---
 	environments:
 	    production:
 	        grails:
@@ -346,6 +333,7 @@ You may need to restart tomcat in order to complete the deployment,  you can do 
 	> sudo service tomcat restart
 
 CIS-CAT Pro Dashboard will bootstrap in a user with:
+
     username: admin, 
     password: @admin123
 
@@ -427,6 +415,18 @@ The user should be prompted to enter the keystore credentials.  By default, this
 Answering `yes` to this confirmation prompt will import the certificate into the trust store.
 
 **NOTE**:  If the application server is currently running, it must be restarted in order to incorporate the trust store.
+
+###Set up Import Folders###
+In order to import files into the Dashboard, you need to set up the temp folders that it uses for processing.  Login to the system as a user with ROLE_ADMIN, and set the following three settings to directories on the server running the dashboard application:
+
+	legacy.sourceDir = /opt/legacy/source
+	legacy.processedDir = /opt/legacy/processed
+	legacy.errorDir = /opt/legacy/error
+	
+You can also set the processedRetention number, which determines how many processed xml files are saved in the process directory after being imported into the Dashboard:
+
+	legacy.processedRetentionNumber = 1000
+
 
 ###Upgrading from a previous version###
 
