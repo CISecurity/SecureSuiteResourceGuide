@@ -264,10 +264,7 @@ This process is asynchronous, so after you start the import you can navigate awa
 
  - Successful Import - when the import is finished, the user who requested the upload will receive an alert that their report was successfully uploaded.  If the upload was initiated via the CIS-CAT Assessor API upload, or the Legacy method, this alert will not be generated
  - Failed Import - similar to the successful import alert,  the requesting user will receive this alert if the import process fails.
- - Low Score Alert - if the score of a report imported by any method is below the system wide threshold,  the users on the recipient list for the low score alert will receive an alert.  By default, the low score threshold is 80%.  This theshold can be configured by adding the following value to the ccpd-config.yml:
- 
-		alert:
-  			lowScoreThreshold: 80 #change to any percentage value between 0-100
+ - Low Score Alert - if the score of a report imported by any method is below the system wide threshold,  the users on the recipient list for the low score alert will receive an alert.  By default, the low score threshold is 80%.  This theshold can be configured by `lowScoreThreshold` System Setting.
 
 **CIS-CAT Import**
 
@@ -317,7 +314,7 @@ To help facilitate organizations migrating from static CIS-CAT dashboards and re
 2. **The "Legacy Processed" Folder:**  This folder will be the location for all CIS-CAT XML results which have been successfully imported into CIS-CAT Pro Dashboard from the staging area.
 3. **The "Legacy Error" Folder:** This folder will be the location for any CIS-CAT XML results which were not successfully imported into CIS-CAT Pro Dashboard.
 
-These folder locations are set in the application's configuration file ("the YAML").  Instructions for this configuration are contained in the CIS-CAT Pro Dashboard Deployment guide.
+These folder locations are set in the application's System Settings using the following properties: `legacy.sourceDir`, `legacy.processedDir`, and `legacy.errorDir`.
 
 ## Target Systems ##
 **Creation**
