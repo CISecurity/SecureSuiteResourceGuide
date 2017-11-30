@@ -445,3 +445,118 @@ To upgrade from an earlier version of CCPD:
 That will redeploy the new war over the old application.  CCPD has a bootstrap initialization script that will run on its first deployment that will make necessary data changes.
 
 If there are any additional upgrading steps specific to a release version, information about those steps will be included in that versions README.txt
+
+
+###LDAP/Active Directory Integration (Optional)###
+With this integration, LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. 
+
+Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, he will be created when he logs in, and granted with basic user roles (ROLE_BASIC\_USER and ROLE\_USER).
+
+####LDAP Configuration####
+Here is an example of LDAP structure in OpenLDAP:
+![](https://i.imgur.com/6nNTW0X.png)
+
+Based on the above structure, add the following section in the `/opt/tomcat/ccpd-config.yml` file (noted above): 
+		
+	---
+	grails:
+		plugin:
+			springsecurity:
+				providerNames: ['ldapAuthProvider','rememberMeAuthenticationProvider','restAuthenticationProvider','anonymousAuthenticationProvider']
+				ldap:
+					active: true
+					context:
+						managerDn: 'cn=Manager,dc=cisecurity,dc=org'
+						managerPassword: 'my_manager_password'
+						server: 'ldap://127.0.0.1:389'
+					authorities:
+						retrieveDatabaseRoles: false                   
+						retrieveGroupRoles: true
+						groupSearchBase: 'ou=Groups,dc=cisecurity,dc=org'                  
+						groupSearchFilter: 'uniquemember={0}'
+						groupRoleAttribute: 'cn'        
+						clean:
+							prefix: 'CCPD_'
+					search:
+						base: 'dc=cisecurity,dc=org' 
+						filter: '(uid={0})'
+					authenticator:
+						passwordAttributeName: 'userPassword'
+					mapper:
+						passwordAttributeName: 'userPassword'               
+					useRememberMe: true  
+				rememberMe:
+					persistent: true
+
+####Active Directory Configuration####
+Here is an example of Active Directory structure in Windows server 2016:
+![](https://i.imgur.com/BsKQRuq.png)
+
+Based on the above structure, add the following section in the `/opt/tomcat/ccpd-config.yml` file (noted above): 
+		
+	---
+	grails:
+		plugin:
+			springsecurity:
+				providerNames: ['ldapAuthProvider','rememberMeAuthenticationProvider','restAuthenticationProvider','anonymousAuthenticationProvider']
+				ldap:
+					active: true
+					context:
+						managerDn: 'CN=Administrator,CN=Users,DC=corp,DC=cisecuritytest,DC=org'
+						managerPassword: 'my_manager_password'
+						server: 'ldap://127.0.0.1:389'
+					authorities:
+						ignorePartialResultException: true
+						retrieveDatabaseRoles: false                   
+						retrieveGroupRoles: true
+						groupSearchBase: 'DC=corp,DC=cisecuritytest,DC=org'                  
+						groupSearchFilter: 'member={0}'
+						groupRoleAttribute: 'CN'     
+						clean:
+							prefix: 'CCPD_'                 
+					search:
+						base: 'DC=corp,DC=cisecuritytest,DC=org' 
+						filter: 'sAMAccountName={0}'
+					auth:
+						hideUserNotFoundExceptions: false
+					authenticator:
+						passwordAttributeName: 'userPassword'
+					mapper:
+						passwordAttributeName: 'userPassword'               
+					useRememberMe: true                                 
+				rememberMe:
+					persistent: true
+
+####Configuration options####
+Here is a description of some configuration options used for LDAP/AD integration:
+
+- **managerDn/managerPassword:** manager credential to access to LDAP server.
+
+- **server:** URL of the LDAP server.
+
+- **groupSearchBase:** the base directory to start the group search. Note: if  we don't want to retrieve groups (roles) from LDAP, set retrieveGroupRoles to false.
+
+- **groupSearchFilter:** the pattern to be used for the user search. {0} is the user’s DN.
+
+- **groupRoleAttribute:** the ID of the attribute which contains the role name for a group.
+
+- **clean.prefix:** an optional string prefix to strip from the beginning of LDAP group names. For example, 'CCPD\_' will convert CCPD\_ADMIN to ROLE\_ADMIN
+
+- **base:** the base directory to start the search.
+
+- **filter:** the filter expression used in the user search. For LDAP, uid field is typically used as username for the filter. In Active Directory, sAMAccountName (also called "User logon name") is typically used. 
+
+- **passwordAttributeName:** the name of the password attribute to use.
+
+####LDAP/AD requirements####
+The email address is a required field, make sure that LDAP/AD user email field is set properly.
+
+If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
+
+The api user needs to be created in LDAP/AD in order generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
+
+Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
+
+
+
+
