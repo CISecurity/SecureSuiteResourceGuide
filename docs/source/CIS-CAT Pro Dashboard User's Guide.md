@@ -27,6 +27,9 @@ Login as an administrator. (NOTE: By default the user: admin, with the password:
 - Editing an existing user - Once you've clicked on an existing user and navigate to the view page, you can edit that user by selecting the edit button.  On the edit page you can change the users first and last name,  change their password, enable/disable their account, or change their user roles
 - Deleting a user - Once you've navigated to the User view page you can delete a user by selecting the delete button.  A confirmation message will appear to allow you to insure you want to delete the user.  Once you click "yes", the user will be deleted
 
+**NOTE:** if LDAP is integrated with CCPD, the user creation is no more accessible from the user list. Once the user is authenticated against LDAP from CCPD, roles and user properties such firstname, lastname and email will be imported from LDAP. 
+If the user doesn't exist in CCPD (based on username), a user account will be created on the fly, and granted with basic user roles (ROLE\_BASIC\_USER and ROLE\_USER) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.    
+
 ## Roles ##
 Roles in CIS-CAT Pro Dashboard are assigned to users, and allow access to functionality.  The role section is used for creating new roles, but you will need to add them to users and to Functional Areas in order for them to control access meaningfully.  
 
@@ -111,6 +114,8 @@ The user profile screen also features a list of Alerts that the user is currentl
 ![](http://i.imgur.com/s4khpxq.png)
 
 From this list users can choose to opt out of any of the alert types that they are receiving.
+
+**NOTE:** if LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no more available as well as the some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
 
 ## User Favorites ##
 Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, user favorites or logging out of the application:

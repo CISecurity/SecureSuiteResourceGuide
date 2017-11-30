@@ -450,7 +450,7 @@ If there are any additional upgrading steps specific to a release version, infor
 ###LDAP/Active Directory Integration (Optional)###
 With this integration, LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. 
 
-Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, he will be created when he logs in, and granted with basic user roles (ROLE_BASIC\_USER and ROLE\_USER).
+Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, he will be created when he logs in, and granted with basic user roles (ROLE_BASIC\_USER and ROLE\_USER) by default, plus additional LDAP Roles.
 
 ####LDAP Configuration####
 Here is an example of LDAP structure in OpenLDAP:
@@ -553,7 +553,7 @@ The email address is a required field, make sure that LDAP/AD user email field i
 
 If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
 
-The api user needs to be created in LDAP/AD in order generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
+The api user needs to be created in LDAP/AD in order to generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
 
 Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
 
