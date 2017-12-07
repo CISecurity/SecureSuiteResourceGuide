@@ -527,7 +527,7 @@ Based on the above structure, add the following section in the `/opt/tomcat/ccpd
 				rememberMe:
 					persistent: true
 
-####Configuration options####
+####Configuration Options####
 Here is a description of some configuration options used for LDAP/AD integration:
 
 - **managerDn/managerPassword:** manager credential to access to LDAP server.
@@ -548,7 +548,7 @@ Here is a description of some configuration options used for LDAP/AD integration
 
 - **passwordAttributeName:** the name of the password attribute to use.
 
-####LDAP/AD requirements####
+####LDAP/AD Requirements####
 The email address is a required field, make sure that LDAP/AD user email field is set properly.
 
 If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
