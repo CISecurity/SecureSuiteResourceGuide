@@ -66,7 +66,15 @@ Ensure that the Java version is displayed as `1.8.0_111` (or higher)
 ### Application Server ###
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
-**NOTE:** the tomcat version in the article is no longer available,  you will have to use this link to download in the curl command: [tomcat 8.5.12](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.12/bin/apache-tomcat-8.5.12.tar.gz)
+**NOTE:** The tomcat version in the article is no longer available. <br/>
+Please access to [this url](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/) in order to know the latest version of tomcat 8.5. Then replace the `VERSION_NUMBER` tags in the following link and use it to download tomcat in the curl command:
+ 
+	http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.<VERSION_NUMBER>/bin/apache-tomcat-8.5.<VERSION_NUMBER>.tar.gz
+
+As an example, if your version of tomcat is `8.5.28`, your curl command would look like the below:
+	
+	curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz
+
 
 Open `/opt/tomcat/conf/server.xml` and find this line:
 
