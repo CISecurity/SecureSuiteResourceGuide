@@ -152,12 +152,15 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 	                  maxIdle: 25
 	                  maxWait: 10000
 	                  maxAge: 600000
-	                  #validationQuery: SELECT 1 from DUAL #ORACLE
-                  	  validationQuery: SELECT 1 #Non-Oracle
+	                  # validationQuery: SELECT 1 from DUAL #ORACLE
+	                  validationQuery: SELECT 1 #Non-Oracle
 	                  validationQueryTimeout: 3
 	                  validationInterval: 15000
+	                  defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+	                  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
 	                  dbProperties:
 	                        autoReconnect: true
+	
 	
 	grails:
 	    mail:
