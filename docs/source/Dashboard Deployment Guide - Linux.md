@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# CIS-CAT Pro Dashboard Deployment Guide #
+# CIS-CAT Pro Dashboard Deployment Guide for Linux#
 
 ----------
 ## Introduction ##
@@ -138,19 +138,19 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 	
 	            #SQL Server DB Setting
 	
-	            # driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-	            # dialect: org.hibernate.dialect.SQLServer2008Dialect
-	            # url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
-	            # username: <db_user>
-	            # password: <db_password>
+	            #driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+	            #dialect: org.hibernate.dialect.SQLServer2008Dialect
+	            #url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
+	            #username: <db_user>
+	            #password: <db_password>
 	
 	            #Oracle DB Settings
 	
-	            # driverClassName: oracle.jdbc.OracleDriver
-	            # dialect: org.hibernate.dialect.Oracle10Dialect
-	            # url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
-	            # username: <db_user>
-	            # password: <db_password>
+	            #driverClassName: oracle.jdbc.OracleDriver
+	            #dialect: org.hibernate.dialect.Oracle10Dialect
+	            #url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
+	            #username: <db_user>
+	            #password: <db_password>
 	
 	            properties:
 	                  jmxEnabled: true
@@ -205,11 +205,11 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 	#MySQL DB Settings
 	
-    # driverClassName: com.mysql.cj.jdbc.Driver
-    # dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    # url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
-    # username: <db_user>
-    # password: <db_password>
+    #driverClassName: com.mysql.cj.jdbc.Driver
+    #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    #url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+    #username: <db_user>
+    #password: <db_password>
 
     #SQL Server DB Setting
 
@@ -234,11 +234,11 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 	#MySQL DB Settings
 	
-    # driverClassName: com.mysql.cj.jdbc.Driver
-    # dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    # url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
-    # username: <db_user>
-    # password: <db_password>
+    #driverClassName: com.mysql.cj.jdbc.Driver
+    #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    #url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+    #username: <db_user>
+    #password: <db_password>
 
     #Oracle DB Settings
 	
@@ -337,7 +337,7 @@ We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user n
 ### Deploy WAR (Continued) ###
 Connect to the application server and transfer the `CCPD.war` to the `/opt/tomcat/webapps` directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.
 
-Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD`, into a browser.
+Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD/`, into a browser.
 
 You may need to restart tomcat in order to complete the deployment,  you can do so using the following command
 
@@ -439,7 +439,7 @@ You can also set the processedRetention number, which determines how many proces
 	legacy.processedRetentionNumber = 1000
 
 
-###Upgrading from a previous version###
+##Upgrading from a previous version##
 
 To upgrade from an earlier version of CCPD:
 
@@ -458,7 +458,7 @@ That will redeploy the new war over the old application.  CCPD has a bootstrap i
 If there are any additional upgrading steps specific to a release version, information about those steps will be included in that versions README.txt
 
 
-###LDAP/Active Directory Integration (Optional)###
+##LDAP/Active Directory Integration (Optional)##
 With this integration, LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. 
 
 Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, he will be created when he logs in, and granted with basic user roles (ROLE_BASIC\_USER and ROLE\_USER) by default, plus additional LDAP Roles.
