@@ -47,11 +47,6 @@ run: `create schema ccpd;`
 
 This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data.
 
-At this point we recommend running following the steps in:
-[CIS-CAT Pro Dashboard Database Script](http://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/CIS-CAT%20Pro%20Dashboard%20Database%20Script/)
-
-This will bootstrap in some reference data as well as the current versions of the CIS Benchmark content.  Having this data available via the script will improve initial import performance from CIS-CAT Pro Assessor.
-
 ### Java 8 ###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.
 
@@ -97,6 +92,11 @@ Open `/opt/tomcat/bin/catalina.sh` and add the following lines to the top of the
     export CCPD_LOG_DIR="/opt/tomcat/logs"
 
 **Note:**  The values of these environment variables can be configured to any location the administrator wishes, and must be to file system locations to which the Tomcat application server can access on startup.
+
+To set the JVM Heap Settings, add the following line in setenv.sh or catalina.sh:
+
+	export CATALINA_OPTS="-Xms1024M – Xmx2048M "
+
 
 #### Security Considerations ####
 As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications.  These default sites can and will give away information about the environment and present an information security risk.
@@ -293,7 +293,7 @@ For example here is how you would configure the default sender to send with a Gm
 		    username: "youracount@gmail.com"
 		    password: "yourpassword"
 		    props:
-			    mail.smtp.auth: "true",
+			    mail.smtp.auth: "true"
 			    mail.smtp.socketFactory.port: "465"
 			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
 			    mail.smtp.socketFactory.fallback: "false"
@@ -345,7 +345,7 @@ You may need to restart tomcat in order to complete the deployment,  you can do 
 
 CIS-CAT Pro Dashboard will bootstrap in a user with:
 
-    username: admin, 
+    username: admin
     password: @admin123
 
 **Notes**:

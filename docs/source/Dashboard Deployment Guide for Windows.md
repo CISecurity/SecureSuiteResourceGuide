@@ -327,7 +327,7 @@ For example here is how you would configure the default sender to send with a Gm
 		    username: "youracount@gmail.com"
 		    password: "yourpassword"
 		    props:
-			    mail.smtp.auth: "true",
+			    mail.smtp.auth: "true"
 			    mail.smtp.socketFactory.port: "465"
 			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
 			    mail.smtp.socketFactory.fallback: "false"
@@ -383,7 +383,7 @@ You may need to restart tomcat in order to complete the deployment.
 
 CIS-CAT Pro Dashboard will bootstrap in a user with:
 
-    username: admin, 
+    username: admin 
     password: @admin123
 
 **Notes**:
