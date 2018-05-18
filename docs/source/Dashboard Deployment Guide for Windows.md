@@ -198,6 +198,8 @@ Create the CIS-CAT Pro Dashboard runtime configuration file (configured by defau
                   	  validationQuery: SELECT 1 #Non-Oracle
 	                  validationQueryTimeout: 3
 	                  validationInterval: 15000
+	                  defaultTransactionIsolation: 2 # ORACLE AND MYSQL
+	                  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
 	                  dbProperties:
 	                        autoReconnect: true
 	
@@ -254,6 +256,11 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
     password: <db_password>
 
 Then enter the connection information appropriate to your SQL Server database.
+
+In the database properties section, comment out the following property for SQL Server:
+
+	#defaultTransactionIsolation: 2 # ORACLE AND MYSQL
+	defaultTransactionIsolation: 1 #SQL SERVER ONLY
 
 At the very bottom of the file comment out the database entry for MySQL and uncomment the entry for SQL Server:
 

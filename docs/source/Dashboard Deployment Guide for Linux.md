@@ -221,6 +221,11 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 Then enter the connection information appropriate to your SQL Server database.
 
+In the database properties section, comment out the following property for SQL Server:
+
+	#defaultTransactionIsolation: 2 # ORACLE AND MYSQL
+	defaultTransactionIsolation: 1 #SQL SERVER ONLY
+
 At the very bottom of the file comment out the database entry for MySQL and uncomment the entry for SQL Server:
 
 	#database: MySQL
