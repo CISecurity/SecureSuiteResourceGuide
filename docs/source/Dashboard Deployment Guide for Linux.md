@@ -422,7 +422,7 @@ Finally, using the java `keytool` application, import the certificate:
     cd /usr/lib/jvm/java-8-openjdk-amd64/bin
      
     # Execute keytool
-    sudo keytool -import alias ccpd -keystore ../lib/security/cacerts -file /home/ubuntu/ccpd_cert.cer
+    sudo keytool -import -alias ccpd -keystore ../lib/security/cacerts -file /home/ubuntu/ccpd_cert.cer
 The user should be prompted to enter the keystore credentials.  By default, this credential is `changeit`.
 
     # The user will be asked for confirmation
