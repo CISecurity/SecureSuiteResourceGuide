@@ -4,9 +4,9 @@
 
 ----------
 ## Introduction ##
-CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  The grails framework uses a hibernate data model to remain DBMS agnostic.  Grails code compiles into java byte code and therefore runs on the JVM.  As such,  CIS-CAT Pro dashboard can be deployed in any RDBMS which supports JDBC, and on any web container that can handle java WAR's.  The documentation below describes how to deploy CIS-CAT Pro Dashboard on the following stack, which is officially supported by CIS:  SQL Server 2017 running on Windows Server 2016, a separate Windows 2016 server for Tomcat 8.5 and IIS 10.0.  Prerequisite to using this documentation is having two separate Windows Server 2016 instances running in your environment.
+CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  The grails framework uses a hibernate data model to remain DBMS agnostic.  Grails code compiles into java byte code and therefore runs on the JVM.  As such,  CIS-CAT Pro dashboard can be deployed in many RDBMS, and on any web container that can handle java WAR's.  The documentation below describes how to deploy CIS-CAT Pro Dashboard on the following stack, which is officially supported by CIS:  SQL Server 2017 running on Windows Server 2016, a separate Windows 2016 server for Tomcat 8.5 and IIS 10.0.  Prerequisite to using this documentation is having two separate Windows Server 2016 instances running in your environment.
 
-**Reiteration:**  Although this document is written assuming a SQL Server database, Windows 2016 servers, Tomcat and IIS web server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so any relational database management system can be used (MySQL, Oracle, MS SQLServer, etc.).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
+**Reiteration:**  Although this document is written assuming a SQL Server database, Windows 2016 servers, Tomcat and IIS web server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so many relational database management system can be used (i.e. MySQL until version 5.7 (including MariaDB),MS SQL Server, and Oracle).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
 
 ## System Recommendations ##
  There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
@@ -228,9 +228,19 @@ This file is also available in the CIS-CAT-Pro-Dashboard bundle.
 **NOTE:** This file is configured for MySQL database by default. If you want to use SQL Server or Oracle, please follow the instructions in Database Configuration section. 
 
 
-**MySQL Timezone setting** It is important for the timezone on the application server and the database server to be the same.  If this is not the case in your environment you can set the timezone of the database connection using a jdbc option:
+**MySQL Timezone setting:** It is important for the timezone on the application server and the database server to be the same.  If this is not the case in your environment you can set the timezone of the database connection using a jdbc option:
 
 	jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>?useLegacyDatetimeCode=false&serverTimezone=<3-letter-timezone>
+
+**MySQL 5.7 specific:**
+If you use MySQL 5.7, you need to replace:
+ 
+	database: MySQL
+
+by:
+
+	database: MySQL.5.7 
+ 
 
 ### Database Configuration ###
 By default the ccpd-config.yml is configured to utilize a MySQL database.  Starting with version v1.0.3 you will be able to use MS SQL Server and Oracle Databases as well.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:
@@ -545,6 +555,28 @@ Now if you access the application using https, the web browser will indicate tha
 
 Please repeat every step of this section for each client who wants to access the application. 
 
+#### Importing the certificate into the java trust store ####
+This step is required if you want to use the "POST Reports to URL" with https in order to upload an Asset Report Format (ARF) results from CIS-CAT Pro Assessor to CIS-CAT Pro Dashboard.
+For more details about the integration between the Assessor and the Dashboard, please read the "Importing CIS-CAT Assessor Results" section from CIS-CAT Pro Dashboard User's Guide.
+
+Find the location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this guide, assume the location of java can be found at `C:\Program Files\Java\jdk1.8.0_144`.  When using Java 8, the required `cacerts` file will be located at `C:\Program Files\Java\jdk1.8.0_144\jre\lib\security\cacerts`.  The location of the `cacerts` file should be noted before importing the certificate using `keytool`.
+
+Finally, using the java `keytool` application, import the certificate:
+
+    # Navigate to the $JAVA_HOME folder's bin directory.
+    cd C:\Program Files\Java\jdk1.8.0_144\jre\bin
+     
+    # Execute keytool
+    keytool -import -alias ccpd -keystore ../lib/security/cacerts -file c:\rootCertificate.crt
+The user should be prompted to enter the keystore credentials.  By default, this credential is `changeit`.
+
+    # The user will be asked for confirmation
+    Trust this certificate? [no]:
+
+Answering `yes` to this confirmation prompt will import the certificate into the trust store.
+
+**NOTE**:  If the application server is currently running, it must be restarted in order to incorporate the trust store.
+
 ##Upgrading from a previous version##
 
 To upgrade from an earlier version of CCPD:
@@ -604,6 +636,8 @@ Based on the above structure, add the following section in the `/opt/tomcat/ccpd
 				rememberMe:
 					persistent: true
 
+**Note**: If you have previously configured the application to connect to a SMTP server, you need to remove `grails:` from the above section. So the section will start with `plugin:` instead.
+   
 ###Active Directory Configuration###
 Here is an example of Active Directory structure in Windows server 2016:
 ![](https://i.imgur.com/BsKQRuq.png)
@@ -643,6 +677,8 @@ Based on the above structure, add the following section in the `/opt/tomcat/ccpd
 				rememberMe:
 					persistent: true
 
+**Note**: If you have previously configured the application to connect to a SMTP server, you need to remove `grails:` from the above section. So the section will start with `plugin:` instead.
+
 ###Configuration Options###
 Here is a description of some configuration options used for LDAP/AD integration:
 
@@ -666,6 +702,8 @@ Here is a description of some configuration options used for LDAP/AD integration
 
 ###LDAP/AD Requirements###
 The email address is a required field, make sure that LDAP/AD user email field is set properly.
+
+The entire group name needs to be in uppercase in LDAP/AD. 
 
 If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
 
