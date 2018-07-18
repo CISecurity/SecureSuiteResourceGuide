@@ -9,9 +9,11 @@ CIS-CAT Pro Dashboard is a new companion application for CIS-CAT.  The applicati
 CIS-CAT Pro Dashboard is a companion application to CIS-CAT.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT traditionally provided assessment results in various report formats, including HTML, XML, CSV, and plain text.  CIS-CAT can now upload its assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard will import these XML document-based results into its application database.  This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
 
 ### CIS-CAT Pro Dashboard Deployment ###
-See here:  [CIS-CAT Pro Dashboard Deployment](./ciscat-pro-dashboard-deployment.html)
+See here for Linux:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Linux/)
+
+See here for Windows:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Windows/)
 ### CIS-CAT Pro Assessor Deployment ###
-See here: [CIS-CAT Pro Assessor Deployment Guide](./ciscat-pro-assessor-deployment.html)
+See here: [CIS-CAT Pro Assessor Deployment Guide](./Assessor%20Deployment%20Guide/)
 
 ## User Administration ##
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.
@@ -337,6 +339,41 @@ Once there, you can select the "New Target System" button, which will open the c
 ![](http://i.imgur.com/lVsQH9B.png)
 
 Simply enter the Hostname and click Add Target,  this will create a new target system.
+
+**Diff report**
+
+The user can compare two Configuration Assessment Results and generate a Diff report. The report highlights configuration changes (rules status and scores), for example when some rules were passing, and are now failing. This feature is accessible from the Target System page:
+
+![](https://i.imgur.com/Vild2zo.png)
+
+
+Click on ![](https://i.imgur.com/DaVeSsp.png) brings the following options:
+
+* **Compare with immediate previous result for same profile** - If applicable, the selected Assessment Result will be compared to the immediate previous Assessment Result for the same target system, benchmark version and profile.
+
+* **Compare with any other results** - This option forwards the user to an intermediate search page. The user can search and select the Assessment Result to compare with.
+
+Then the user is redirected to the Security Configuration Assessment Diff Report page:
+
+![](https://i.imgur.com/Rxn4mNM.png)
+
+**Diff report alert**
+
+An alert can be sent during the import process if the score of the uploaded Assessment result went down compared to  the previous one (same machine/benchmark/profile).
+
+To receive this alert, the user needs to add recipients to the **testResultDiff** Alert from the Alert List:
+
+![](https://i.imgur.com/MeErZVt.png)
+
+As well as setting the **alert.diffScoreThreshold** threshold from the System Setting List. The threshold is set to zero by default which means the alert will be sent if any score changes are detected when the score goes down:
+
+![](https://i.imgur.com/2RGWm6l.png)
+
+
+For more details about how to manage Alerts, please refer to Alert Management section of this guide.  
+
+  
+         
 
 ##Tagging##
 
