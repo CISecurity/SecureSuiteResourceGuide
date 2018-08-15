@@ -4,6 +4,127 @@
 
 ----------
 
+
+## CIS-CAT Pro Dashboard v1.1.3 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Implemented a Difference Report for comparing an assessment result with the previous assessment result.
+ - Added ability to delete individual Configuration Assessments and Vulnerability Assessments.
+ - Conversion abilities to convert existing data to the new data model.
+ - Added ability to attach existing vulnerability assessments to NVD data updated after the import of the assessment.
+
+SYSTEM ENHANCEMENTS
+
+ - Delete target systems Performance improvements.
+ - Added "Attach CVEs to Existing Definitions" button on the Vulnerabilities List.  This will allow NVD data to be imported after vulnerability assessments.
+ - New Assessment Data Model which will offer performance improvements in: Import, Export, Delete functionality.
+ - Support for WebLogic appliction server
+
+BUGS
+
+ - automated database changes required when updating from a version prior to v1.1.2.
+
+## CIS-CAT Pro Dashboard v1.1.2 ##
+
+SYSTEM ENHANCEMENTS
+
+ - Import Performance improvements.
+ - Implemented a new way to identify duplicate imports, to maintain a smaller and more accurate version of content, especially OVAL content.
+
+BUGS
+
+ - Fixed a bug with imports sometimes misidentifing duplicate target systems
+ - Fixed a bug with importing of older CIS content, such as AIX 6 results.
+ 
+## CIS-CAT Pro Dashboard v1.1.0 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - CCPD can now except custom target system identifiers from CIS-CAT Pro Assessor.  A custom element can be configured in CIS-CAT Pro Assessor to be passed to CCPD via the import functionality.
+ - Group Exceptions - you can now add exceptions to entire groups or sub-groups of recommendations
+ - Vulnerability Reports - you can now upload vulnerability reports from CIS-CAT Pro Assessor.  These reports also have exception funcitonality like the configuration assessment reports
+ - Vulnerability Dashboard - you can view your vulnerability data over time using the Vulnerability Dashboard.
+ - NVD Data Import - you can now import CVE and CVSS information directly from the NVD.  This data is used to support vulnerability report scoring
+
+ 
+SYSTEM ENHANCEMENTS
+
+ - Target System UI - redesigned to better present information,  including the profile level of each asseessment result.  added tabs for configuration results and vulnerability results.
+ - Improved performance on Complete Report and Remediation Report exports.
+
+BUGS
+
+ - fixed a bug from 1.0.5 where importing subsequent ARF files would create additional Target System records
+
+
+
+## CIS-CAT Pro Dashboard v1.0.5 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Added Title information to the alert dialog
+ - User Favorites - added a user favorites section where users can mark their favorite benchmarks or target systems.  The Benchmark Dashboard and Target System Dashboard now use user favorites to display the options available for graphing
+ - Inbox UI Improvements
+   - added an All/Unread toggle to the User Inbox to easily view only unread messages.  
+   - added orange text to unread tasks in the User Inbox, to provide a visual distinction from other types of unread alerts.
+   - added batch delete and mark read/unread to the User Inbox
+ - Exception workflow - added alerting to recipient list when an exception is approved/rejected.  Previously the alert would just go to the requester, now it will go to everyone on the recipient list, which can be managed in the admin section
+ - added security to exception end dating to only allow ROLE_ADMIN to end date exceptions
+ - Exception End date alert - recipient list will be notified when an exception is end dated
+ 
+SYSTEM ENHANCEMENTS
+
+ - Target System Primary Identification customization - added ability to customize the primary identifier used for target systesms at an application level, and per target system.  By default, hostname will be the primary identifier of all target systems, but you can now change to use another identifier type, such as fqdn, mac-address, or a custom identifier.
+
+BUGS
+
+ - fixed bug where CCPD would not run using SQL Server 2014
+ - fixed missing "Back" button on Target Systems Dashboarad when toggling between multi/single view
+ - fixed bug preventing deletion of target systems
+ 
+## CIS-CAT Pro Dashboard v1.0.4.1 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Device View Dashboard - you can now search by device, or multiple devices, instead of having them all listed.
+
+SYSTEM ENHANCEMENTS
+
+
+BUGS
+
+ - fixed bug where viewing assessment results would make the end time on the report 12:00am
+ - fixed an import bug where missing oval definitions would cause an import to fail.
+
+## CIS-CAT Pro Dashboard v1.0.4 ##
+
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Alerting functionality 
+ - users will now receive configurable alerts for: Test Results imported,  Low Scoring Results imported, Errors importing Results
+ - Exception Workflow  - when an exception is created it will go into a Pending status, and an task will be created to approve/reject the exception.  this defaults to users with ROLE_ADMIN, but is configurable
+ - User Inbox - new inbox on the menu bar for alerts and workflow tasks
+ - Exceptions View on Test Results - a new view was added to Test Results to show all exceptions that apply to that test result in a single list.
+ - Exceptions by Target System - the target system screen now displays all exceptions that apply to that target
+ - Exceptions Search - you can now search for exceptions by: Target System, Tag, Benchmark, Dates
+ - User Tags - users can now be tagged, this allows for alerts to be sent to users by tag
+ - Role Tags - Roles can now be tagged, no current functionality is effected by this.
+ - Added hostname to the Target System Search, Remediation Report Search, Complete Results Search
+
+SYSTEM ENHANCEMENTS
+
+ - Added support for Oracle Databases
+ - Added Support for SQL Server databases
+ - Performance improvements for the import process
+ - CCPD software version now appears on the title bar
+ - Functional Area now applicable by action - the functional areas for security use to only be able to control access at the controller level,  administrators can now control access at the action level, whichi is much more granular
+
+BUGS
+
+ - fixed vulnerability where a basic user could become an administrator
+
 ## CIS-CAT Pro Dashboard v1.0.3 ##
 
 FUNCTIONAL ENHANCEMENTS

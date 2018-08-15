@@ -340,9 +340,23 @@ Once there, you can select the "New Target System" button, which will open the c
 
 Simply enter the Hostname and click Add Target,  this will create a new target system.
 
-**Diff report**
+**v1.1.3 Data Conversion**
 
-The user can compare two Configuration Assessment Results and generate a Diff report. The report highlights configuration changes (rules status and scores), for example when some rules were passing, and are now failing. This feature is accessible from the Target System page:
+v1.1.3 of the CIS-CAT Pro Dashboard introduced a new data model for storing configuration and vulnerability assessment results.  The new model significantly reduces the number of records stored in the database on import and offers performance improvements to many aspects of assessment processing: import, export, and delete.  Assessments that existed in CCPD implementations prior to the release of v1.1.3 will not be converted automatically.  The conversion process can be long and intrusive if the implementation has many reports.  Existing reports can be left as is, but will continue to have the same performance characteristics as they previously had.  In order to take advantage of the new data model, these reports must be converted.  This can be achieved on a one off basis from the Target Systems Configuration Assessment or Vulnerability Assessment Tab:
+
+
+![](https://i.imgur.com/Tl9w1vL.png)
+
+
+Pre-v1.1.3 reports will have their Converted Column set to "No".  In order to convert them, select the Convert Action from the Actions column.  The report will convert asynchronously and be available in a few minutes.
+
+For a more system wide approach to conversion you can use the new system settings `auto.convert.start.time` and `auto.convert.end.time`.  By default, these will both be -1,  but if you set the to an hour between 0-23 (0 being midnight) the system will automatically convert as many reports as it can in the time frame specified.  For example,  if you set the start time to 22 and the end time to 6, the system would convert assessments between the hours of 10pm and 6am each night, until all of the existing assessments were converted.
+
+All assessments imported after the implementation of v1.1.3 will come into the system utilizing the new data model,  they will be shown as converted throughout the application.
+
+**Difference report**
+
+The user can compare two Configuration Assessment Results and generate a Difference report. The report highlights configuration changes (rules status and scores), for example when some rules were passing, and are now failing. This feature is accessible from the Target System page:
 
 ![](https://i.imgur.com/Vild2zo.png)
 
@@ -353,11 +367,11 @@ Click on ![](https://i.imgur.com/DaVeSsp.png) brings the following options:
 
 * **Compare with any other results** - This option forwards the user to an intermediate search page. The user can search and select the Assessment Result to compare with.
 
-Then the user is redirected to the Security Configuration Assessment Diff Report page:
+Then the user is redirected to the Security Configuration Assessment Difference Report page:
 
 ![](https://i.imgur.com/Rxn4mNM.png)
 
-**Diff report alert**
+**Difference report alert**
 
 An alert can be sent during the import process if the score of the uploaded Assessment result went down compared to  the previous one (same machine/benchmark/profile).
 
@@ -372,6 +386,11 @@ As well as setting the **alert.diffScoreThreshold** threshold from the System Se
 
 For more details about how to manage Alerts, please refer to Alert Management section of this guide.  
 
+**Assessment Deletion**
+
+Both Configuration and Vulnerability Assessments can be deleted from their respective tabs on the Target System.  Each row in the Assessment Lists now has a Delete Action in the Actions column.  When clicked, you will be prompted to confirm you would like to delete, then on confirmation the individual result will be deleted:
+
+![](https://i.imgur.com/mdeEqMI.png)
   
          
 
