@@ -125,8 +125,9 @@ NOTE: This license applies to the following libraries:
 
 ### Other Back-End Libraries: ###
 
-|Name|License &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; |License Link|
+|Name|License|License Link|
 |---|---| ---|
+||<img width=200/>||
 |com.bertramlabs.plugins:asset-pipeline-grails 2.11.1|The Apache Software License, Version 2.0|[http://www.apache.org/licenses/LICENSE-2.0.txt](http://www.apache.org/licenses/LICENSE-2.0.txt)|
 |com.codeborne:phantomjsdriver 1.3.0|The BSD 2-Clause License|[https://github.com/codeborne/ghostdriver/blob/master/LICENSE.BSD](https://github.com/codeborne/ghostdriver/blob/master/LICENSE.BSD)|
 |com.microsoft.sqlserver:mssql-jdbc 6.1.5.jre8-preview|MIT License|[https://github.com/Microsoft/mssql-jdbc/blob/dev/LICENSE](https://github.com/Microsoft/mssql-jdbc/blob/dev/LICENSE)|
