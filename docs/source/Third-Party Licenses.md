@@ -88,6 +88,9 @@ License v2.0, January 2004. For more information, please see:
 NOTE: This license applies to the following libraries: 
 
    * snakeyaml-1.21.jar
+   
+---------------------------------------------------------------------------
+
 
 
 ## CIS-CAT Pro Dashboard ##
