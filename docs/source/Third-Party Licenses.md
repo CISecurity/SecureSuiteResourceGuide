@@ -5,7 +5,7 @@
 ----------
 
 ## CIS-CAT Pro Installer ##
-
+---------------------------------------------------------------------------
 #### MariaDB Java Client 2.3.0
 ---------------------------------------------------------------------------
 MariaDB Java Client v1.1.6 is used, unmodified, by CIS-CAT for database-related 
