@@ -118,3 +118,46 @@ NOTE: This license applies to the following libraries:
 |org.grails.plugins:spring-security-rest-gorm 2.0.0.M2|The Apache Software License, Version 2.0|[https://github.com/alvarosanchez/grails-spring-security-rest/blob/develop/LICENSE](https://github.com/alvarosanchez/grails-spring-security-rest/blob/develop/LICENSE)|
 |org.grails.plugins:spring-security-ui 3.0.0.M2|The Apache Software License, Version 2.0|[http://www.apache.org/licenses/LICENSE-2.0.txt](http://www.apache.org/licenses/LICENSE-2.0.txt)|
 |org.grails.profiles:web 3.2.1|The Apache Software License, Version 2.0|[https://github.com/grails/grails-profile-repository/blob/master/LICENSE](https://github.com/grails/grails-profile-repository/blob/master/LICENSE)|
+
+
+### Other Back-End Libraries: ###
+
+|Name|License|License Link|
+|---|---| ---|
+|com.bertramlabs.plugins:asset-pipeline-grails 2.11.1|The Apache Software License, Version 2.0|[http://www.apache.org/licenses/LICENSE-2.0.txt](http://www.apache.org/licenses/LICENSE-2.0.txt)|
+|com.codeborne:phantomjsdriver 1.3.0|The BSD 2-Clause License|[https://github.com/codeborne/ghostdriver/blob/master/LICENSE.BSD](https://github.com/codeborne/ghostdriver/blob/master/LICENSE.BSD)|
+|com.microsoft.sqlserver:mssql-jdbc 6.1.5.jre8-preview|MIT License|[https://github.com/Microsoft/mssql-jdbc/blob/dev/LICENSE](https://github.com/Microsoft/mssql-jdbc/blob/dev/LICENSE)|
+|com.opencsv:opencsv 3.3|The Apache Software License, Version 2.0|[http://opencsv.sourceforge.net/license.html](http://opencsv.sourceforge.net/license.html)|
+|com.oracle:ojdbc7 12.1.0.1|Oracle Technology Network License Agreement|[https://www.oracle.com/technetwork/licenses/distribution-license-152002.html](https://www.oracle.com/technetwork/licenses/distribution-license-152002.html)|
+|h2database:h2 1.4.192|MPL 2.0 or EPL 1.0|[http://h2database.com/html/license.html](http://h2database.com/html/license.html)|
+|io.github.bonigarcia:webdrivermanager 2.2.1|The Apache Software License, Version 2.0|[https://github.com/bonigarcia/webdrivermanager/blob/master/LICENSE](https://github.com/bonigarcia/webdrivermanager/blob/master/LICENSE)|
+|mysql:mysql-connector-java 6.0.5|The GNU General Public License, Version 2|
+[https://dev.mysql.com/downloads/connector/j/6.0.html](https://dev.mysql.com/downloads/connector/j/6.0.html) [https://dev.mysql.com/doc/relnotes/connector-j/6.0/en/preface.html](https://dev.mysql.com/doc/relnotes/connector-j/6.0/en/preface.html)|
+|net.sf.saxon:saxon 9.1.0.8 (called Saxon-B)|Mozilla Public License Version 1.0|[http://www.mozilla.org/MPL/MPL-1.0.txt](http://www.mozilla.org/MPL/MPL-1.0.txt)|
+|net.sourceforge.htmlunit:htmlunit 2.18|The Apache Software License, Version 2.0|[http://htmlunit.sourceforge.net/licenses.html](http://htmlunit.sourceforge.net/licenses.html)|
+|org.hibernate:hibernate-core 5.1.1|GNU Lesser General Public License 2.1|[https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt](https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt)|
+|org.hibernate:hibernate-ehcache 5.1.1|GNU Lesser General Public License 2.1|[https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt](https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt)|
+|org.mapdb:mapdb 3.0.2|The Apache Software License, Version 2.0|[https://github.com/jankotek/mapdb/blob/master/LICENSE.txt](https://github.com/jankotek/mapdb/blob/master/LICENSE.txt)|
+|org.seleniumhq.selenium:selenium-chrome-driver 2.53.1|The Apache Software License, Version 2.0|[https://github.com/SeleniumHQ/selenium/blob/master/LICENSE](https://github.com/SeleniumHQ/selenium/blob/master/LICENSE)|
+|org.seleniumhq.selenium:selenium-htmlunit-driver 2.47.1|The Apache Software License, Version 2.0|[https://github.com/SeleniumHQ/htmlunit-driver/blob/master/LICENSE](https://github.com/SeleniumHQ/htmlunit-driver/blob/master/LICENSE)|
+|org.seleniumhq.selenium:selenium-support 2.53.1|The Apache Software License, Version 2.0|[https://github.com/SeleniumHQ/selenium/blob/master/LICENSE](https://github.com/SeleniumHQ/selenium/blob/master/LICENSE)|
+|org.springframework.boot:spring-boot-autoconfigure 1.4.1|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)|
+|org.springframework.boot:spring-boot-starter-actuator 1.4.1|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)|
+|org.springframework.boot:spring-boot-starter-logging 1.4.1|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)|
+|org.springframework.boot:spring-boot-starter-tomcat 1.4.1|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)|
+|org.springframework.security.oauth:spring-security-oauth2 2.0.11|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-security-oauth/blob/master/license.txt](https://github.com/spring-projects/spring-security-oauth/blob/master/license.txt)
+|org.springframework.security:spring-security-core 4.1.3|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-security/blob/master/license.txt](https://github.com/spring-projects/spring-security/blob/master/license.txt)|
+|org.springframework.security:spring-security-web 4.1.3|The Apache Software License, Version 2.0|[https://github.com/spring-projects/spring-security/blob/master/license.txt](https://github.com/spring-projects/spring-security/blob/master/license.txt)|
+
+
+### Front-End Libraries: ###
+
+|Name|License|License Link|
+|---|---| ---|
+|Bootstrap 3.3.6|MIT|[https://bootstrapdocs.com/v3.3.6/docs/getting-started/#license-faqs](https://bootstrapdocs.com/v3.3.6/docs/getting-started/#license-faqs)|
+|ChartJs 2.7.2|MIT|[https://github.com/chartjs/Chart.js/blob/master/LICENSE.md](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)|
+|Font Awesome 4.7.0 (css)|MIT|[https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)|
+|Google Visualization API (library not embedded to the project)|Free for commercial purpose|The Visualization API is free to use (within the limits of the Terms of Service: [https://developers.google.com/chart/terms](https://developers.google.com/chart/terms))|
+|JQuery 1.11.3|MIT|[https://github.com/jquery/jquery/blob/master/LICENSE.txt](https://github.com/jquery/jquery/blob/master/LICENSE.txt)|
+|jQuery UI Core 1.11.4|MIT|[https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt](https://github.com/jquery/jquery-ui/blob/master/LICENSE.txt)|
+|jQuery UI Tag-it 2.0|MIT| [http://aehlke.github.com/tag-it/LICENSE](http://aehlke.github.com/tag-it/LICENSE)|
