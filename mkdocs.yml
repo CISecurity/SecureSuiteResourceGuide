@@ -1,0 +1,14 @@
+site_name: CIS-CAT Pro Dashboard Documentation
+
+nav:
+    - Home: index.md
+    - Source:      
+        - Assessor Deployment Guide: source/Assessor Deployment Guide.md
+        - Change Log: source/Change Log.md
+        - Dashboard Deployment Guide for Linux: source/Dashboard Deployment Guide for Linux.md
+        - Dashboard Deployment Guide for Windows: source/Dashboard Deployment Guide for Windows.md
+        - Dashboard User's Guide: source/Dashboard User's Guide.md
+        - Third-Party Licenses.md: source/Third-Party Licenses.md
+
+theme:
+  name: readthedocs
