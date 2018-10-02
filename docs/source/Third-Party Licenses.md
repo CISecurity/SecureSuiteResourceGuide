@@ -8,7 +8,7 @@
 ---------------------------------------------------------------------------
 #### MariaDB Java Client 2.3.0
 ---------------------------------------------------------------------------
-MariaDB Java Client v1.1.6 is used, unmodified, by CIS-CAT for database-related 
+MariaDB Java Client v2.3.0 is used, unmodified, by CIS-CAT for database-related 
 functions. The MariaDB Java Client is governed by the GNU Lesser General Public 
 License (LGPL).  For more information, see:
 
