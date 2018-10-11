@@ -134,8 +134,8 @@ NOTE: This license applies to the following libraries:
 |com.oracle:ojdbc7 12.1.0.1|Oracle Technology Network License Agreement|[https://www.oracle.com/technetwork/licenses/distribution-license-152002.html](https://www.oracle.com/technetwork/licenses/distribution-license-152002.html)|
 |h2database:h2 1.4.192|MPL 2.0 or EPL 1.0|[http://h2database.com/html/license.html](http://h2database.com/html/license.html)|
 |io.github.bonigarcia:webdrivermanager 2.2.1|The Apache Software License, Version 2.0|[https://github.com/bonigarcia/webdrivermanager/blob/master/LICENSE](https://github.com/bonigarcia/webdrivermanager/blob/master/LICENSE)|
-|mysql:mysql-connector-java 6.0.5|The GNU General Public License, Version 2|
-[https://dev.mysql.com/downloads/connector/j/6.0.html](https://dev.mysql.com/downloads/connector/j/6.0.html) [https://dev.mysql.com/doc/relnotes/connector-j/6.0/en/preface.html](https://dev.mysql.com/doc/relnotes/connector-j/6.0/en/preface.html)|
+|org.mariadb.jdbc:mariadb-java-client 2.3.0|GNU Lesser General Public License 2.1|
+[https://mariadb.com/kb/en/about-the-mariadb-java-client/](https://mariadb.com/kb/en/about-the-mariadb-java-client/)|
 |net.sf.saxon:saxon 9.1.0.8 (called Saxon-B)|Mozilla Public License Version 1.0|[http://www.mozilla.org/MPL/MPL-1.0.txt](http://www.mozilla.org/MPL/MPL-1.0.txt)|
 |net.sourceforge.htmlunit:htmlunit 2.18|The Apache Software License, Version 2.0|[http://htmlunit.sourceforge.net/licenses.html](http://htmlunit.sourceforge.net/licenses.html)|
 |org.hibernate:hibernate-core 5.1.1|GNU Lesser General Public License 2.1|[https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt](https://github.com/hibernate/hibernate-orm/blob/master/lgpl.txt)|
