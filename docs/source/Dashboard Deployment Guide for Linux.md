@@ -130,7 +130,7 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 	
 	            #MySQL DB Settings
 	
-	            driverClassName: org.mariadb.jdbc.Driver
+	            driverClassName: com.mysql.cj.jdbc.Driver
 	            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 	            url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
 	            username: <db_user>
@@ -214,7 +214,7 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 	#MySQL DB Settings
 	
-    #driverClassName: org.mariadb.jdbc.Driver
+    #driverClassName: com.mysql.cj.jdbc.Driver
     #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     #url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
     #username: <db_user>
@@ -248,7 +248,7 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
 
 	#MySQL DB Settings
 	
-    #driverClassName: org.mariadb.jdbc.Driver
+    #driverClassName: com.mysql.cj.jdbc.Driver
     #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     #url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
     #username: <db_user>
