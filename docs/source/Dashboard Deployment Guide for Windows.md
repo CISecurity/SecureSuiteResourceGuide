@@ -362,6 +362,19 @@ And the configuration for sending via a Hotmail/Live account:
 			    mail.smtp.starttls.enable: "true"
 			    mail.smtp.port: "587"
 
+And the configuration for sending via a Outlook account:
+#### *Mail Configuration - Outlook* ####
+    ---
+    grails:
+	    mail:
+		    host: "smtp-mail.outlook.com"
+		    port: 587
+		    username: "youracount@outlook.com"
+		    password: "yourpassword"
+		    props:
+			    mail.smtp.starttls.enable: "true"
+			    mail.smtp.port: "587"
+
 And the configuration for sending via a Yahoo account:
 #### *Mail Configuration - Yahoo* ####
     ---
