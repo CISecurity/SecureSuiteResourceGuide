@@ -544,45 +544,45 @@ The CIS-CAT Pro Dashboard application's dashboard views provide a high level ove
 
 The overview contains a fully aggregated view of all endpoints across all benchmarks:
 
-![](http://i.imgur.com/50l14Tg.png)
+![](https://i.imgur.com/4nJ8gxU.png)
 
 **Benchmark View**
 
 The benchmark view has results aggregated by benchmark.  You can select any number of benchmarks from your list of favorite benchmarks that you would like to see results for.  Each benchmark selected will be represented by a separate line on the graph.  This allows you to compare compliance against various CIS Benchmarks.
 In this view, you can also add/delete favorite benchmarks.
 
-![](http://i.imgur.com/CvvwBjV.png)
+![](https://i.imgur.com/LEPV84d.png)
 
 **Target System View**
 
 The target system view has the results aggregated by individual target system.  The default target system view is the Multiple Target System view, which allows you to select many target systems from your list of favorite target systems and compare their aggregated results. In this view, you can also add/delete favorite target systems.
 
-![](http://i.imgur.com/ENSkpTy.png)
+![](https://i.imgur.com/M9JHHri.png)
 
 **Target System Search View**
 
 Click on "Switch to Search View" link to navigate to Target System Search View.
 This view allows you to search many target systems by criteria and compare their aggregated results.
 
-![](http://i.imgur.com/vIRmFD8.png)
+![](https://i.imgur.com/JFwvFO6.png)
 
 **Target System by Benchmark View**
 
 If you only select a single target system, you can switch to the single target system view.  This will allow you to select the benchmarks that have assessment results for the selected target system and compare the benchmark compliance for just a single target.  This allows you to see potentially which benchmarks are reducing the compliance score for a single system.
 
-![](http://i.imgur.com/r6wUwFT.png)
+![](https://i.imgur.com/vqY99Lr.png)
 
 **Tag View**
 
 The tag view allows you to aggregate compliance results for a group of target systems with the same tag, or with multiple tags.  Each tag entered will be represented by a single line, so that you could compare results accross multiple tags.
 
-![](http://i.imgur.com/dm0LQK0.png)
+![](https://i.imgur.com/j3ce5lJ.png)
 
 **Vulnerability View**
 
 The tag view allows you to aggregate vulnerability results for all target systems with vulnerability reports.  Each set of bars represents the average of the high, medium, and low CVSS scored vulnerabilities detected in the given time period (monthly, daily, single day).
 
-![](http://i.imgur.com/AFN71iZ.png)
+![](https://i.imgur.com/cHEsOCR.png)
 
  
 ## "Reference" Data Administration ##
