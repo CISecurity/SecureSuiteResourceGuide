@@ -564,7 +564,7 @@ The target system view has the results aggregated by individual target system.  
 Click on "Switch to Search View" link to navigate to Target System Search View.
 This view allows you to search many target systems by criteria and compare their aggregated results.
 
-![](https://i.imgur.com/JFwvFO6.png)
+![](http://i.imgur.com/vIRmFD8.png)
 
 **Target System by Benchmark View**
 
