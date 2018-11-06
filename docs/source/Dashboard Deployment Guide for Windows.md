@@ -144,7 +144,7 @@ As a final step we want to remove the default applications available from the To
 Please delete every directory inside `C:\tomcat\webapps\*` to help reduce the attack surface of the application server.
 
 
-##CIS-CAT Pro Dashboard Configuration and Deployment - Using the Installer##
+##Configuration and Deployment - Installer##
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard bundle that corresponds to your Java installation (32-bit or 64-bit) from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance. 
  
@@ -152,7 +152,7 @@ After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that i
 
 ![](https://i.imgur.com/xthTnYn.png)
 
-We recommend that tomcat application server has been stopped before continuing. Additionally, ensure that component installation such as installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) before continuing.
+We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completing before continuing.
 
 Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x64.exe` in this example).
 
@@ -229,8 +229,7 @@ If the installer process was successful, the Complete screen will be presented. 
 
 ![](https://i.imgur.com/KYAkuGj.png)
 
-##CIS-CAT Pro Dashboard Configuration and Deployment - Manual Installation##
-
+##Configuration and Deployment - Manual##
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Download the CIS-CAT Pro Dashboard bundle from [CIS WorkBench](https://workbench.cisecurity.org/) and place the bundle on the tomcat instance. The latest version of CIS-CAT Pro Dashboard will be pinned at the top of the Downloads section.
 
