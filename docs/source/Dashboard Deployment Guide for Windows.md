@@ -144,7 +144,87 @@ As a final step we want to remove the default applications available from the To
 Please delete every directory inside `C:\tomcat\webapps\*` to help reduce the attack surface of the application server.
 
 
-##CIS-CAT Pro Dashboard Configuration and Deployment##
+##CIS-CAT Pro Dashboard Configuration and Deployment - Using the Installer##
+### CIS-CAT Pro Dashboard Runtime Configuration File###
+Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard bundle that corresponds to your Java installation (32-bit or 64-bit) from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance. 
+ 
+After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that its contents look similar to the following image (64-bit Java version example shown):
+
+![](https://i.imgur.com/xthTnYn.png)
+
+We recommend that tomcat application server has been stopped before continuing. Additionally, ensure that component installation such as installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) before continuing.
+
+Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x64.exe` in this example).
+
+![](https://i.imgur.com/w2QjvOK.png)
+
+####Welcome (First-time user)####
+First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
+
+![](https://i.imgur.com/6m71Uwp.png)
+
+####Welcome (From previous installation)####
+Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
+
+![](https://i.imgur.com/9hEFkHE.png)
+
+####Installation Actions####
+As part of Installation Actions, at least one action must be selected in order to navigate to the next step. As an option, the actions can also be completed together. Both actions must be completed successfully (together or separately) as part of the overall CIS-CAT Pro Dashboard Deployment Guide. The screens will navigate only to the information required to be collected for the installation actions selected.
+
+![](https://i.imgur.com/KyDgIxi.png)
+
+####Application Server Location####
+For users performing the Installation Action, “Install/update CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
+
+![](https://i.imgur.com/p5YGEBv.png)
+
+####Import Directory####
+It is required to setup processing folders that the Dashboard will use while importing files.
+
+![](https://i.imgur.com/K1qmMyc.png)
+
+####Environment Variables####
+Specify the Windows environment variables needed by the CIS-CAT Pro Dashboard. `CCPD_CONFIG_FILE` points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). `CCPD_LOG_DIR` is the logs directory for CIS-CAT Pro Dashboard.
+
+![](https://i.imgur.com/57N5KbG.png)
+
+####Application Server URL 
+Specifies the application URL of the CIS-CAT Pro Dashboard application. Example formats are shown within the CIS-CAT Pro Dashboard Installer.
+
+![](https://i.imgur.com/vrbfX7f.png)
+
+####Email Configuration####
+The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
+
+Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange. CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information entered below is correct.
+By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
+
+![](https://i.imgur.com/nctuocK.png)
+
+####Database Configuration####
+The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional functions are available in this screen:
+
+ - **Create a Schema:** Enter correct Hostname/IP, Port, Username, Password and select the “Create Schema” button. This process currently applies only to MySQL and SQL Server databases. 
+ - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
+
+![](https://i.imgur.com/uGITRPm.png)
+
+####Summary####
+The Summary screen is intended for a final review of all information provided in previous screens. If any information is incorrect, the back button can be used to navigate to the appropriate screen and make a correction.
+
+![](https://i.imgur.com/PHRhlma.png)
+
+####Installation####
+The system may ask for permission to create a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
+
+![](https://i.imgur.com/7cPUDBf.png)
+
+####Complete####
+If the installer process was successful, the Complete screen will be presented. Select Finish to complete the selected Installer actions. The tomcat application server can now be started if it was previously stopped.
+
+![](https://i.imgur.com/KYAkuGj.png)
+
+##CIS-CAT Pro Dashboard Configuration and Deployment - Manual Installation##
 
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Download the CIS-CAT Pro Dashboard bundle from [CIS WorkBench](https://workbench.cisecurity.org/) and place the bundle on the tomcat instance. The latest version of CIS-CAT Pro Dashboard will be pinned at the top of the Downloads section.
@@ -593,6 +673,10 @@ Answering `yes` to this confirmation prompt will import the certificate into the
 ##Upgrading from a previous version##
 
 To upgrade from an earlier version of CCPD:
+
+There are two ways to upgrade your current CCPD version.
+
+You can follow the instructions given above and do so by using the CIS-CAT Pro Dashboard Installer or you can follow the manual instructions provided below:
 
 1) Stop your application server. If you followed the deployment guide that would be tomcat.<br/>Tomcat service can be stopped from the system tray tomcat monitoring icon or from the windows services screen:  
 ![](https://i.imgur.com/S3FJsMG.png)
