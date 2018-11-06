@@ -173,6 +173,11 @@ As part of Installation Actions, at least one action must be selected in order t
 
 ![](https://i.imgur.com/KyDgIxi.png)
 
+####Configuration File Location####
+If this is a new installation <u>and</u> “Create/update CIS-CAT Pro Dashboard configuration File” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
+
+![](https://i.imgur.com/zQfJDks.png)
+
 ####Application Server Location####
 For users performing the Installation Action, “Install/update CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
 
