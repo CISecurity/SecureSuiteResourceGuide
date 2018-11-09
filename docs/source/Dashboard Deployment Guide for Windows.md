@@ -143,8 +143,10 @@ This will increase the max allowable file size for upload.  Many CIS-CAT Pro Ass
 As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications. These default sites can and will give away information about the environment and present an information security risk.<br/>
 Please delete every directory inside `C:\tomcat\webapps\*` to help reduce the attack surface of the application server.
 
-
+<a name="confAndDeploymentInstaller"></a>
 ##Configuration and Deployment - Installer##
+<b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
+
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard bundle that corresponds to your Java installation (32-bit or 64-bit) from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance. 
  
@@ -184,7 +186,7 @@ For users performing the Installation Action, “Install/update CIS-CAT Pro Dash
 ![](https://i.imgur.com/p5YGEBv.png)
 
 ####Import Directory####
-It is required to setup processing folders that the Dashboard will use while importing files.
+It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
 
 ![](https://i.imgur.com/K1qmMyc.png)
 
@@ -229,7 +231,13 @@ If the installer process was successful, the Complete screen will be presented. 
 
 ![](https://i.imgur.com/KYAkuGj.png)
 
+####Installer Logs
+During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. For Windows, this location would be `C:\Users\loggedinUser\AppData\Local\Temp`. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). To view the log at any time, select the button that says Get Installation log.
+
+<a name="confAndDeploymentManual"></a>
 ##Configuration and Deployment - Manual##
+This section describes how to configure and deploy the Dashboard manually.  For instructions on how to configure and deploy the Dashboard using the Installer, see [Configuration and Deployment - Installer](#confAndDeploymentInstaller).</b>
+
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Download the CIS-CAT Pro Dashboard bundle from [CIS WorkBench](https://workbench.cisecurity.org/) and place the bundle on the tomcat instance. The latest version of CIS-CAT Pro Dashboard will be pinned at the top of the Downloads section.
 

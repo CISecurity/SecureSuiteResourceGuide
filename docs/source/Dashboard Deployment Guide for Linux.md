@@ -109,7 +109,9 @@ As a final step we want to remove the default applications available from the To
 
 This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.
 
-## Configuration and Deployment - Installer ##
+<a name="confAndDeploymentInstaller"></a>
+##Configuration and Deployment - Installer##
+<b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
 
 Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance.
 
@@ -157,7 +159,7 @@ For users performing the Installation Action, “This action deploys the WAR fil
 ![](https://i.imgur.com/iBxuUXQ.png)
 
 ####Import Directory####
-It is required to setup processing folders that the Dashboard will use while importing files.
+It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
 
 ![](https://i.imgur.com/YtqoBnL.png)
 
@@ -180,7 +182,7 @@ Along with the default sender email address, CIS-CAT Pro Dashboard's mailing con
 ![](https://i.imgur.com/PwLvG3Z.png)
 
 ####Database Configuration####
-The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional functions are available in this screen:
+The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional function available in this screen:
 
  - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
 
@@ -205,7 +207,13 @@ If the installer process was successful, the Complete screen will be presented. 
 
 ![](https://i.imgur.com/9ljgJ5k.png)
 
-## Configuration and Deployment - Manual ##
+####Installer Logs
+During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. For Windows, this location would be `C:\Users\loggedinUser\AppData\Local\Temp`. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). To view the log at any time, select the button that says Get Installation log.
+
+<a name="confAndDeploymentManual"></a>
+##Configuration and Deployment - Manual##
+<b>This section describes how to configure and deploy the Dashboard manually.  For instructions on how to configure and deploy the Dashboard using the Installer, see [Configuration and Deployment - Installer](#confAndDeploymentInstaller).</b>
+
 At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the "war") included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port `8080`, without the web server.  This can help identify any application or application server misconfigurations prior to web server installation/configuration.
 
 
