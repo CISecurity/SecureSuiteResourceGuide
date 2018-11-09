@@ -236,7 +236,7 @@ During the installation, the Installer will create logs. The logs will be create
 
 <a name="confAndDeploymentManual"></a>
 ##Configuration and Deployment - Manual##
-This section describes how to configure and deploy the Dashboard manually.  For instructions on how to configure and deploy the Dashboard using the Installer, see [Configuration and Deployment - Installer](#confAndDeploymentInstaller).</b>
+<b>This section describes how to configure and deploy the Dashboard manually.  For instructions on how to configure and deploy the Dashboard using the Installer, see [Configuration and Deployment - Installer](#confAndDeploymentInstaller).</b>
 
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
 Download the CIS-CAT Pro Dashboard bundle from [CIS WorkBench](https://workbench.cisecurity.org/) and place the bundle on the tomcat instance. The latest version of CIS-CAT Pro Dashboard will be pinned at the top of the Downloads section.
