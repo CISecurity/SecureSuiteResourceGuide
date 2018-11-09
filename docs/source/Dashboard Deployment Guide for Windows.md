@@ -152,7 +152,7 @@ After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that i
 
 ![](https://i.imgur.com/xthTnYn.png)
 
-We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completing before continuing.
+We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
 
 Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x64.exe` in this example).
 
@@ -487,9 +487,13 @@ Create the following Windows Environment variables:
 **Note:**  The values of these environment variables can be configured to any location the administrator wishes, and must be to file system locations to which the Tomcat application server can access on startup.
 
 ###Initial War Deployment###
+The CCPD.war file can be deployed by utilizing the CIS-CAT Pro Dashboard Installer or it can be done manually. Refer to the below instructions to deploy the CCPD.war file manually.
+
 At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the "war") included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port `8080`, without the web server (IIS).  This can help identify any application or application server misconfigurations prior to web server (IIS) installation/configuration.
 
 Connect to the application server and transfer the `CCPD.war` to the `c:\tomcat\webapps` directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.
+
+Either way, after the deployment of the CCPD.war file you should keep following these instructions below:
 
 Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD/`, into a browser.
 

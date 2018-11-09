@@ -109,7 +109,103 @@ As a final step we want to remove the default applications available from the To
 
 This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.
 
-### Deploy WAR ###
+## Configuration and Deployment - Installer ##
+
+Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance.
+
+After the CIS-CAT Pro Dashboard Unix bundle has been extracted, please confirm that its contents look similar to the following image:
+
+![](https://i.imgur.com/h8sedNq.png)				
+
+We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
+
+Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example).
+
+You must be logged in as root or as a user that has root privileges (use "sudo" or "su" to elevate your privileges) when you run the CIS-CAT Pro Dashboard Installer.
+
+####Welcome (First-time user)####
+First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. On this screen you can also see the location of the temporary installation log.
+
+![](https://i.imgur.com/kshuehK.png)
+
+####Welcome (From previous installation)####
+Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. The screens will navigate only to the information required to be collected for the installation actions selected.
+
+![](https://i.imgur.com/PX7OErd.png)
+
+####Preload configuration file####
+
+The Installer might be able to detect an existing CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`). If one is found you will be given the choice of using that one or manually entering the location of one, in order to pre-populate some of the Installer screens. The screens will navigate only to the information required to be collected for the installation actions selected.
+
+![](https://i.imgur.com/cBSRjH1.png)
+
+![](https://i.imgur.com/APv8rx1.png)
+
+####Installation Actions####
+As part of Installation Actions, at least one action must be selected in order to navigate to the next step. As an option, the actions can also be completed together. Both actions must be completed successfully (together or separately) as part of the overall CIS-CAT Pro Dashboard Deployment Guide. The screens will navigate only to the information required to be collected for the installation actions selected.
+
+![](https://i.imgur.com/V6MyIj1.png)
+
+####Configuration File Location####
+If this is a new installation and “Create/update CIS-CAT Pro Dashboard configuration file (ccpd.config.yml)” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
+
+![](https://i.imgur.com/wyxp8Ag.png)
+
+####Application Server Location####
+For users performing the Installation Action, “This action deploys the WAR file to the application server. The WAR file has to be present in the same location as this installer. Install/update the CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
+
+![](https://i.imgur.com/iBxuUXQ.png)
+
+####Import Directory####
+It is required to setup processing folders that the Dashboard will use while importing files.
+
+![](https://i.imgur.com/YtqoBnL.png)
+
+####Environment Variables####
+Specify the environment variables needed by the CIS-CAT Pro Dashboard. CCPD_CONFIG_FILE points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). CCPD_LOG_DIR is the logs directory for CIS-CAT Pro Dashboard.
+
+![](https://i.imgur.com/tW0OVK9.png)
+
+####Application Server URL
+Specifies the application URL of the CIS-CAT Pro Dashboard application. Example formats are shown within the CIS-CAT Pro Dashboard Installer.
+
+![](https://i.imgur.com/2bUnL1f.png)
+
+####Email Configuration####
+The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
+Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange. CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information entered below is correct. By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
+
+![](https://i.imgur.com/KFgNYhC.png)
+
+![](https://i.imgur.com/PwLvG3Z.png)
+
+####Database Configuration####
+The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional functions are available in this screen:
+
+ - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
+
+![](https://i.imgur.com/Hvs91zN.png)
+
+![](https://i.imgur.com/l2mYhy8.png)
+
+####Summary####
+The Summary screen is intended for a final review of all information provided in previous screens. If any information is incorrect, you can cancel and navigate to the appropriate screen and make a correction.
+
+![](https://i.imgur.com/9k1UT1I.png)
+
+![](https://i.imgur.com/ytHeFkf.png)
+
+####Installation####
+The system may ask for permission to create a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
+
+![](https://i.imgur.com/QjgYrNU.png)
+
+####Complete####
+If the installer process was successful, the Complete screen will be presented. On this screen you can also see the location of the final installation log, which is created with a unique date and timestamp added to its name. The tomcat application server can now be started if it was previously stopped.
+
+![](https://i.imgur.com/9ljgJ5k.png)
+
+## Configuration and Deployment - Manual ##
 At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the "war") included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port `8080`, without the web server.  This can help identify any application or application server misconfigurations prior to web server installation/configuration.
 
 
@@ -361,7 +457,7 @@ We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user n
 	> sudo chgrp tomcat ccpd-config.yml
 	> sudo chmod 400 ccpd-config.yml
 
-### Deploy WAR (Continued) ###
+### Deploy WAR ###
 Connect to the application server and transfer the `CCPD.war` to the `/opt/tomcat/webapps` directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.
 
 Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD/`, into a browser.
