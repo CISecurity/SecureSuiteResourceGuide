@@ -208,7 +208,7 @@ If the installer process was successful, the Complete screen will be presented. 
 ![](https://i.imgur.com/9ljgJ5k.png)
 
 ####Installer Logs
-During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). 
+During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). 
 
 <a name="confAndDeploymentManual"></a>
 ##Configuration and Deployment - Manual##
