@@ -224,7 +224,9 @@ The Summary screen is intended for a final review of all information provided in
 ####Installation####
 The system may ask for permission to create a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
 
-![](https://i.imgur.com/7cPUDBf.png)
+The installer does not preserve or setup LDAP configuration. This is done manually using the backup file to merge any existing LDAP settings to the latest ccpd-config.yml
+
+![](https://i.imgur.com/besLapY.jpg)
 
 ####Complete####
 If the installer process was successful, the Complete screen will be presented. Select Finish to complete the selected Installer actions. The tomcat application server can now be started if it was previously stopped.
