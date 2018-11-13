@@ -113,6 +113,8 @@ This will remove all the default applications from the tomcat installation to he
 ##Configuration and Deployment - Installer##
 <b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
 
+The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
+
 Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance.
 
 After the CIS-CAT Pro Dashboard Unix bundle has been extracted, please confirm that its contents look similar to the following image:
@@ -209,6 +211,8 @@ If the installer process was successful, the Complete screen will be presented. 
 
 ####Installer Logs
 During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). 
+
+The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
 
 <a name="confAndDeploymentManual"></a>
 ##Configuration and Deployment - Manual##
