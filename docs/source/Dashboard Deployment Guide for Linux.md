@@ -168,7 +168,7 @@ It is required to setup processing folders that the Dashboard will use while imp
 ####Environment Variables####
 Specify the environment variables needed by the CIS-CAT Pro Dashboard. CCPD_CONFIG_FILE points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). CCPD_LOG_DIR is the logs directory for CIS-CAT Pro Dashboard.
 
-![](https://i.imgur.com/tW0OVK9.png)
+![](https://i.imgur.com/7vH7u1j.jpg)
 
 ####Application Server URL
 Specifies the application URL of the CIS-CAT Pro Dashboard application. Example formats are shown within the CIS-CAT Pro Dashboard Installer.
@@ -209,7 +209,7 @@ The installer does not preserve or setup LDAP configuration. This is done manual
 ####Complete####
 If the installer process was successful, the Complete screen will be presented. On this screen you can also see the location of the final installation log, which is created with a unique date and timestamp added to its name. The tomcat application server can now be started if it was previously stopped.
 
-![](https://i.imgur.com/9ljgJ5k.png)
+![](https://i.imgur.com/PiIB6RR.jpg)
 
 ####Installer Logs
 During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). 
