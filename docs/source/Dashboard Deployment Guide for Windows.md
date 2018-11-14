@@ -188,7 +188,7 @@ For users performing the Installation Action, “Install/update CIS-CAT Pro Dash
 ####Import Directory####
 It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
 
-![](https://i.imgur.com/ALURakB.jpg)
+![](https://i.imgur.com/4HVSwr4.jpg)
 
 ####Environment Variables####
 Specify the Windows environment variables needed by the CIS-CAT Pro Dashboard. `CCPD_CONFIG_FILE` points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). `CCPD_LOG_DIR` is the logs directory for CIS-CAT Pro Dashboard.
