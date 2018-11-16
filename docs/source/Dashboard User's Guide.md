@@ -281,13 +281,23 @@ Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CA
 
 Once generated, that authentication token must be added to the CIS-CAT properties file in order for automated upload to function.
 
+**CIS-CAT Pro Assessor v3**
+
 ciscat.properties:
 
 	# Allow for an authentication token to be generated in "CIS-CAT Pro Dashboard", allowing upload of
 	# generated ARF reports to the new database application.
 	ciscat.post.parameter.ccpd.token=m9i0o2lrqno60dlq49qlln6gqrj2l7kt
 
-Save the "ciscat.properties" file and execute CIS-CAT.
+**CIS-CAT Pro Assessor v4**
+
+assessor-cli.properties:
+
+	# Allow for a "bearer" token to be generated in CIS-CAT Pro Dashboard, allowing upload of
+	# generated ARF reports to the new database application.
+	ciscat.post.parameter.ccpd.token=m9i0o2lrqno60dlq49qlln6gqrj2l7kt
+
+Save the property file and execute CIS-CAT.
 
 
 **Graphical User Interface (GUI)**
