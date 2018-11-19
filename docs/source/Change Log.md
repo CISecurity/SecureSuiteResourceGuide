@@ -4,6 +4,23 @@
 
 ----------
 
+## CIS-CAT Pro Dashboard v1.1.4 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Installation and Upgrade Tool: A step-by-step embedded tool for the install/upgrade of dashboard that steps members through each process.
+ - Graphs Viewable With or Without Internet Connectivity: CIS-CAT Pro Dashboard can now display assessment results in a graphical form whether your application server is on or off-line.
+
+SYSTEM ENHANCEMENTS
+
+ - MySQL database driver replaced by Maria DB driver (increase performance). **IMPORTANT: in ccpd-config.yml, "com.mysql.cj.jdbc.Driver" driverClassName needs to be replaced by "org.mariadb.jdbc.Driver". Can be done with the Installer or manually.**
+ - Jobs run in succession (queue) to avoid simultaneous access to the database.
+
+BUGS
+
+ - Fixed reset password link and password expired redirection for users using a webserver. 
+ - Fixed a bug when importing duplicate oval variables.
+ - Fixed a bug when importing benchmark front-matter and rear-matter xml elements.
 
 ## CIS-CAT Pro Dashboard v1.1.3 ##
 
