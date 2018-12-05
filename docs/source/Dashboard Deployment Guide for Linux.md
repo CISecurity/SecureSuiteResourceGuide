@@ -53,10 +53,10 @@ Because CIS-CAT Pro Dashboard is a java-based application, members will need to 
 	# Install a JDK/JRE
 	sudo apt-get install default-jdk
 	
-	# Ensure Java is installed at the proper version level (or higher)
+	# Ensure Java is installed at the proper version level 
 	java -version
 
-Ensure that the Java version is displayed as `1.8.0_111` (or higher)
+Ensure that the Java version displayed starts with 1.8.***
 
 ### Application Server ###
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.

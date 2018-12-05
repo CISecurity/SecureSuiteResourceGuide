@@ -96,10 +96,10 @@ Then click right on "Databases" folder on the left panel (I.E. Object Explorer) 
 ###Java 8###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed. On a Command Prompt, type the following command:
 
-	#Ensure Java is installed at the proper version level (or higher)
+	# Ensure Java is installed at the proper version level
 	java -version
 
-Ensure that the Java version is displayed as 1.8.0_111 (or higher).
+Ensure that the Java version displayed starts with 1.8.***.
 If it's not the case, please install the jdk 1.8 from [the official website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
 ### Application Server###
