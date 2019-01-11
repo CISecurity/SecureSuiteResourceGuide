@@ -100,7 +100,11 @@ Because CIS-CAT Pro Dashboard is a java-based application, members will need to 
 	java -version
 
 Ensure that the Java version displayed starts with 1.8.***.
-If it's not the case, please install the jdk 1.8 from [the official website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+If it's not the case, please install the JDK/JRE 1.8.
+
+Oracle 1.8 can be downloaded from [the official website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+
+OpenJDK can be used in addition to the Oracle version. OpenJDK 1.8 can be downloaded from [the official website](http://jdk.java.net/).
 
 ### Application Server###
 
@@ -134,7 +138,7 @@ and add the maxPostSize attribute:
     <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
            redirectPort="8443"
-           maxPostSize="25728640"/>
+           maxPostSize="35728640"/>
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 

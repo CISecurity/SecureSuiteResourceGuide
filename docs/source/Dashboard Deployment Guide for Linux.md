@@ -50,7 +50,7 @@ This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data.
 ### Java 8 ###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.
 
-	# Install a JDK/JRE
+	# Install a OpenJDK JDK/JRE
 	sudo apt-get install default-jdk
 	
 	# Ensure Java is installed at the proper version level 
@@ -82,7 +82,7 @@ and add the maxPostSize attribute:
     <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
            redirectPort="8443"
-           maxPostSize="25728640"/>
+           maxPostSize="35728640"/>
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 
@@ -492,8 +492,8 @@ Your network must allow traffic on 8080
 ### Web Server ###
 The final configuration is for a web server to proxy the Tomcat instance and to answer traffic on port `80/443`.
 
-#### Apache HTTP Server ####
-Install Apache 2.4 by running: 
+#### Apache HTTP Server for Ubuntu####
+Install Apache 2.4 for Ubuntu by running: 
     sudo apt-get install apache2
 
 Create a file named `ccpd.conf` in the following directory: `/etc/apache2/sites-available` with the following lines:
