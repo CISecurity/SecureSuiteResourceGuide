@@ -3,7 +3,7 @@ site_name: CIS-CAT Pro Dashboard Document Library
 nav:
     - Home: index.md
     - Source:      
-        - Assessor v3 Deployment Guide: source/Assessor Deployment Guide.md
+        - Assessor v3 Deployment Guide: source/Assessor v3 Deployment Guide.md
         - Change Log: source/Change Log.md
         - Dashboard Deployment Guide for Linux: source/Dashboard Deployment Guide for Linux.md
         - Dashboard Deployment Guide for Windows: source/Dashboard Deployment Guide for Windows.md
