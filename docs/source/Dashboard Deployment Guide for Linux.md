@@ -52,7 +52,7 @@ Here is a SQL statement to enable access for the remote user:
 	
 	GRANT ALL ON *.* TO <user>@'<tomcat_server_IP>' IDENTIFIED BY '<password>';
 	
-For more details, refer to [this article](https://support.rackspace.com/how-to/mysql-connect-to-your-database-remotely/)
+For more details, refer to [this article](https://support.rackspace.com/how-to/mysql-connect-to-your-database-remotely/).
 
 ### Java 8 ###
 Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed.
