@@ -47,7 +47,7 @@ run: `create schema ccpd;`
 
 This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data.
 
-**NOTE:** If your database server is not installed in the same machine as tomcat, make sure that your database user has privileges for remote access.
+**NOTE:** If your database server is not installed on the same machine as tomcat, make sure that your database user has privileges for remote access.
 Here is a SQL statement to enable access for the remote user:
 	
 	GRANT ALL ON *.* TO <user>@'<tomcat_server_IP>' IDENTIFIED BY '<password>';

@@ -82,7 +82,7 @@ This will navigate you to the System Settings List, where you can modify the val
 |testResult.score.medium|The percentage score for a group of recommendations that will have the group appear in yellow on the assessment results, indicating moderate compliance|number between 0-100|
 |testResult.score.low|The percentage score for a group of recommendations that will have the group appear in orange on the assessment results, indicating poor compliance.  Scores below this will appear in red, indicating very poor compliance.|number between 0-100|
 |alert.diffScoreThreshold|Threshold for producing the &quot;Test Result Diff Alert&quot; when test results are imported and when the score goes down compared to the previous score (same machine/benchmark/profile). The value is the score difference between the 2 test results. Default is 0.|A percentage between 0-100|
-|controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version.|
+|controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version|
 
 
 ## Logging In/User Profile ##
@@ -451,9 +451,9 @@ The individual test results report provides a complete picture of a given Target
 
 1. **Results View** - the results view shows the test result in the same structure as the original benchmark.  The results for each recommendation are organized into the groups the same way as the benchmark.  Each group and subgroup is scored individually as a tally of all the rules contained within.  This is a dynamic version of the old CIS-CAT HTML report.  Users can also manage Exceptions to rules from this view (see below).
   
-2. **CIS Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules and results are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  
-<br/>The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Controls View.  In this view each of the 20 as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule results that provide evidence of implementation of that control/sub-control in your environment.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
-<br/><br/>The user can switch the CIS Controls version view by clicking on "CIS Controls Version" dropdown on the top of the page.<br/> Here is the content of the CIS Controls View:
+2. **CIS Controls View** - in this view, the rules and results are presented in the CIS Benchmarks structure. The general grouping is determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  
+<br/>The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Controls View. In this view, CIS Controls and Subcontrols as they relate to a recommendation are listed. This view is useful in identifying which recommendations represent or support a CIS Control. If no recommendation has been mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
+<br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the top of the page.<br/> Below is an example of the CIS Controls View screen:
 ![](https://i.imgur.com/6rtb18r.png)
 <br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). 
  
@@ -644,7 +644,7 @@ Once navigated to the OVAL Results List screen, click on the "Import OVAL Result
 
 **Benchmarks**
 
-To access to a Benchmark, simply navigate to Collections --> Benchmarks or Supporting Data --> Benchmarks List. There is also a link of the Benchmark in the Security Configuration Assessment Results view.
+To view a Benchmark, simply navigate to Collections --> Benchmarks or Supporting Data --> Benchmarks List. There is also a link to the Benchmark in the Security Configuration Assessment Results view.
 
 ![](http://i.imgur.com/2HioSTk.png)
 
@@ -661,10 +661,10 @@ Once a user selects a benchmark to view, he/she is taken to the benchmark home p
 ![](https://i.imgur.com/9A3rEPk.png)
 
 
-1. **General** - the General tab display a description of the selected benchmark, the version number as well as additional information like status or style.
-The CIS Controls version dropdown is the version displayed in Recommendations/CIS Controls View. By clicking on the dropdown, the user can switch the CIS Controls version view.
+1. **General** - the General tab display a description of the selected benchmark, the version number, and additional information such as status or style.
+The CIS Controls version selected in the CIS Controls Version dropdown will be the version displayed in Recommendations/CIS Controls View. By clicking on the dropdown, the user can change the CIS Controls version presented.
 
-2. **Profiles** - this is the list of Profiles for the selected benchmark. Expandable "accordions" displaying profile information such Profile description or Recommendations.
+2. **Profiles** - this is the list of Profiles for the selected benchmark. Select the header section bars to reveal additional information such as profile description or recommendations.
 ![](https://i.imgur.com/CEujUUT.png)
 
 3. **Recommendation** - this view gives access to the 3 following tabs:
@@ -672,11 +672,11 @@ The CIS Controls version dropdown is the version displayed in Recommendations/CI
 <br/><br/>**Results View** - the results view shows the list of recommendations organized into the groups. Each group is expandable to display any sub-groups or recommendations contained within:
 ![](https://i.imgur.com/9Z0dP1r.png)
 <br/><br/>Note the description, rationale, remediation, impact statements, any references, and any mapped CIS Controls are also displayed to the user. Also note that the benchmark content remains in a read-only state. CIS-CAT Pro Dashboard is merely a repository for already assessed information. Benchmark tailoring is beyond the scope of CIS-CAT Pro Dashboard.
-<br/><br/>**CIS Controls View** - when viewing a test results report, the default view is the traditional benchmarks view.  In this view the rules are organized into the structure and groups that they are in the CIS Benchmarks, as determined by the individual consensus communities.
-<br/>The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Controls View.  In this view each of the 20 as well as the subcontrols contained within each control are listed.  You can see on this view if a particular control or subcontrol has any benchmark rules associated with it.  If so, you can open the control/sub-control and see all of rule associated.  If there are no rules mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
-<br/><br/>The user can switch the CIS Controls version view by clicking on "CIS Controls Version" dropdown on the General tab.<br/> Here is the content of the CIS Controls View:
+<br/><br/>**CIS Controls View** - in this view, the rules are presented in the CIS Benchmarks structure. The general grouping is determined by the individual consensus communities.
+<br/>The controls view takes the same set of results, and using mapping metadata from the rules in the benchmark, reorganizes the rules into CIS Controls View. In this view, CIS Controls and Subcontrols as they relate to a recommendation are listed. This view is useful in identifying which recommendations represent or support a CIS Control. If no recommendation has been mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
+<br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the top of the page.<br/> Below is an example of the CIS Controls View screen:
 ![](https://i.imgur.com/6rtb18r.png)
-<br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s).<br/><br/>**Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
+<br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). <br/><br/>**Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
 ![](https://i.imgur.com/UM41ILe.png)
 
 4. **Results** - this is the list of Security Configuration Assessment Results for the selected benchmark.
