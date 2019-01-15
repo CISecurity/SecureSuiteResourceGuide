@@ -691,6 +691,14 @@ To import a SCAP 1.2 Data Stream Collection XML file, simply navigate to Collect
 
 
 ## Supporting Data ##
+
+**Benchmarks List**
+To access to a Benchmark, simply navigate to Supporting Data --> Benchmarks List or Collections --> Benchmarks. There is also a link of the Benchmark in the Security Configuration Assessment Results view.
+
+![](https://i.imgur.com/W8xngXR.png)
+
+For more details about the Benchmark view, please refer to **Benchmarks** section of **"Reference" Data Administration** sub-menu. 
+
  
 **CIS Controls**
 
