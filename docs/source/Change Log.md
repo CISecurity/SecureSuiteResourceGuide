@@ -4,6 +4,25 @@
 
 ----------
 
+## CIS-CAT Pro Dashboard v1.1.5 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - CIS Controls V7.0 support: For Benchmarks mapped to CIS Controls, users can view how recommendations relate to CIS Controls. See our upcoming blog to learn more. 
+ - The CIS-CAT Pro Dashboard's HTML report has been modified in style to match the Assessor's HTML report for consistency purposes. 
+ - For Dashboard Installer users, existing database settings will be detected and used instead of changed to CIS-CAT recommended settings.
+
+
+SYSTEM ENHANCEMENTS
+
+ - Oracle users upgrading from Dashboard versions prior to 1.1.3 will benefit from better database performance due to established indexing. Oracle users who have upgraded to Dashboard versions 1.1.3 or later to 1.1.5, will obtain the necessary indexes on upgrade. 
+ - The Installer has been whitelisted with Symantec anti-virus. 
+
+BUGS
+
+ - Resolved an issue for SQL Server users when drilling down on the Benchmark View chart. 
+
+
 ## CIS-CAT Pro Dashboard v1.1.4 ##
 
 FUNCTIONAL ENHANCEMENTS
