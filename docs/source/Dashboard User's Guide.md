@@ -13,7 +13,7 @@ See here for Linux:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment
 
 See here for Windows:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Windows/)
 ### CIS-CAT Pro Assessor Deployment ###
-See here: [CIS-CAT Pro Assessor Deployment Guide](./Assessor%20Deployment%20Guide/)
+See here: [CIS-CAT Pro Assessor Deployment Guide](./Assessor%20v3%20Deployment%20Guide/)
 
 ## User Administration ##
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.
