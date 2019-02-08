@@ -580,6 +580,10 @@ In order to import files into the Dashboard, you need to set up the temp folders
 	legacy.sourceDir = /opt/legacy/source
 	legacy.processedDir = /opt/legacy/processed
 	legacy.errorDir = /opt/legacy/error
+
+Make sure the tomcat user has read/write permissions to the above directories, here is the command:
+
+	sudo chown -R tomcat /opt/legacy
 	
 You can also set the processedRetention number, which determines how many processed xml files are saved in the process directory after being imported into the Dashboard:
 
