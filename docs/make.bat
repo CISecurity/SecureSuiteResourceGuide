@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=source
 set BUILDDIR=build
-set SPHINXPROJ=CIS-CATProDashboard
+set SPHINXPROJ=SecureSuiteResourceGuide
 
 if "%1" == "" goto help
 
