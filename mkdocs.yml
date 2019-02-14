@@ -1,1 +1,3 @@
 site_name: 'Secure Suite Resource Guide'
+nav:
+  - Welcome: 'index.md'
