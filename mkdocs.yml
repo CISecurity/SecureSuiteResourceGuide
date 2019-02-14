@@ -1,9 +1,7 @@
 site_name: SecureSuite Resource Guide
 
 nav:
-    - Home: index.md
-    - Source:      
-        - Welcome to CIS SecureSuite: source/welcome.md
+ - Home: index.md
 
 theme:
   name: readthedocs
