@@ -1,7 +1,0 @@
-site_name: SecureSuite Resource Guide
-
-nav:
- - Home: index.md
-
-theme:
-  name: readthedocs
