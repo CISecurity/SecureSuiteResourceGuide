@@ -1,8 +1,6 @@
 site_name: 'Secure Suite Resource Guide'
-pages:
+nav:
   - "Welcome": index.md
   - "Getting Started": gettingStarted/gettingStarted.md
 theme:
   name: readthedocs
-python:
-    version: 3.6
