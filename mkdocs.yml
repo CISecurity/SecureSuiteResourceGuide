@@ -1,3 +1,6 @@
 site_name: 'Secure Suite Resource Guide'
+nav:
+  - "Welcome": index.md
+  - "Getting Started": gettingStarted/gettingStarted.md
 theme:
   name: readthedocs
