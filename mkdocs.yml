@@ -1,6 +1,7 @@
 site_name: 'Secure Suite Resource Guide'
 pages:
   - "Welcome": index.md
-  - "Getting Started": gettingStarted/gettingStarted.md
+  - "Benchmarks": benchmarks/BenchmarksGuide.md
+  - "CIS-CAT Pro Assessor": CIS-CAT/CIS-CATGuide.md
 theme:
   name: readthedocs
