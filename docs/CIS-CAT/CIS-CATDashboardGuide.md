@@ -4,7 +4,7 @@ The CIS-CAT Pro Dashboard provides some additional graphs and reports that can a
 
 These graphs can also be used to monitor the organizations performance over time.  Once you've complete the initial work of remediating, excepting, and tailoring the content, you can then monitor the continued compliance with your custom security policy.
 
-The dashboard also has functionality to facilitate the recording of exceptions at an organizational level, or at a target system level.  Instead of recording your exceptions in a document, you can record them in the Dashboard tool, then export reports of your exceptions for auditors to view.
+The dashboard also has functionality to record exceptions at an organizational level or at a target system level.  Instead of recording your exceptions in a document, you can record them in the Dashboard tool, then export reports of your exceptions for auditors to view.
 
 [Video: Download CCDP Installer](https://www.youtube.com/watch?v=YEcZHhdUgNY)
 
