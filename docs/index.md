@@ -5,3 +5,5 @@ Welcome, as a CIS SecureSuite member, you have access to a multitude of resource
 - [CIS-CAT Pro Assessor](CIS-CAT/CIS-CATAssessorGuide.md)
 - [CIS-CAT Pro Dashboard](CIS-CAT/CIS-CATDashboardGuide.md)
 - [CIS Remediation Kits](remediation/RemediationGuide.md)
+
+Maureen
