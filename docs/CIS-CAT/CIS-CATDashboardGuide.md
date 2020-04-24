@@ -10,11 +10,6 @@ The dashboard also has functionality to record exceptions at an organizational l
 
 [Document: CCPD Deployment Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/)
 
-**Link to deployment guide or incorporate content from guide – or both**
-
-how to import results, how to export results, tagging features, how to make an exception, control intersection - link users to what cis controls are - how are they related to cis benchmarks in a familial way?
-
-Can have mini – 1 minute videos on certain critical areas users have questions about (tagging, creating exceptions, drilling down to the assessment report, etc.)
 
 
 [Create Exceptions in Dashboard]("https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#exceptions")

@@ -10,9 +10,10 @@
 There are two versions of CIS-CAT:
 
 - CIS-CAT Pro Assessor v3, performs assessments over local or a shared internal network
-- CIS-CAT Pro Assessor v4, performs assessments remotely on some systems.
+- CIS-CAT Pro Assessor v4, performs assessments remotely, local, shared internal network
+	- See the [CIS-CAT Pro v4 Documentation](https://ccpa-docs.readthedocs.io/en/latest/) for more information about the workflows available for each operating system or technology
 
-CIS-CAT Pro v3 and v4 are enterprise-level tools available to CIS SecureSuite Members.  CIS-CAT Pro v3 will end support and distribution mid to late 2019.  While it will be supported with new benchmark content for the foreseeable future, CIS focuses development resources on CIS-CAT Pro v4.  As a new member, you should start using v4.
+At some time in the future, CIS-CAT Pro v3 will no longer be supported.  While it will be supported with new benchmark content for the foreseeable future, CIS focuses development resources on CIS-CAT Pro v4.  As a new member, you should start using v4. We are currently working to update v4 with the required functionality before officially announcing v3 as End of Life.
 
 The latest versions of CIS-CAT are available in the CIS WorkBench Downloads.  Enter "CIS-CAT" in the tags field and click "Search".  All the latest versions of CIS-CAT will be pinned to the top of the list.
 
@@ -22,7 +23,7 @@ Documentation for CIS-CAT Pro v4 is available here: [CIS-CAT Pro v4 Documentatio
 
 Once you have downloaded your chosen bundle, extract it.
 
-**NOTE:** All versions of CIS-CAT require Java to be installed on the machine where the assessments will be running.  In the case of v4, using remote sessions, java only needs to be installed on the system where v4 is installed,  not on the remote target systems being assessed.
+**NOTE:** All versions of CIS-CAT require Java to be installed on the CIS-CAT host machine  or a shared network access.  In the case of v4, using remote sessions, java only needs to be installed on the system where v4 is installed,  not on the remote target systems being assessed. See [CIS-CAT Pro v4 Documentation](https://ccpa-docs.readthedocs.io/en/latest/) for specific information on Java.
 
 #### CIS-CAT v4 ####
 
