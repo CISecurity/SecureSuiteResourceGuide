@@ -1,6 +1,6 @@
-#### Remediation Kits ####
+#### Build Kits ####
 
-For Windows technologies, Remediation Kits take the form of Group Policy Objects (GPOs). The Remediation Kits are zip files that contain a GPO for each profile within the corresponding CIS Benchmark. These GPOs are intended to be imported into the organization’s group policy management console and pushed out to machines in order to meet compliance with the CIS Benchmark. For additional information, please reference the Read Me document contained within each Remediation Kit.  The Remediation Kits for UNIX and LINUX environments are basic shell scripts that can be run from the machine or through another organizationally-approved tool.
+For Windows technologies, Build Kits take the form of Group Policy Objects (GPOs). The Build Kits are zip files that contain a GPO for each profile within the corresponding CIS Benchmark. These GPOs are intended to be imported into the organization’s group policy management console and pushed out to machines in order to meet compliance with the CIS Benchmark. For additional information, please reference the Read Me document contained within each Remediation Kit.  The Remediation Kits for UNIX and LINUX environments are basic shell scripts that can be run from the machine or through another organizationally-approved tool.
 
 These templates or scripts should be modified to align with your organization’s defined policies.  Prior to applying a remediation kit to your test environment, you need to edit the GPO or shell script to only implement the recommendations that you decided to implement in your analysis of the Assessment Results.  Editing of the windows Group Policy Objects or the Linux/Unix shell scripts should be done by a system administrator that is familiar with those technologies.  The system administrator should work with the security policy creator to make sure that the templates match the recommendations the organization decided to implement.
 
@@ -8,7 +8,7 @@ These templates or scripts should be modified to align with your organization’
 
 Another option for increasing compliance is through manual remediation.  The recommendation sections of the Assessment Results report contains a remediation segment.  This information is all you need to manually alter the configuration of the target to comply with the CIS Recommendation.  This can be a registry setting or a group policy setting in windows.  
 
-A common workflow for manual remediation is for security policy authors to work with system administrators.  Together they can review the remediations that the security policy author wants to address.  The system adminstrator can choose recommendations or batches of recommendations that can be implemented and tested.  Doing this in smaller batches minimizes risk and slowly brings the target systems into compliance with the CIS Benchmark.
+A common workflow for manual remediation is for security policy authors to work with system administrators.  Together they can review the remediations that the security policy author wants to address.  The system administrator can choose recommendations or batches of recommendations that can be implemented and tested.  Doing this in smaller batches minimizes risk and slowly brings the target systems into compliance with the CIS Benchmark.
 
 A tool to assist in this process is the Remediation Report in the CIS-CAT Pro Dashboard.  This report is specifically designed to show just the failing recommendations for a specific target system and benchmark.  The report shows the name of the recommendation and the remediation steps from the full Assessment Result.  This report can be given to an operator to help them manually remediate the failures.
 
@@ -29,10 +29,6 @@ Exceptions are a good way to track this information for organizations that are b
  Tailoring CIS content to match your organizations security policy is another valid route to increasing compliance scores and dealing with recommendations you do not intend to implement.  Customization of a benchmark could range from turning on or off a recommendation or tailoring a recommendation to properly align with your organization, such as password length.  These customized security policies provide a personalized organizational policy that you can expect 100% compliance with.
 
 Alterations of CIS-CAT Pro content can be made through the tailoring functionality within CIS WorkBench.
-
-**brief description of tailoring needed**
-
-**Create video tutorial on using tailoring functionality in WorkBench**
 
 Modifications to the content can also be completed manually in the XML content such as the XCCDF or OVAL files in the Benchmarks folder of the CIS-CAT Pro Assessor. Upon saving the file with the alterations, the assessment will then run against the new modifications and the CIS-CAT report will produce results in correspondence with the changes made.
 
