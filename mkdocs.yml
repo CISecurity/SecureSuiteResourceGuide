@@ -1,9 +1,9 @@
 site_name: 'Secure Suite Resource Guide'
 pages:
-   - "Welcome": index.md
-   - "Benchmarks": benchmarks/BenchmarksGuide.md
-   - "CIS-CAT Pro Assessor": CIS-CAT/CIS-CATAssessorGuide.md
-   - "CIS-CAT Pro Dashboard": CIS-CAT/CIS-CATDashboardGuide.md
-   - "CIS Build Kits": remediation/RemediationGuide.md
- theme:
+  - "Welcome": index.md
+  - "Benchmarks": 
+  - "CIS-CAT Pro Assessor": CIS-CAT/CIS-CATAssessorGuide.md
+  - "CIS-CAT Pro Dashboard": CIS-CAT/CIS-CATDashboardGuide.md
+  - "CIS Remediation Kits": remediation/RemediationGuide.md
+theme:
   name: readthedocs
