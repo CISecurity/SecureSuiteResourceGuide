@@ -2,9 +2,9 @@
 
 CIS Benchmarks are best practice guidance for the secure configuration of a target system. Available for more than 140 technologies, CIS Benchmarks are developed through a unique, consensus-based process by communities comprised of cybersecurity professionals and subject matter experts around the world.
 
-#### How do CIS Benchmarks feed the other available CIS Products? ####
+####	   How do CIS Benchmarks feed the other available CIS Products? ####
 
-CIS Benchmarks are the foundation for each and every CIS SecureSuite product offering. CIS Benchmarks provide the content that CIS-CAT Pro Assessor uses to executes against a given target system. The recommendations within CIS Benchmarks create the contents within CIS Remediation Kits to automate the hardening of a system. CIS Benchmarks also feeds the development of CIS Hardened Images.
+CIS Benchmarks are the foundation for each and every CIS SecureSuite product offering. CIS Benchmarks provide the content that CIS-CAT Pro Assessor uses to executes against a given target system. The recommendations within CIS Benchmarks create the contents within CIS Build Kits to automate the hardening of a system. CIS Benchmarks also feeds the development of CIS Hardened Images.
 
 #### What are the Level 1 and Level 2 Profiles within a CIS Benchmark? ####
 
