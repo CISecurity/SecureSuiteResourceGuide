@@ -14,10 +14,3 @@ The dashboard also has functionality to record exceptions at an organizational l
 
 [Create Exceptions in Dashboard]("https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#exceptions")
 
-# Dashboard Heading #
-
-Dashboard 1
-=======================================================================
-
-Dashboard 2
-----------------------------------------------------------------------
