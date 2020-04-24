@@ -1,5 +1,5 @@
 site_name: 'Secure Suite Resource Guide'
-pages:
+nav:
   - "Welcome": index.md
   - "Benchmarks": benchmarks/BenchmarksGuide.md
   - "CIS-CAT Pro Assessor": CIS-CAT/CIS-CATAssessorGuide.md
