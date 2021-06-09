@@ -1,4 +1,4 @@
-1. Download CIS-CAT
+1. Download CIS-CAT v4
 2. Execute CIS-CAT against a specified target system using a CIS Benchmark
 3. Review the results from the CIS-CAT Assessment Report
 4. Analyze what failed recommendations should be remediated to align with organizational needs
